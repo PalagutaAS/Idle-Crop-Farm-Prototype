@@ -10,10 +10,10 @@ namespace TargetZone
         {
             if (other.TryGetComponent(out ThirdPersonController player))
             {
-                if (player.CoinWallet.Count >= _price)
+                if (player.Wallet.Count >= _price)
                 {
                     player.Tool.Upgrade();
-                    player.CoinWallet.Payment(_price);
+                    player.Wallet.Payment(_price);
                 }
             }
 

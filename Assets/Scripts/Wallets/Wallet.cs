@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace Wallets
 {
     public class Wallet : IWallet
@@ -19,7 +18,7 @@ namespace Wallets
         public void Payout(int count)
         {
             _count += count;
-            Debug.Log("CROP: " + _count);
+            Debug.Log("COIN: " + _count);
         }
     }
 }

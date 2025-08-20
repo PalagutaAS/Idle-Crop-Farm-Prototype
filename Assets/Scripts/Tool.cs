@@ -18,6 +18,5 @@ public class Tool : MonoBehaviour
         _collider.radius = _radius;
     }
     
-    
 
 }

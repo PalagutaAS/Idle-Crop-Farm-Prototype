@@ -4,7 +4,7 @@ namespace Crop
 {
     public abstract class Crop : MonoBehaviour
     {
-        public bool IsHarvestable { get; }
+        public CropType Type { get; } = CropType.None;
         public abstract int OnHarvest();
         public abstract void Grow();
         public abstract void Ripe();

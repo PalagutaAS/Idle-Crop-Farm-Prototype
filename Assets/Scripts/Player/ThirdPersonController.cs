@@ -10,14 +10,14 @@ public class ThirdPersonController : MonoBehaviour, IMovable
     public bool IsGrounded => _characterController.isGrounded;
     
     private Inventory _inventory;
-    private CoinWallet _coinWallet;
+    private Wallet _wallet;
     public Inventory Inventory => _inventory;
-    public CoinWallet CoinWallet => _coinWallet;
+    public Wallet Wallet => _wallet;
     public Tool Tool => _tool;
     
     private void Awake()
     {
-        _coinWallet = new CoinWallet();
+        _wallet = new Wallet();
         _inventory = new Inventory();
         _characterController = GetComponent<CharacterController>();
     }
