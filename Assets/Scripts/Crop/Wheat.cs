@@ -11,8 +11,6 @@ namespace Crop
         {
             _grow = GetComponent<Grow>();
         }
-
-        [field: SerializeField] public CropType Type { get; private set; }
         
         public override int OnHarvest()
         {

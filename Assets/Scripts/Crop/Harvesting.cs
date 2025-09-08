@@ -4,13 +4,18 @@ namespace Crop
 {
     public class Harvesting : MonoBehaviour
     {
-        [SerializeField] private ThirdPersonController _player;
 
-        private void OnTriggerEnter(Collider other)
+        private Tool _tool;
+        private void Awake()
+        {
+            _tool = GetComponent<Tool>();
+        }
+
+        private void OnTriggerStay(Collider other)
         {
             if (!other.TryGetComponent(out Crop crop)) return;
-            int cropCount = crop.OnHarvest();
-            _player.Inventory.Add(crop.Type, cropCount);
+
+            _tool.CropHarvest(crop);
         }
     }
 }
