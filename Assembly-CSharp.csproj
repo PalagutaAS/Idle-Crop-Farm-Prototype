@@ -45,30 +45,34 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Crop\Harvesting.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UI\UpgradeMenu.cs" />
     <Compile Include="Assets\Scripts\AI\CostumerHolder.cs" />
     <Compile Include="Assets\Scripts\IInput.cs" />
     <Compile Include="Assets\Scripts\Wallets\Wallet.cs" />
+    <Compile Include="Assets\Scripts\EventsHolder.cs" />
     <Compile Include="Assets\Scripts\AI\AIMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\TargetZone\UpgradeTool.cs" />
-    <Compile Include="Assets\Scripts\Wallets\PlayerWallet.cs" />
     <Compile Include="Assets\Scripts\Crop\ICrop.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
     <Compile Include="Assets\Scripts\AI\CostumerSpawner.cs" />
     <Compile Include="Assets\Scripts\Offer.cs" />
+    <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
     <Compile Include="Assets\Scripts\Crop\Crop.cs" />
+    <Compile Include="Assets\Scripts\Tools\Tool.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintCoinCount.cs" />
     <Compile Include="Assets\Scripts\ServicePayout.cs" />
-    <Compile Include="Assets\Scripts\Tool.cs" />
-    <Compile Include="Assets\Scripts\Wallets\CoinWallet.cs" />
+    <Compile Include="Assets\Scripts\Tools\AnimatorHarvest.cs" />
+    <Compile Include="Assets\Scripts\Tools\Follow.cs" />
     <Compile Include="Assets\Scripts\TargetZone\TradeZone.cs" />
     <Compile Include="Assets\Scripts\AI\QueueManager.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
     <Compile Include="Assets\Scripts\Wallets\IWallet.cs" />
     <Compile Include="Assets\Scripts\Crop\Wheat.cs" />
+    <Compile Include="Assets\Scripts\Tools\Varieties\Pickaxe.cs" />
     <Compile Include="Assets\Scripts\Wallets\Inventory.cs" />
     <Compile Include="Assets\Scripts\Crop\Grow.cs" />
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
@@ -320,6 +324,9 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -812,6 +819,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{6405902f-c0cc-2443-4ecf-e56ce75801e8}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

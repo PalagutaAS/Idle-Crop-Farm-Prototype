@@ -1,4 +1,5 @@
 using AI;
+using Player;
 using UnityEngine;
 
 namespace TargetZone
@@ -45,7 +46,7 @@ namespace TargetZone
             if (_player.Inventory.Remove(offer.Type, offer.Count))
             {
                 DealComplete();
-                _player.CoinWallet.Payout(offer.Price);
+                _player.Wallet.Payout(offer.Price);
             }
         }
         

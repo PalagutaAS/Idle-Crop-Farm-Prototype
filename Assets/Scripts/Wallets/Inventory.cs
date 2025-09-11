@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Wallets
 {
     public class Inventory
     {
         private readonly Dictionary<CropType, int> _dictionary;
-
 
         public Inventory()
         {
@@ -30,7 +28,6 @@ namespace Wallets
             }
 
             _dictionary[type] += count;
-            Debug.Log("CROP: " + _dictionary[type]);
         }
     }
 }
