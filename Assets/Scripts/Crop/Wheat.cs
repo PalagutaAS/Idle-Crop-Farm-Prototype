@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Crop
 {
-    public class Wheat : Crop, ICrop
+    public class Wheat : Crop
     {
         [SerializeField] private int _count;
         [SerializeField] private Grow _grow;
@@ -11,8 +11,6 @@ namespace Crop
         {
             _grow = GetComponent<Grow>();
         }
-
-        [field: SerializeField] public CropType Type { get; private set; }
         
         public override int OnHarvest()
         {

@@ -7,7 +7,6 @@ namespace Wallets
     {
         private readonly Dictionary<CropType, int> _dictionary;
 
-
         public Inventory()
         {
             _dictionary = new Dictionary<CropType, int>();
@@ -30,7 +29,7 @@ namespace Wallets
             }
 
             _dictionary[type] += count;
-            Debug.Log("CROP: " + _dictionary[type]);
+            Debug.Log("CROP: [" + type + "]" + _dictionary[type]);
         }
     }
 }

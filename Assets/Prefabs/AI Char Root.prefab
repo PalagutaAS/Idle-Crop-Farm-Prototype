@@ -75,6 +75,6 @@ MonoBehaviour:
   _rotationSpeed: 5
   _stoppingDistance: 0.1
   <Offer>k__BackingField:
-    <Type>k__BackingField: 0
+    <Type>k__BackingField: 1
     <Count>k__BackingField: 5
     <Price>k__BackingField: 10

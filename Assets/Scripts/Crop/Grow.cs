@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Crop
@@ -7,10 +6,10 @@ namespace Crop
     {
         [SerializeField] private int _growTime = 10;
 
-        private ICrop _crop;
+        private Crop _crop;
         private void Awake()
         {
-            _crop = GetComponent<ICrop>();
+            _crop = GetComponent<Crop>();
         }
 
         public void StartGrow()

@@ -1,15 +1,5 @@
-﻿namespace Crop
+﻿public enum CropType
 {
-    public interface ICrop
-    {
-        CropType Type { get; }
-        int OnHarvest();
-        void Grow();
-        void Ripe();
-    }
-}
-
-public enum CropType
-{
+    None,
     Wheat,
 }
