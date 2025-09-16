@@ -9,9 +9,9 @@ namespace Tools
         private readonly Transform _model;
         private readonly Animator _animation;
         private readonly float _animDuration;
-
         private readonly Vector3[] _path = new Vector3[3];
 
+        private Tweener _currentTween;
         public AnimatorHarvest(Tool tool, Transform model, float animDuration)
         {
             _tool = tool;
@@ -22,6 +22,7 @@ namespace Tools
 
         public void MoveTo(Vector3 targetPosition)
         {
+            _currentTween?.Kill();
             StartAnimationMoveTo(targetPosition);
             StartAnimationHarvest();
         }
@@ -34,7 +35,7 @@ namespace Tools
             _path[1] = CalculateArcControlPoint(_model.transform.position, targetPosition, Random.Range(-2,2));
             _path[2] = targetPosition;
 
-            _model.transform.DOPath(_path, _animDuration, PathType.CatmullRom)
+            _currentTween = _model.transform.DOPath(_path, _animDuration, PathType.CatmullRom)
                 .SetEase(Ease.OutQuad);
         }
 

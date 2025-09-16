@@ -28,9 +28,9 @@ namespace Tools
 
         private void Awake()
         {
-            _cropFinder = new(this, _layerMask);
-            _follow = new(this,_model, _targetFollow);
-            _animatorHarvest = new(this, _model, _animDuration);
+            _cropFinder = new CropFinder(this, _layerMask);
+            _follow = new Follow(this, _model, _targetFollow);
+            _animatorHarvest = new AnimatorHarvest(this, _model, _animDuration);
         }
 
         protected void CropDetecting()

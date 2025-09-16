@@ -11,7 +11,7 @@ namespace Tools
         {
             _tool = tool;
             _layerMask = layerMask;
-            _hitColliders = new Collider[10];
+            _hitColliders = new Collider[12];
         }
         
         public void CheckExistingColliders(Vector3 centerSphere)
@@ -19,9 +19,9 @@ namespace Tools
             int count = Physics.OverlapSphereNonAlloc(centerSphere, _tool.Radius, _hitColliders, _layerMask);
             if (count == 0) return;
             
-            foreach (var collider in _hitColliders)
+            for (int i = 0; i < count; i++)
             {
-                if (!collider.TryGetComponent(out Crop.Crop crop) || crop.IsHarvesting) continue;
+                if (!_hitColliders[i].TryGetComponent(out Crop.Crop crop) || crop.IsHarvesting) continue;
                 
                 _tool.TriggerEnter(crop);
                 return;
