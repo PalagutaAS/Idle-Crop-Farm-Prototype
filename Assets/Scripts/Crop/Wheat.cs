@@ -6,10 +6,14 @@ namespace Crop
     {
         [SerializeField] private int _count;
         [SerializeField] private Grow _grow;
-        
         private void Awake()
         {
             _grow = GetComponent<Grow>();
+        }
+
+        public override void PreparingForHarvest()
+        {
+            IsHarvesting = true;
         }
         
         public override int OnHarvest()
@@ -26,6 +30,7 @@ namespace Crop
 
         public override void Ripe()
         {
+            IsHarvesting = false;
             gameObject.SetActive(true);
         }
     }

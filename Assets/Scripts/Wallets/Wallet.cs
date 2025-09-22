@@ -1,5 +1,4 @@
 ﻿using DefaultNamespace;
-using UnityEngine;
 
 namespace Wallets
 {
@@ -28,7 +27,6 @@ namespace Wallets
         public void Payout(int count)
         {
             Count += count;
-            Debug.Log("COIN: " + _count);
         }
     }
 }

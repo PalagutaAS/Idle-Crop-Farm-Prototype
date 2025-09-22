@@ -15,6 +15,7 @@ namespace UI
 
         void Print(int _count)
         {
+            // GCollector++
             _text.text = "COIN: " + _count;
         }
         
