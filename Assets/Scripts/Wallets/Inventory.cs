@@ -13,8 +13,7 @@ namespace Wallets
 
         public bool Remove(CropType type, int count)
         {
-            int currentCount = _dictionary[type];
-            if (count > currentCount) return false;
+            if (!Check(type, count)) return false;
 
             _dictionary[type] -= count;
             return true;
@@ -28,6 +27,14 @@ namespace Wallets
             }
 
             _dictionary[type] += count;
+        }
+
+        public bool Check(CropType type, int count)
+        {
+            if (!_dictionary.ContainsKey(type)) return false;
+            
+            int currentCount = _dictionary[type];
+            return count <= currentCount;
         }
     }
 }

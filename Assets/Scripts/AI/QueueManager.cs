@@ -7,20 +7,13 @@ namespace AI
     {
         [SerializeField] private int _count = 10;
         [field: SerializeField] public int OffsetBetween { get; private set; }
-        static public QueueManager Queue;
 
         private Queue<CustomerController> _queue;
 
-        public Queue<CustomerController> QueueCollection { get => _queue; }
-
-
+        public Queue<CustomerController> QueueCollection  => _queue;
+        
         private void Awake()
         {
-            if (Queue == null)
-            {
-                Queue = this;
-            }
-
             _queue = new Queue<CustomerController>(_count);
         }
 
@@ -39,6 +32,6 @@ namespace AI
             _queue.Enqueue(customerController);
             return GetCount();
         }
-        
+
     }
 }

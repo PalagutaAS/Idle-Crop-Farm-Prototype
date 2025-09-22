@@ -21,7 +21,7 @@ namespace Tools
             
             for (int i = 0; i < count; i++)
             {
-                if (!_hitColliders[i].TryGetComponent(out Crop.Crop crop) || crop.IsHarvesting) continue;
+                if (!_hitColliders[i].TryGetComponent(out Crop.Crop crop)) continue;
                 
                 _tool.TriggerEnter(crop);
                 return;

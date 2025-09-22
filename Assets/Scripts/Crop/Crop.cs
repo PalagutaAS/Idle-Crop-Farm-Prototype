@@ -13,9 +13,11 @@ namespace Crop
         public bool IsHarvesting
         {
             get;
-            set;
+            protected set;
         }
-        
+
+        public abstract void PreparingForHarvest();
+
         public abstract int OnHarvest();
         public abstract void Grow();
         public abstract void Ripe();

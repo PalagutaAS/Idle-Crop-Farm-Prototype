@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace AI
@@ -12,16 +13,16 @@ namespace AI
         [Header("Positions")]
         private Vector3 _targetPosition;
         private Animator _animator;
-        
         [field: SerializeField] public Offer Offer { get; private set; }
 
         private bool _isMoving = false;
-
+        
+        public event Action<CustomerController> OnCustomerGoToExit;
+        
         public void Init(Animator animator)
         {
             _animator = animator;
         }
-        
 
         void Update()
         {
@@ -60,6 +61,11 @@ namespace AI
             {
                 StopMovement();
             }
+        }
+
+        public void ChangeState()
+        {
+            OnCustomerGoToExit?.Invoke(this);
         }
     }
 }

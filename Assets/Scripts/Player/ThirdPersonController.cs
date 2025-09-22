@@ -1,22 +1,22 @@
-﻿using Tools;
+﻿using Player.Interface;
+using Player.Tools;
 using UnityEngine;
 using Wallets;
 
 namespace Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class ThirdPersonController : MonoBehaviour, IMovable
+    public class ThirdPersonController : MonoBehaviour, IMovable, IPlayer
     {
-        [SerializeField] private Tool _tool;
-    
+        [SerializeField] private PlayerTools _playerTools;
         private CharacterController _characterController;
-        public bool IsGrounded => _characterController.isGrounded;
-    
+        
         private Inventory _inventory;
         private Wallet _wallet;
         public Inventory Inventory => _inventory;
         public Wallet Wallet => _wallet;
-        public Tool Tool => _tool;
+        public bool IsGrounded => _characterController.isGrounded;
+        public Transform Transform => transform;
     
         private void Awake()
         {
@@ -25,9 +25,20 @@ namespace Player
             _characterController = GetComponent<CharacterController>();
         }
 
+        private void Start()
+        {
+            _playerTools.Init(this);
+            _playerTools.TrySetupNewTool();
+        }
+        
         public void Move(Vector3 movement)
         {
             _characterController.Move(movement);
+        }
+
+        public bool TryBuyTool()
+        {
+            return _playerTools.TrySetupNewTool();
         }
     }
 

@@ -1,14 +1,13 @@
 ﻿using System.Collections;
-using Player;
+using Player.Interface;
+using Tools.Interface;
 using UnityEngine;
 
 namespace Tools
 {
-    public abstract class Tool : MonoBehaviour
+    public abstract class Tool : MonoBehaviour, ITool
     {
-        [SerializeField] protected ThirdPersonController _player;
         [SerializeField] private Transform _model;
-        [SerializeField] private Transform _targetFollow;
         [SerializeField] private float _speedFollow = 1f;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] protected float _timeOut = 5f;
@@ -23,13 +22,14 @@ namespace Tools
         private AnimatorHarvest _animatorHarvest;
         private CropFinder _cropFinder;
         private Follow _follow;
-        
+        private ISlot _slot;
         private float _nextCheckTime;
+        private IPlayer _player;
 
-        private void Awake()
+        private void Construct()
         {
             _cropFinder = new CropFinder(this, _layerMask);
-            _follow = new Follow(this, _model, _targetFollow);
+            _follow = new Follow(this, _model, _slot.Transform);
             _animatorHarvest = new AnimatorHarvest(this, _model, _animDuration);
         }
 
@@ -38,7 +38,7 @@ namespace Tools
             if (IsCooldown) return;
             if (Time.time < _nextCheckTime) return;
             
-            _cropFinder.CheckExistingColliders(_player.transform.position);
+            _cropFinder.CheckExistingColliders(_player.Transform.position);
             _nextCheckTime = Time.time + _checkInterval;
         }
         
@@ -58,7 +58,7 @@ namespace Tools
         public void TriggerEnter(Crop.Crop component)
         {
             IsCooldown = true;
-            component.IsHarvesting = true;
+            component.PreparingForHarvest();
             _animatorHarvest.MoveTo(component.transform.position);
             StartCoroutine(DelayBeforeHarvest(_animDuration, component));
         }
@@ -81,10 +81,12 @@ namespace Tools
             _timeOut -= 0.5f;
         }
         
-        private void OnDrawGizmosSelected()
+        public void Initialize(IPlayer player, ISlot slot)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(_player.transform.position, _radius);
+            _player = player;
+            _slot = slot;
+            _model.transform.position = _slot.Transform.position;
+            Construct();
         }
     }
 

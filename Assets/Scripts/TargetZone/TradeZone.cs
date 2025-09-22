@@ -1,15 +1,28 @@
+using System.Collections.Generic;
 using AI;
 using Player;
+using TargetZone.Command;
+using TargetZone.Interfaces;
+using UI;
 using UnityEngine;
 
 namespace TargetZone
 {
     public class TradeZone : MonoBehaviour
     {
-        [SerializeField] private CostumerSpawner _spawner;
+        [SerializeField] private CustomerSpawner _spawner;
+        [SerializeField] private GameObject _gameObjectPanel;
         
         private CustomerController _currentCustomer;
+        
         private ThirdPersonController _player;
+
+        private IPanel _panel;
+
+        private void Awake()
+        {
+            _panel = _gameObjectPanel.GetComponent<IPanel>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -24,7 +37,10 @@ namespace TargetZone
 
             if (_player != null && _currentCustomer != null)
             {
-                TryDeal();
+                var commands = new List<IInteractionCommand>();
+                commands.Add(new MakeDealCommand(_currentCustomer));
+                commands.Add(new BreakDealCommand(_currentCustomer));
+                _panel.Open(commands);
             }
         }
         
@@ -33,26 +49,15 @@ namespace TargetZone
             if (_currentCustomer != null && other.TryGetComponent(out CustomerController customer))
             {
                 _currentCustomer = null;
+                _panel.Close();
             }
-            if (_player != null && other.TryGetComponent(out ThirdPersonController player))
+            
+            if (other.TryGetComponent(out ThirdPersonController player))
             {
                 _player = null;
+                _panel.Close();
             }
-        }
 
-        private void TryDeal()
-        {
-            var offer = _currentCustomer.Offer;
-            if (_player.Inventory.Remove(offer.Type, offer.Count))
-            {
-                DealComplete();
-                _player.Wallet.Payout(offer.Price);
-            }
-        }
-        
-        private void DealComplete()
-        {
-            _spawner.CustomerGoToExit();
         }
     }
 }
