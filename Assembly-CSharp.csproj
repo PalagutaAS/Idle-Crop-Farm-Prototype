@@ -49,7 +49,6 @@
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\IInput.cs" />
     <Compile Include="Assets\Scripts\Wallets\Wallet.cs" />
-    <Compile Include="Assets\Scripts\EventsHolder.cs" />
     <Compile Include="Assets\Scripts\AI\AIMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />

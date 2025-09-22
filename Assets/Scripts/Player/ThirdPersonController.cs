@@ -1,4 +1,4 @@
-﻿using Player.Interface;
+using Player.Interface;
 using Player.Tools;
 using UnityEngine;
 using Wallets;
