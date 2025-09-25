@@ -1902,7 +1902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ba827cdf2e4304ca19e339da7addce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawner: {fileID: 1004096580}
   _gameObjectPanel: {fileID: 1451868260}
 --- !u!65 &179316584
 BoxCollider:
@@ -3726,7 +3725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &405875471
 Transform:
   m_ObjectHideFlags: 0
@@ -3776,8 +3775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0b58b82ba79af49a11a93045afc185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 10
-  _gameObjectPanel: {fileID: 0}
+  _gameObjectPanel: {fileID: 1451868260}
+  _libraryConfigs: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,7 +11146,6 @@ MonoBehaviour:
   _buttonPrefab: {fileID: 2102364698949333222, guid: 1dd6bdf86b99a354598731df275c6f27,
     type: 3}
   _buttonsContainer: {fileID: 1451868261}
-  _flag: 1
 --- !u!114 &1451868265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14845,6 +14843,7 @@ MonoBehaviour:
   _toolPrefab: {fileID: 1586206106068149401, guid: 325ba0279810cf847bd74a67dea6ccb7,
     type: 3}
   _parentForTool: {fileID: 1178181728}
+  _libraryConfigs: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
 --- !u!1001 &1972798146
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using Player.Interface;
+﻿using System.Collections.Generic;
+using Player.Interface;
 
 namespace Tools.Interface
 {
@@ -6,5 +7,7 @@ namespace Tools.Interface
     {
         bool TrySetupNewTool();
         ISlot GetEmptySlot();
+        bool HasEmptySlot();
+        public List<ITool> GetAllTools();
     }
 }

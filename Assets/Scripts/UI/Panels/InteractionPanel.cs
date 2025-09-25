@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Player;
 using TargetZone.Interfaces;
 using UnityEngine;
@@ -11,13 +12,14 @@ namespace UI.Panels
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
-
-        [SerializeField] private bool _flag = false;
         
-        private List<Button> _buttons = new();
+        private Dictionary<Button, IInteractionCommand> _buttons = new();
+
+        public event Action OnClickButton;
         
         public void Open(List<IInteractionCommand> commands)
         {
+            ClearButtons();
             foreach (var command in commands)
             {
                 Button button = Instantiate(_buttonPrefab, _buttonsContainer);
@@ -27,27 +29,24 @@ namespace UI.Panels
                 
                 button.onClick.AddListener(() =>
                 {
-                    foreach (var btn in _buttons)
+                    foreach (var btnAndCmd in _buttons)
                     {
-                        btn.interactable = false;
+                        btnAndCmd.Key.interactable = false;
                     }
 
                     command.Execute(_player);
-                    foreach (var btn in _buttons)
-                    {
-                        btn.interactable = command.CanExecute(_player);
-                    }
+                    OnClickButton?.Invoke();
                 });
-                _buttons.Add(button);
+                _buttons.Add(button, command);
             }
             gameObject.SetActive(true);
         }
 
         private void ClearButtons()
         {
-            foreach (var button in _buttons)
+            foreach (var btnAndCmd in _buttons)
             {
-                Destroy(button.gameObject);
+                Destroy(btnAndCmd.Key.gameObject);
             }
             _buttons.Clear();
         }

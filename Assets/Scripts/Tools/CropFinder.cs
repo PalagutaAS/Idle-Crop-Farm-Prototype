@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Crops;
+using UnityEngine;
 
 namespace Tools
 {
@@ -21,7 +22,7 @@ namespace Tools
             
             for (int i = 0; i < count; i++)
             {
-                if (!_hitColliders[i].TryGetComponent(out Crop.Crop crop)) continue;
+                if (!_hitColliders[i].TryGetComponent(out Crop crop) || crop.IsHarvesting) continue;
                 
                 _tool.TriggerEnter(crop);
                 return;

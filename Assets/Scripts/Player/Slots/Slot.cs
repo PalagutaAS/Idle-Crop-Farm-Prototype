@@ -10,6 +10,7 @@ namespace Player.Slots
         
         public Transform Transform => transform;
         public bool IsOccupied => _currentTool != null;
+        public ITool CurrentTool => _currentTool;
         
         public void SetTool(ITool currentTool)
         {

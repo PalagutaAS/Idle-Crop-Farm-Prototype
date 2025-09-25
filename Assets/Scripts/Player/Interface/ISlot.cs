@@ -7,6 +7,8 @@ namespace Player.Interface
     {
         Transform Transform { get; }
         bool IsOccupied { get; }
+        
+        ITool CurrentTool { get; }
 
         void SetTool(ITool currentTool);
         void RemoveTool();

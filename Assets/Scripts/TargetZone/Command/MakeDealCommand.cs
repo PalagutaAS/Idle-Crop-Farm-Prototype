@@ -11,22 +11,24 @@ namespace TargetZone.Command
         public MakeDealCommand(CustomerController customer)
         {
             _customer = customer;
+            Title = $"Sell {_customer.Offer.Count} {_customer.Offer.Type}";
         }
+        public string Title { get; }
 
-        public string Title => $"Sell {_customer.Offer.Count} {_customer.Offer.Type}";
-
-        public bool CanExecute(IPlayer player, CustomerController customer = null)
+        public bool CanExecute(IPlayer player)
         {
             var offer = _customer.Offer;
             return _customer.Offer.Active && player.Inventory.Check(offer.Type, offer.Count);
         }
 
-        public void Execute(IPlayer player, CustomerController customer = null)
+        public void Execute(IPlayer player)
         {
             if (CanExecute(player))
             {
+                var offer = _customer.Offer;
                 player.Wallet.Payout(_customer.Offer.Price);
-                _customer.Offer.Done();
+                player.Inventory.Remove(offer.Type, offer.Count);
+                offer.Done();
                 _customer.ChangeState();
             }
         }

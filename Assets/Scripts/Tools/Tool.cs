@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Crops;
 using Player.Interface;
 using Tools.Interface;
 using UnityEngine;
@@ -7,21 +8,23 @@ namespace Tools
 {
     public abstract class Tool : MonoBehaviour, ITool
     {
-        [SerializeField] private Transform _model;
+        [SerializeField] private Transform _parentModel;
         [SerializeField] private float _speedFollow = 1f;
         [SerializeField] private LayerMask _layerMask;
-        [SerializeField] protected float _timeOut = 5f;
-        [SerializeField] protected float _radius = 2f;
         [SerializeField] private float _checkInterval = 0.1f;
         [SerializeField] private float _animDuration;
+
+        private IToolConfig _toolConfig;
         
         public bool IsCooldown { get; private set; }
-        public float Radius => _radius;
+        public float Radius => _toolConfig.Radius;
         public float SpeedFollow => _speedFollow;
+        public int CurrentLevel => _toolConfig.Level;
 
         private AnimatorHarvest _animatorHarvest;
         private CropFinder _cropFinder;
         private Follow _follow;
+        private ChildModelChanger _modelChanger;
         private ISlot _slot;
         private float _nextCheckTime;
         private IPlayer _player;
@@ -29,8 +32,9 @@ namespace Tools
         private void Construct()
         {
             _cropFinder = new CropFinder(this, _layerMask);
-            _follow = new Follow(this, _model, _slot.Transform);
-            _animatorHarvest = new AnimatorHarvest(this, _model, _animDuration);
+            _follow = new Follow(this, _parentModel, _slot.Transform);
+            _animatorHarvest = new AnimatorHarvest(this, _parentModel, _animDuration);
+            _modelChanger = new ChildModelChanger(_parentModel, _toolConfig.Model);
         }
 
         protected void CropDetecting()
@@ -47,7 +51,7 @@ namespace Tools
             _follow.ToSlot();
         }
 
-        private void CropHarvest(Crop.Crop crop)
+        private void CropHarvest(Crop crop)
         {
             int cropCount = crop.OnHarvest();
             _player.Inventory.Add(crop.Type, cropCount);
@@ -55,7 +59,7 @@ namespace Tools
             StartCoroutine(CooldownCoroutine());
         }
 
-        public void TriggerEnter(Crop.Crop component)
+        public void TriggerEnter(Crop component)
         {
             IsCooldown = true;
             component.PreparingForHarvest();
@@ -63,7 +67,7 @@ namespace Tools
             StartCoroutine(DelayBeforeHarvest(_animDuration, component));
         }
         
-        private IEnumerator DelayBeforeHarvest(float delay, Crop.Crop crop)
+        private IEnumerator DelayBeforeHarvest(float delay, Crop crop)
         {
             yield return new WaitForSeconds(delay);
             CropHarvest(crop);
@@ -71,22 +75,23 @@ namespace Tools
         
         private IEnumerator CooldownCoroutine()
         {
-            yield return new WaitForSeconds(_timeOut);
+            yield return new WaitForSeconds(_toolConfig.TimeOut);
             IsCooldown = false;
         }
-
-        public void Upgrade()
-        {
-            _radius += 0.5f;
-            _timeOut -= 0.5f;
-        }
         
-        public void Initialize(IPlayer player, ISlot slot)
+        public void Initialize(IPlayer player, ISlot slot, IToolConfig config)
         {
             _player = player;
             _slot = slot;
-            _model.transform.position = _slot.Transform.position;
+            _toolConfig = config;
+            _parentModel.transform.position = _slot.Transform.position;
             Construct();
+        }
+        
+        public void Upgrade(IToolConfig config)
+        {
+            _toolConfig = config;
+            _modelChanger?.ChangeModel(_toolConfig.Model);
         }
     }
 
