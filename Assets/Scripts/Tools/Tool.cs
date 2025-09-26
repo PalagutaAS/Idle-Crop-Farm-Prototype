@@ -20,6 +20,7 @@ namespace Tools
         public float Radius => _toolConfig.Radius;
         public float SpeedFollow => _speedFollow;
         public int CurrentLevel => _toolConfig.Level;
+        public ToolType Type => _toolConfig.Type;
 
         private AnimatorHarvest _animatorHarvest;
         private CropFinder _cropFinder;

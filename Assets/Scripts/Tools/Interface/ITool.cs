@@ -7,5 +7,6 @@ namespace Tools.Interface
         void Initialize(IPlayer player, ISlot slot, IToolConfig config);
         void Upgrade(IToolConfig config);
         int CurrentLevel { get; }
+        ToolType Type { get; }
     }
 }

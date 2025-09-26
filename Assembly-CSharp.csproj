@@ -47,19 +47,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
-    <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
-    <Compile Include="Assets\Scripts\TargetZone\Zones\UpgradeZone.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
     <Compile Include="Assets\Scripts\IInput.cs" />
     <Compile Include="Assets\Scripts\Wallets\Wallet.cs" />
     <Compile Include="Assets\Scripts\EventsHolder.cs" />
     <Compile Include="Assets\Scripts\AI\AIMovement.cs" />
+    <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\UI\Panel.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\ITool.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
+    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\BaseConfig.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\MakeDealCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Offer.cs" />
     <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryConfigsByLevel.cs" />
+    <Compile Include="Assets\Scripts\Tools\ToolType.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerQueuePosition.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\Scripts\Crops\Wheat.cs" />
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
+    <Compile Include="Assets\Scripts\TargetZone\Zones\UpgradeZone.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolManager.cs" />
     <Compile Include="Assets\Scripts\Wallets\IWallet.cs" />
     <Compile Include="Assets\Scripts\Tools\Varieties\Pickaxe.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Scripts\Player\Interface\IPlayer.cs" />
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Slots\Slot.cs" />
+    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ConfigsToolByType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -842,6 +845,9 @@
       <Project>{6405902f-c0cc-2443-4ecf-e56ce75801e8}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\AI\ScriptableObjects" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

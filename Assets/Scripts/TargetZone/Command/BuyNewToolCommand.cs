@@ -1,27 +1,30 @@
 ﻿using Player.Interface;
 using TargetZone.Interfaces;
+using Tools.Interface;
 
 namespace TargetZone.Command
 {
     public class BuyNewToolCommand : IInteractionCommand
     {
         public string Title { get; }
-        public BuyNewToolCommand()
+        private IToolConfig _toolConfig;
+        public BuyNewToolCommand(IToolConfig toolConfig)
         {
-            Title = "Buy New Tool: Pickaxe for 50";
+            _toolConfig = toolConfig;
+            Title = $"Buy: {toolConfig.Type.ToString()} for {_toolConfig.Cost}";
         }
 
         public bool CanExecute(IPlayer player)
         {
-            return player.Wallet.Count >= 50 && player.Tools.HasEmptySlot();
+            return player.Wallet.Count >= _toolConfig.Cost && player.Tools.HasEmptySlot();
         }
 
         public void Execute(IPlayer player)
         {
             if (CanExecute(player))
             {
-                player.Tools.TrySetupNewTool();
-                player.Wallet.Payment(50);
+                player.Tools.TrySetupNewTool(_toolConfig.Type);
+                player.Wallet.Payment(_toolConfig.Cost);
             }
         }
     }

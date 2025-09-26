@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using TargetZone.Command;
 using TargetZone.Interfaces;
+using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
 using UnityEngine;
 
-namespace TargetZone
+namespace TargetZone.Zones
 {
     public class UpgradeZone : BaseInteractionZone
     {
@@ -30,7 +31,13 @@ namespace TargetZone
         protected override List<IInteractionCommand> GenerateCommands()
         {
             var commands = new List<IInteractionCommand>();
-            commands.Add(new BuyNewToolCommand());
+            var types = _libraryConfigs.GetUsingTypes();
+            foreach (var type in types)
+            {
+                IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(type, 1);
+                commands.Add(new BuyNewToolCommand(toolConfig));
+            }
+            
             
             List<ITool> currentTools = _player.Tools.GetAllTools();
             int countTool = currentTools.Count;
@@ -38,7 +45,7 @@ namespace TargetZone
             for (int i = 0; i < countTool; i++)
             {
                 var level = currentTools[i].CurrentLevel;
-                IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(level + 1);
+                IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(currentTools[i].Type,level + 1);
                 if (toolConfig == null) continue;
                 commands.Add(new UpgradeToolCommand(toolConfig, currentTools[i]));
             }

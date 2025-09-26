@@ -1,5 +1,6 @@
 using Player.Interface;
 using Player.Tools;
+using Tools;
 using UnityEngine;
 using Wallets;
 
@@ -30,7 +31,7 @@ namespace Player
         private void Start()
         {
             _playerTools.Init(this);
-            _playerTools.TrySetupNewTool();
+            _playerTools.TrySetupNewTool(ToolType.Pickaxe);
         }
         
         public void Move(Vector3 movement)

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0586232fb0d4465a37416e74192cef1, type: 3}
   m_Name: LibrariConfig
   m_EditorClassIdentifier: 
-  _pickaxeConfigs:
-  - {fileID: 11400000, guid: c94d46508db542f47b7ab5bfc4e08c19, type: 2}
-  - {fileID: 11400000, guid: 9a04ce555f2808a4ab258bc5c293bbaa, type: 2}
-  - {fileID: 11400000, guid: cfad247aece58b6479f882e0006af557, type: 2}
-  - {fileID: 11400000, guid: 195cd44a9de6caf4996c79f282ac40e7, type: 2}
-  - {fileID: 11400000, guid: 9d87a559f1d0acf48be988fb72d49d3d, type: 2}
+  _libraryConfigs:
+  - {fileID: 11400000, guid: 93de42bf74115fa48b1d7e48accf6d5f, type: 2}
+  - {fileID: 11400000, guid: 4a05cef51e7d8cd49b749e00b5715203, type: 2}

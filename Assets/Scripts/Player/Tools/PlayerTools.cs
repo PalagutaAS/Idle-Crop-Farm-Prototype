@@ -2,6 +2,7 @@
 using System.Linq;
 using Player.Interface;
 using Player.Slots;
+using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
 using UnityEngine;
@@ -29,12 +30,12 @@ namespace Player.Tools
             _player = player;
         }
     
-        public bool TrySetupNewTool()
+        public bool TrySetupNewTool(ToolType type)
         {
             ISlot freeSlot = GetEmptySlot();
             if (freeSlot == null) return false;
 
-            var config = _libraryConfigs.GetConfigByLevel(1);
+            var config = _libraryConfigs.GetConfigByLevel(type,1);
             ITool newTool = _toolFactory.CreateTool();
             newTool.Initialize(_player, freeSlot, config);
         

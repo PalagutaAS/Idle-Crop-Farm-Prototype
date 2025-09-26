@@ -1,7 +1,6 @@
 ﻿using Player.Interface;
 using TargetZone.Interfaces;
 using Tools.Interface;
-using UnityEngine;
 
 namespace TargetZone.Command
 {
@@ -28,7 +27,6 @@ namespace TargetZone.Command
         {
             if (CanExecute(player))
             {
-                Debug.Log("Upgrade");
                 _tool.Upgrade(_configByLevel);
                 player.Wallet.Payment(_configByLevel.Cost);
             }
