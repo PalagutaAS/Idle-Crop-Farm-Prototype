@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TargetZone.Interfaces;
 
 namespace UI
@@ -8,6 +9,8 @@ namespace UI
         public void Open(List<IInteractionCommand> commands);
         
         public void Close();
+        
+        public event Action OnClickButton;
 
     }
 }

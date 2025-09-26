@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Crop
+namespace Crops
 {
     public abstract class Crop : MonoBehaviour
     {

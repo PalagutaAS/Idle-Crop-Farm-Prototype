@@ -1,5 +1,6 @@
 using Player.Interface;
 using Player.Tools;
+using Tools;
 using UnityEngine;
 using Wallets;
 
@@ -9,6 +10,7 @@ namespace Player
     public class ThirdPersonController : MonoBehaviour, IMovable, IPlayer
     {
         [SerializeField] private PlayerTools _playerTools;
+        
         private CharacterController _characterController;
         
         private Inventory _inventory;
@@ -17,6 +19,7 @@ namespace Player
         public Wallet Wallet => _wallet;
         public bool IsGrounded => _characterController.isGrounded;
         public Transform Transform => transform;
+        public PlayerTools Tools => _playerTools;
     
         private void Awake()
         {
@@ -28,7 +31,7 @@ namespace Player
         private void Start()
         {
             _playerTools.Init(this);
-            _playerTools.TrySetupNewTool();
+            _playerTools.TrySetupNewTool(ToolType.Pickaxe);
         }
         
         public void Move(Vector3 movement)
@@ -36,10 +39,6 @@ namespace Player
             _characterController.Move(movement);
         }
 
-        public bool TryBuyTool()
-        {
-            return _playerTools.TrySetupNewTool();
-        }
     }
 
     public interface IMovable

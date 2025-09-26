@@ -14,7 +14,6 @@ namespace Tools
         private Tweener _currentTween;
         public AnimatorHarvest(Tool tool, Transform model, float animDuration)
         {
-            _tool = tool;
             _model = model;
             _animDuration = animDuration;
             _animation = _model.GetComponent<Animator>();
