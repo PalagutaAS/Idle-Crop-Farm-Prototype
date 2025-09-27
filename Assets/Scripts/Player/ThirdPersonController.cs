@@ -23,7 +23,7 @@ namespace Player
     
         private void Awake()
         {
-            _wallet = new Wallet();
+            _wallet = new Wallet(120);
             _inventory = new Inventory();
             _characterController = GetComponent<CharacterController>();
         }
