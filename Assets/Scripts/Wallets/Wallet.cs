@@ -6,6 +6,11 @@ namespace Wallets
     {
         private int _count;
 
+        public Wallet(int count)
+        {
+            Count = count;
+        }
+
         public int Count
         {
             get => _count;

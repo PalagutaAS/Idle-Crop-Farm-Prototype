@@ -13,15 +13,16 @@ namespace AI
         [Header("Positions")]
         private Vector3 _targetPosition;
         private Animator _animator;
-        [field: SerializeField] public Offer Offer { get; private set; }
-
+        private Offer _offer;
+        public Offer Offer => _offer;
         private bool _isMoving = false;
         
         public event Action<CustomerController> OnCustomerGoToExit;
         
-        public void Init(Animator animator)
+        public void Init(Animator animator, Offer offer)
         {
             _animator = animator;
+            _offer = offer;
         }
 
         void Update()

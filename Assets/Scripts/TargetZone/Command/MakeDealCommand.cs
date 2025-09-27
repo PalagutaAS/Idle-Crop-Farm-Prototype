@@ -11,7 +11,7 @@ namespace TargetZone.Command
         public MakeDealCommand(CustomerController customer)
         {
             _customer = customer;
-            Title = $"Sell {_customer.Offer.Count} {_customer.Offer.Type}";
+            Title = $"Sell {_customer.Offer.Count} {_customer.Offer.Type} for {_customer.Offer.Price}";
         }
         public string Title { get; }
 
