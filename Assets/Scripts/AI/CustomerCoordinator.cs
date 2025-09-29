@@ -25,6 +25,7 @@ namespace AI
 
         void GoToTrade(CustomerController customer)
         {
+            customer.ChangeState(CustomerState.Trade);
             _queueManager.Enqueue(customer);
             customer.transform.position = _startPoint.position;
             customer.StartMovementTo(_queuePosition.GetPosition());
@@ -36,12 +37,12 @@ namespace AI
             _queueManager.
                 GetFirst().
                 StartMovementTo(_exitPoint.position);
-            
             int i = 0;
             foreach (var cstmr in _queueManager.QueueCollection)
             {
                 cstmr.StartMovementTo(_queuePosition.GetPositionByPlaceInQueue(i++));
             }
+            customer.OnCustomerGoToExit -= GoToExit;
         }
     }
 }

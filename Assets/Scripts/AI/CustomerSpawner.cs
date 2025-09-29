@@ -1,5 +1,6 @@
 using System;
 using AI.ScriptableObjects;
+using ObjectPull;
 using Offers;
 using UnityEngine;
 
@@ -10,13 +11,15 @@ namespace AI
         [SerializeField] private GameObject _charRoot;
         [SerializeField] private CustomerModels _models;
         [SerializeField] private float _spawnRate;
-        [SerializeField] private Transform _aiRoot;
+        [SerializeField] private PoolManager _poolManager;
 
         private OfferRandomService _offerService;
+        private CustomerFactory _factory;
         public event Action<CustomerController> OnCustomerCreated;
 
         private void Awake()
         {
+            _factory = new CustomerFactory(_poolManager, _charRoot, _models);
             _offerService = new OfferRandomService();
         }
 
@@ -27,12 +30,8 @@ namespace AI
 
         private void Spawn()
         {
-            var charRootGameObject = Instantiate(_charRoot, _aiRoot.transform);
-            var customer = charRootGameObject.GetComponent<CustomerController>();
-            var model = _models.GetRandomModel();
-            var skinGameObject = Instantiate(model, charRootGameObject.transform);
-            customer.Init(skinGameObject.GetComponent<Animator>(), _offerService.GetRandomOffer());
-            
+            var customer = _factory.Create();
+            customer.SetOffer(_offerService.GetRandomOffer());
             OnCustomerCreated?.Invoke(customer);
         }
 

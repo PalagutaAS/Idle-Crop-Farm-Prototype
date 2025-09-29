@@ -9,14 +9,14 @@ namespace UI
         [SerializeField] private Text _text;
         void Awake()
         {
-            EventsHolder.UpdateWallet.AddListener(Print);
             Print(0);
+            EventsHolder.UpdateWallet.AddListener(Print);
         }
 
         void Print(int _count)
         {
             // GCollector++
-            _text.text = "COIN: " + _count;
+            _text.text = $"COIN: {_count}" ;
         }
         
     }

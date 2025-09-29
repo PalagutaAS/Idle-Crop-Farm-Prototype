@@ -10,7 +10,7 @@ namespace AI
 
         private Queue<CustomerController> _queue;
 
-        public Queue<CustomerController> QueueCollection  => _queue;
+        public Queue<CustomerController> QueueCollection => _queue;
         
         private void Awake()
         {
