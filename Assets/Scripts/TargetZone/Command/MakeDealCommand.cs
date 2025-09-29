@@ -29,7 +29,7 @@ namespace TargetZone.Command
                 player.Wallet.Payout(_customer.Offer.Price);
                 player.Inventory.Remove(offer.Type, offer.Count);
                 offer.Done();
-                _customer.ChangeState();
+                _customer.ChangeState(CustomerState.GoAway);
             }
         }
 

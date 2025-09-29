@@ -1,0 +1,94 @@
+﻿using System.Collections.Generic;
+using ObjectPull.ScriptableObjects;
+using UnityEngine;
+
+namespace ObjectPull
+{
+    public class ObjectPool : MonoBehaviour
+    {
+        [SerializeField] private PoolConfigSO _config;
+    
+        private Queue<GameObject> _pool;
+        private List<GameObject> _activeObjects;
+        
+        public void InitializeWithConfig(PoolConfigSO config)
+        {
+            if (config == null)
+            {
+                Debug.LogError("Config is null!");
+                return;
+            }
+        
+            _config = config;
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            _pool = new Queue<GameObject>();
+            _activeObjects = new List<GameObject>();
+        
+            for (int i = 0; i < _config.initialSize; i++)
+            {
+                CreateNewObject();
+            }
+        }
+
+        private GameObject CreateNewObject()
+        {
+            GameObject obj = Instantiate(_config.prefab, transform);
+            obj.SetActive(false);
+        
+            var poolable = obj.GetComponent<PoolableObject>() ?? obj.AddComponent<PoolableObject>();
+            poolable.Initialize(this);
+        
+            _pool.Enqueue(obj);
+            return obj;
+        }
+
+        public GameObject GetObject()
+        {
+            GameObject obj = null;
+        
+            while (_pool.Count > 0 && obj == null)
+            {
+                obj = _pool.Dequeue();
+                //Тут проверить
+                if (obj.gameObject.activeSelf) obj = null;
+            }
+
+            obj ??= CreateNewObject();
+
+            if (obj != null)
+            {
+                obj.SetActive(true);
+                _activeObjects.Add(obj);
+            
+                //var poolable = obj.GetComponent<PoolableObject>();
+                //poolable?.OnGetFromPool();
+            }
+        
+            return obj;
+        }
+
+        public T GetObject<T>() where T : Component
+        {
+            GameObject obj = GetObject();
+            return obj != null ? obj.GetComponent<T>() : null;
+        }
+
+        public void ReturnObject(GameObject obj)
+        {
+            if (obj == null || !_activeObjects.Contains(obj)) return;
+        
+            obj.SetActive(false);
+            obj.transform.SetParent(transform);
+        
+            _activeObjects.Remove(obj); 
+            _pool.Enqueue(obj);
+        
+            //var poolable = obj.GetComponent<PoolableObject>();
+            //poolable?.OnReturnToPool();
+        }
+    }
+}

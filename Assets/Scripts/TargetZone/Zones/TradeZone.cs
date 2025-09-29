@@ -4,7 +4,7 @@ using TargetZone.Command;
 using TargetZone.Interfaces;
 using UnityEngine;
 
-namespace TargetZone
+namespace TargetZone.Zones
 {
     public class TradeZone : BaseInteractionZone
     {

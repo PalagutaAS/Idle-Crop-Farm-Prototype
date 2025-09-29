@@ -3,6 +3,13 @@ using UnityEngine;
 
 namespace AI
 {
+    public enum CustomerState
+    {
+        None,
+        Trade,
+        GoAway,
+    }
+    
     public class CustomerController : MonoBehaviour
     {
         [Header("Settings")]
@@ -10,27 +17,36 @@ namespace AI
         [SerializeField] private float _rotationSpeed = 5f;
         [SerializeField] private float _stoppingDistance = 0.1f;
 
-        [Header("Positions")]
+        private CustomerState _state;
         private Vector3 _targetPosition;
         private Animator _animator;
         private Offer _offer;
         public Offer Offer => _offer;
+        public bool isInit { get; private set; }
+        public CustomerState State => _state;
+        
+
         private bool _isMoving = false;
         
         public event Action<CustomerController> OnCustomerGoToExit;
         
-        public void Init(Animator animator, Offer offer)
+        public void Init(Animator animator)
         {
             _animator = animator;
-            _offer = offer;
+            isInit = true;
         }
 
         void Update()
         {
-            if (_isMoving)
+            if (_isMoving && isInit)
             {
                 MoveToTarget();
             }
+        }
+
+        public void SetOffer(Offer newOffer)
+        {
+            _offer = newOffer;
         }
 
         public void StartMovementTo(Vector3 targetPosition)
@@ -64,9 +80,14 @@ namespace AI
             }
         }
 
-        public void ChangeState()
+        public void ChangeState(CustomerState state)
         {
-            OnCustomerGoToExit?.Invoke(this);
+            if (state == CustomerState.GoAway)
+            {
+                OnCustomerGoToExit?.Invoke(this);
+            }
+            _state = state;
         }
+        
     }
 }

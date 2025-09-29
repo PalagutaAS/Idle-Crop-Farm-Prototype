@@ -25,7 +25,7 @@ namespace TargetZone.Command
             if (CanExecute(player))
             {
                 _customer.Offer.Done();
-                _customer.ChangeState();
+                _customer.ChangeState(CustomerState.GoAway);
             }
         }
 

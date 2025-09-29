@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using ObjectPull;
 using Player;
 using TargetZone.Interfaces;
+using UI.ButtonService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,22 +14,27 @@ namespace UI.Panels
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
+        [SerializeField] private PoolManager _poolManager;
         
         private Dictionary<Button, IInteractionCommand> _buttons = new();
-
+        private ButtonPrepareService _buttonPrepare;
         public event Action OnClickButton;
-        
+
+        private void Awake()
+        {
+            _buttonPrepare ??= new ButtonPrepareService(_buttonsContainer);
+        }
+
         public void Open(List<IInteractionCommand> commands)
         {
+            _buttonPrepare ??= new ButtonPrepareService(_buttonsContainer);
+            
             ClearButtons();
             foreach (var command in commands)
             {
-                Button button = Instantiate(_buttonPrefab, _buttonsContainer);
-                button.GetComponentInChildren<Text>().text = command.Title;
+                Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
                 
-                button.interactable = command.CanExecute(_player);
-                
-                button.onClick.AddListener(() =>
+                _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () =>
                 {
                     foreach (var btnAndCmd in _buttons)
                     {
@@ -37,6 +44,7 @@ namespace UI.Panels
                     command.Execute(_player);
                     OnClickButton?.Invoke();
                 });
+
                 _buttons.Add(button, command);
             }
             gameObject.SetActive(true);
@@ -46,7 +54,8 @@ namespace UI.Panels
         {
             foreach (var btnAndCmd in _buttons)
             {
-                Destroy(btnAndCmd.Key.gameObject);
+                btnAndCmd.Key.onClick.RemoveAllListeners();
+                _poolManager.ReturnObject(btnAndCmd.Key.gameObject);
             }
             _buttons.Clear();
         }
