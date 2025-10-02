@@ -732,6 +732,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="VContainer">
+      <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\VContainer.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
     </Reference>
@@ -752,6 +755,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="VContainer.Editor">
+      <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\VContainer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>

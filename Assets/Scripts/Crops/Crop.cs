@@ -1,14 +1,12 @@
-﻿using UnityEngine;
+﻿using Crops.ScriptableObjects;
+using UnityEngine;
 
 namespace Crops
 {
     public abstract class Crop : MonoBehaviour
     {
-        [field: SerializeField] public CropType Type
-        {
-            get;
-            private set;
-        }
+        [SerializeField] protected CropConfig _config;
+        public CropType Type => _config.Type;
 
         public bool IsHarvesting
         {
@@ -19,6 +17,7 @@ namespace Crops
         public abstract void PreparingForHarvest();
 
         public abstract int OnHarvest();
+
         public abstract void Grow();
         public abstract void Ripe();
         

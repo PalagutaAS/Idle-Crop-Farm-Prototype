@@ -6,8 +6,9 @@ namespace AI
     public enum CustomerState
     {
         None,
-        Trade,
-        GoAway,
+        MovingToQueue,
+        WaitingForService,
+        Leaving
     }
     
     public class CustomerController : MonoBehaviour
@@ -28,7 +29,7 @@ namespace AI
 
         private bool _isMoving = false;
         
-        public event Action<CustomerController> OnCustomerGoToExit;
+        public event Action<CustomerController, CustomerState> OnChangedState;
         
         public void Init(Animator animator)
         {
@@ -82,11 +83,8 @@ namespace AI
 
         public void ChangeState(CustomerState state)
         {
-            if (state == CustomerState.GoAway)
-            {
-                OnCustomerGoToExit?.Invoke(this);
-            }
             _state = state;
+            OnChangedState?.Invoke(this, _state);
         }
         
     }

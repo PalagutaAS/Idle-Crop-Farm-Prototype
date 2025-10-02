@@ -6,28 +6,26 @@ using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
 using UnityEngine;
+using VContainer;
 
 namespace Player.Tools
 {
     public class PlayerTools : MonoBehaviour, IToolManager
     {
         [SerializeField] private Slot[] _slots;
-        [SerializeField] private GameObject _toolPrefab;
-        [SerializeField] private Transform _parentForTool;
         [SerializeField] private LibraryConfigsByLevel _libraryConfigs;
     
         private IToolFactory _toolFactory;
         private IPlayer _player;
         
         public int CountSlots => _slots.Length;
-        private void Awake()
-        {
-            _toolFactory = new ToolFactory(_toolPrefab, _parentForTool);
-        }
-        
-        public void Init(IPlayer player)
+
+        [Inject]
+        public void Constructor(IPlayer player, IToolFactory toolFactory, LibraryConfigsByLevel libraryConfigs)
         {
             _player = player;
+            _toolFactory = toolFactory;
+            _libraryConfigs = libraryConfigs;
         }
     
         public bool TrySetupNewTool(ToolType type)

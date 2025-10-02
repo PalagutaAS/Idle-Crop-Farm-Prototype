@@ -483,90 +483,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cff76cc13b699e49a9e9f1232f57756, type: 3}
---- !u!1001 &60118476
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_FarmLand_02_Watered (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.522219
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.52515
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7051582
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7090501
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.315
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d59287f4b13e5446bf1c31c7c600f55, type: 3}
---- !u!4 &60118477 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-    type: 3}
-  m_PrefabInstance: {fileID: 60118476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &66979026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -575,6 +491,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -635,7 +557,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (40)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1138,6 +1061,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1198,7 +1127,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (23)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1211,6 +1141,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1271,7 +1207,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1628,6 +1565,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1688,7 +1631,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (43)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2430,6 +2374,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2490,7 +2440,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (52)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2504,6 +2455,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 215848165}
+  - component: {fileID: 215848167}
+  - component: {fileID: 215848166}
   m_Layer: 0
   m_Name: Trade Point 2
   m_TagString: Untagged
@@ -2526,6 +2479,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1004096579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &215848166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215848164}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &215848167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215848164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b97cebfc02648be98477c8de16f5d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &232879071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
@@ -2639,6 +2625,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2699,7 +2691,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (49)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2718,6 +2711,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2778,7 +2777,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (48)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2791,6 +2791,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2851,7 +2857,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (36)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3350,6 +3357,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3410,95 +3423,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (34)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
---- !u!1001 &314703673
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_FarmLand_02_Watered
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.223124
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.472034
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7051582
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7090501
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.315
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d59287f4b13e5446bf1c31c7c600f55, type: 3}
---- !u!4 &314703674 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-    type: 3}
-  m_PrefabInstance: {fileID: 314703673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &325029683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 43adf2e800138d44a87fc8ae1a6a9e29,
@@ -4489,6 +4419,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4549,7 +4485,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (32)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4969,6 +4906,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5029,7 +4972,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5267,6 +5211,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5327,7 +5277,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5346,6 +5297,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5406,7 +5363,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (47)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5503,6 +5461,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5563,7 +5527,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5810,90 +5775,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1527802624}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &602693460
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_FarmLand_02_Watered (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.489099
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -23.505245
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7051582
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7090501
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.315
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d59287f4b13e5446bf1c31c7c600f55, type: 3}
---- !u!4 &602693461 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-    type: 3}
-  m_PrefabInstance: {fileID: 602693460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &614975854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5998,6 +5879,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 614975854}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &621239176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621239177}
+  m_Layer: 0
+  m_Name: CropField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621239177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621239176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &629810878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2524898834302695330, guid: 2777f86191011ac48aea47fbd5f02928,
@@ -6199,7 +6111,7 @@ GameObject:
   m_Layer: 0
   m_Name: Sloot (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6212,7 +6124,7 @@ Transform:
   m_GameObject: {fileID: 670708343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 2.02, z: -1.08}
+  m_LocalPosition: {x: 0.75, y: 2.02, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6244,6 +6156,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6304,7 +6222,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (38)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6335,6 +6254,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6395,7 +6320,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (25)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6408,6 +6334,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6468,7 +6400,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (29)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6479,37 +6412,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 694076672}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &699690383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 699690384}
-  m_Layer: 0
-  m_Name: AI Transform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &699690384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699690383}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &716041396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6518,6 +6420,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6578,7 +6486,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6822,6 +6731,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6882,7 +6797,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6895,6 +6811,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6955,7 +6877,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7273,6 +7196,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7333,7 +7262,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7597,6 +7527,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7657,7 +7593,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (53)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7670,6 +7607,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7730,7 +7673,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7743,6 +7687,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7803,7 +7753,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (55)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7816,6 +7767,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7876,7 +7833,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7895,6 +7853,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7960,7 +7924,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7973,6 +7938,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8033,7 +8004,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8411,6 +8383,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8471,7 +8449,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (18)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8568,7 +8547,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b7dc1070c2e9e1b4fab5e6de4993c182,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b7dc1070c2e9e1b4fab5e6de4993c182,
         type: 3}
@@ -8600,6 +8579,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8660,7 +8645,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (39)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8714,11 +8700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ce810afd35704da0745dd7a6e9506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _charRoot: {fileID: 8326453474896303718, guid: 2ffe5bfbfcbd04041b0425f858afe73f,
-    type: 3}
-  _models: {fileID: 11400000, guid: a678b4021c8e5b84bba5fb237780dc4b, type: 2}
   _spawnRate: 10
-  _poolManager: {fileID: 1248073944}
 --- !u!114 &1004096581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8731,8 +8713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14f5899bd251024499b57f205c2607c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _count: 10
-  <OffsetBetween>k__BackingField: 4
+  _queueConfig: {fileID: 11400000, guid: 0aee9c1a2b4ca42488b8e9459652034e, type: 2}
 --- !u!114 &1004096582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8745,9 +8726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aecc1e2b953477dadeb0ca03d0bbf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPoint: {fileID: 1813444760}
-  _tradePoint: {fileID: 215848165}
-  _exitPoint: {fileID: 1470365016}
+  _startPoint: {fileID: 1813444761}
+  _tradePoint: {fileID: 215848167}
+  _exitPoint: {fileID: 1470365017}
   _queueManager: {fileID: 1004096581}
   _spawner: {fileID: 1004096580}
 --- !u!4 &1014968695 stripped
@@ -8871,7 +8852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7319efe8b2e28b479ffef8af5fc26b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTools: {fileID: 1963951039}
 --- !u!4 &1049854920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4294808221479000303, guid: 9a8fa7746b75426419c7e97390e512fe,
@@ -9039,8 +9019,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1617092256}
   - {fileID: 559807541}
+  - {fileID: 1422904528}
   - {fileID: 1150077490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9151,6 +9131,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9211,7 +9197,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (26)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9513,6 +9500,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9573,7 +9566,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (33)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9988,6 +9982,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10048,7 +10048,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (28)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10153,37 +10154,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1170635756}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1178181727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1178181728}
-  m_Layer: 0
-  m_Name: TOOLS
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1178181728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178181727}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1186821386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10405,6 +10375,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10465,7 +10441,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (41)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10697,7 +10674,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.09, y: 0, z: -8.98}
-  m_LocalScale: {x: 1.1994, y: 1, z: 0.49545023}
+  m_LocalScale: {x: 1.1994, y: 1, z: 0.61311966}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282376525}
@@ -10743,53 +10720,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 110663453}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1248073943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1248073946}
-  - component: {fileID: 1248073944}
-  m_Layer: 0
-  m_Name: ObjectPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1248073944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248073943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959cb19e4c8a4ac6af908c13e85f3346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _poolConfigs:
-  - {fileID: 11400000, guid: ff232f936e435044ba67a38ea96f5936, type: 2}
-  - {fileID: 11400000, guid: 6299500d16110a2488b91427ce71d429, type: 2}
---- !u!4 &1248073946
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248073943}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265281049
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,6 +10879,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11009,7 +10945,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11344,7 +11281,7 @@ GameObject:
   m_Layer: 0
   m_Name: Sloot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11357,7 +11294,7 @@ Transform:
   m_GameObject: {fileID: 1293700676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.74, z: -1.66}
+  m_LocalPosition: {x: 0, y: 1.75, z: -1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11383,6 +11320,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11443,7 +11386,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (51)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11456,6 +11400,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11516,7 +11466,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (54)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11657,13 +11608,7 @@ Transform:
   m_Children:
   - {fileID: 307117413}
   - {fileID: 993764109}
-  - {fileID: 314703674}
-  - {fileID: 1786966226}
-  - {fileID: 60118477}
-  - {fileID: 602693461}
-  - {fileID: 1697886466}
   - {fileID: 592939621}
-  - {fileID: 1400848508}
   m_Father: {fileID: 1393951947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1344492411 stripped
@@ -11785,6 +11730,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11845,7 +11796,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (31)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12002,90 +11954,6 @@ Transform:
   - {fileID: 2047082578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1400848507
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.89
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.019986223
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -34.01
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_Name
-      value: Grass_29
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 271ff4b9b884b0c45902b225603cb0e2,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 271ff4b9b884b0c45902b225603cb0e2, type: 3}
---- !u!4 &1400848508 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 271ff4b9b884b0c45902b225603cb0e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1400848507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1414136897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
@@ -12191,6 +12059,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1415482394}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1422904527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1089076735}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.92
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d985f49cf1b39f84fa9146cb3f5833db,
+        type: 3}
+      propertyPath: m_Name
+      value: Env_FarmLand_05_Watered (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d985f49cf1b39f84fa9146cb3f5833db, type: 3}
+--- !u!4 &1422904528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422904527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1426072349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
@@ -12211,6 +12163,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12271,7 +12229,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12376,7 +12335,6 @@ MonoBehaviour:
   _buttonPrefab: {fileID: 2102364698949333222, guid: 1dd6bdf86b99a354598731df275c6f27,
     type: 3}
   _buttonsContainer: {fileID: 1451868261}
-  _poolManager: {fileID: 1248073944}
 --- !u!114 &1451868265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12616,7 +12574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8413caa161ac4b47a4640c03cd7a1dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolManager: {fileID: 1248073944}
 --- !u!65 &1470365018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12745,6 +12702,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12805,7 +12768,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13131,6 +13095,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13191,7 +13161,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13204,6 +13175,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13264,7 +13241,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13692,6 +13670,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13752,7 +13736,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (20)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13770,7 +13755,7 @@ GameObject:
   m_Layer: 0
   m_Name: Sloot (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13783,7 +13768,7 @@ Transform:
   m_GameObject: {fileID: 1588478232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.52, y: 1.97, z: -1.47}
+  m_LocalPosition: {x: -0.75, y: 1.75, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13809,6 +13794,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13869,7 +13860,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13962,90 +13954,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4520784188998253370, guid: fed744b0018f8bc469a10c5ac2590ef2,
     type: 3}
   m_PrefabInstance: {fileID: 1112881007}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1617092255
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1089076735}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.03
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.09
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.03704357
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.92
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: d985f49cf1b39f84fa9146cb3f5833db,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_FarmLand_05_Watered
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d985f49cf1b39f84fa9146cb3f5833db, type: 3}
---- !u!4 &1617092256 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d985f49cf1b39f84fa9146cb3f5833db,
-    type: 3}
-  m_PrefabInstance: {fileID: 1617092255}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1637235647 stripped
 Transform:
@@ -14149,6 +14057,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14209,7 +14123,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (46)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14228,6 +14143,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14288,7 +14209,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (45)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14386,110 +14308,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce2fae08c930a8409a53c394b0df96e, type: 3}
---- !u!1001 &1697886465
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.769653
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.033437345
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.68833
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7051582
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7090501
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.315
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539678527731824158, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_GrassPlant_06
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539678527731824158, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539678527731824158, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d6f0b21eeb5b4f141b4cae0de89e81a5, type: 3}
---- !u!4 &1697886466 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7199427316674997412, guid: d6f0b21eeb5b4f141b4cae0de89e81a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1697886465}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749249444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14755,6 +14573,67 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1757223476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757223478}
+  - component: {fileID: 1757223477}
+  m_Layer: 0
+  m_Name: VCOntainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1757223477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757223476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa49334c241cc3458174226203bd180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 1916833914}
+  - {fileID: 1031485464}
+  - {fileID: 1004096578}
+  - {fileID: 1451868260}
+  _player: {fileID: 1031485471}
+  _toolPrefab: {fileID: 676384791396300411, guid: 325ba0279810cf847bd74a67dea6ccb7,
+    type: 3}
+  _customerController: {fileID: 1883693290738159634, guid: 2ffe5bfbfcbd04041b0425f858afe73f,
+    type: 3}
+  _poolConfigsSo: {fileID: 11400000, guid: 6cd234826074ef24aaa7f761527cd6aa, type: 2}
+  _toolLibraryConfig: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
+  _customerModels: {fileID: 11400000, guid: a678b4021c8e5b84bba5fb237780dc4b, type: 2}
+  _queueConfig: {fileID: 11400000, guid: 0aee9c1a2b4ca42488b8e9459652034e, type: 2}
+--- !u!4 &1757223478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757223476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1764643845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14763,6 +14642,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14823,7 +14708,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14848,6 +14734,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14908,7 +14800,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (19)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15126,90 +15019,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1777877088}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1786966225
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1331420422}
-    m_Modifications:
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_Name
-      value: Env_FarmLand_02_Watered (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628059962668431258, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.17901
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -23.47395
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7051582
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7090501
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.315
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d59287f4b13e5446bf1c31c7c600f55, type: 3}
---- !u!4 &1786966226 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9004620341849320736, guid: 8d59287f4b13e5446bf1c31c7c600f55,
-    type: 3}
-  m_PrefabInstance: {fileID: 1786966225}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1792419540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 187525371657692800, guid: 0fe9ec1b06d27094bbf65c5ff223ce48,
@@ -15230,6 +15039,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15290,7 +15105,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (30)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15388,6 +15204,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1813444760}
+  - component: {fileID: 1813444761}
+  - component: {fileID: 1813444762}
   m_Layer: 0
   m_Name: Spawner Point 1
   m_TagString: Untagged
@@ -15410,6 +15228,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1004096579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813444761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813444759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba64656e4c642fbb32cff3dae83f11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1813444762
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813444759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1815857161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15819,6 +15670,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15879,7 +15736,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (22)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15910,6 +15768,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15970,7 +15834,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (44)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16088,6 +15953,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16148,7 +16019,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16302,9 +16174,6 @@ MonoBehaviour:
   - {fileID: 1293700678}
   - {fileID: 1588478234}
   - {fileID: 670708345}
-  _toolPrefab: {fileID: 1586206106068149401, guid: 325ba0279810cf847bd74a67dea6ccb7,
-    type: 3}
-  _parentForTool: {fileID: 1178181728}
   _libraryConfigs: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
 --- !u!1001 &1972798146
 PrefabInstance:
@@ -16906,6 +16775,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16966,7 +16841,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (50)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17083,6 +16959,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17143,7 +17025,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (35)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17156,6 +17039,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17216,7 +17105,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17554,6 +17444,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17614,7 +17510,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17627,6 +17524,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17687,7 +17590,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17706,6 +17610,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17766,7 +17676,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17998,6 +17909,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18058,7 +17975,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (42)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18071,6 +17989,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18131,7 +18055,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (37)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19138,6 +19063,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150077490}
     m_Modifications:
+    - target: {fileID: 499059048662813036, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
+        type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47,
+        type: 2}
     - target: {fileID: 3371500537790581303, guid: b3d958c66cf0ce148aa33ed1ed14bdb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19198,7 +19129,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop_Wheat (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3762946244227012551, guid: b3d958c66cf0ce148aa33ed1ed14bdb3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19211,12 +19143,11 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1393951947}
-  - {fileID: 1178181728}
   - {fileID: 1031485468}
   - {fileID: 1004096579}
-  - {fileID: 699690384}
   - {fileID: 1455540430}
   - {fileID: 1089076735}
   - {fileID: 2113840293}
   - {fileID: 12913379}
-  - {fileID: 1248073946}
+  - {fileID: 1757223478}
+  - {fileID: 621239177}

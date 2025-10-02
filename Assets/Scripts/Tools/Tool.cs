@@ -34,7 +34,7 @@ namespace Tools
         {
             _cropFinder = new CropFinder(this, _layerMask);
             _follow = new Follow(this, _parentModel, _slot.Transform);
-            _animatorHarvest = new AnimatorHarvest(this, _parentModel, _animDuration);
+            _animatorHarvest = new AnimatorHarvest(_parentModel, _animDuration);
             _modelChanger = new ChildModelChanger(_parentModel, _toolConfig.Model);
         }
 

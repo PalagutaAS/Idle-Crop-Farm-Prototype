@@ -6,6 +6,7 @@ using TargetZone.Interfaces;
 using UI.ButtonService;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
 namespace UI.Panels
 {
@@ -14,21 +15,21 @@ namespace UI.Panels
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
-        [SerializeField] private PoolManager _poolManager;
         
+        private PoolManager _poolManager;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
         private ButtonPrepareService _buttonPrepare;
         public event Action OnClickButton;
 
-        private void Awake()
+        [Inject]
+        private void Constructor(PoolManager poolManager)
         {
-            _buttonPrepare ??= new ButtonPrepareService(_buttonsContainer);
+            _poolManager = poolManager;
+            _buttonPrepare = new ButtonPrepareService(_buttonsContainer);
         }
 
         public void Open(List<IInteractionCommand> commands)
         {
-            _buttonPrepare ??= new ButtonPrepareService(_buttonsContainer);
-            
             ClearButtons();
             foreach (var command in commands)
             {

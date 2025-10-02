@@ -1,27 +1,28 @@
 ﻿using System.Collections.Generic;
 using ObjectPull.ScriptableObjects;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace ObjectPull
 {
-    public class PoolManager : MonoBehaviour
+    public class PoolManager : IInitializable
     {
-        [SerializeField] private List<PoolConfigSO> _poolConfigs;
-    
-        private Dictionary<string, ObjectPool> _pools;
-        private Dictionary<GameObject, string> _prefabToKey;
+        private readonly PoolConfigsSO _poolConfigs;
+        private readonly Dictionary<string, ObjectPool> _pools;
+        private readonly Dictionary<GameObject, string> _prefabToKey;
+        private readonly Transform _transform;
         
-        private void Awake()
+        public PoolManager(PoolConfigsSO poolConfigs)
         {
-            InitializePools();
-        }
-
-        private void InitializePools()
-        {
+            _poolConfigs = poolConfigs;
             _pools = new Dictionary<string, ObjectPool>();
             _prefabToKey = new Dictionary<GameObject, string>();
-        
-            foreach (var config in _poolConfigs)
+            _transform = new GameObject("ObjectPool").transform;
+        }
+
+        public void Initialize()
+        {
+            foreach (var config in _poolConfigs.List)
             {
                 if (config.prefab == null) 
                 {
@@ -33,16 +34,14 @@ namespace ObjectPull
                 _prefabToKey[config.prefab] = key;
             
                 GameObject poolObject = new GameObject($"Pool_{key}");
-                poolObject.transform.SetParent(transform);
+                poolObject.transform.SetParent(_transform);
             
                 var pool = poolObject.AddComponent<ObjectPool>();
                 pool.InitializeWithConfig(config);
             
                 _pools[key] = pool;
             }
-        
         }
-
         public GameObject GetObject(GameObject prefab)
         {
             if (_prefabToKey == null)
@@ -58,7 +57,7 @@ namespace ObjectPull
             }
         
             Debug.LogWarning($"No pool found for prefab: {prefab.name}. Creating new instance.");
-            return Instantiate(prefab);
+            return Object.Instantiate(prefab);
         }
 
         public T GetObject<T>(GameObject prefab) where T : Component
@@ -78,7 +77,7 @@ namespace ObjectPull
             }
             else
             {
-                Destroy(obj);
+                Object.Destroy(obj);
             }
         }
 

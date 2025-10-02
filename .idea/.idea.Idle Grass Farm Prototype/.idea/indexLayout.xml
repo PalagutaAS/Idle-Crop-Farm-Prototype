@@ -15,6 +15,8 @@
       <Path>Library/PackageCache/com.unity.textmeshpro@3.0.7</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.7.7</Path>
       <Path>Library/PackageCache/com.unity.visualscripting@1.9.4</Path>
+      <Path>Library/PackageCache/jp.hadashikick.vcontainer@177dbda557</Path>
+      <Path>Library/PackageCache/jp.hadashikick.vcontainer@5e6f5cc14b</Path>
       <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
