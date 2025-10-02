@@ -1,26 +1,23 @@
 using System;
-using AI.ScriptableObjects;
-using ObjectPull;
 using Offers;
 using UnityEngine;
+using VContainer;
 
 namespace AI
 {
     public class CustomerSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject _charRoot;
-        [SerializeField] private CustomerModels _models;
         [SerializeField] private float _spawnRate;
-        [SerializeField] private PoolManager _poolManager;
 
         private OfferRandomService _offerService;
         private CustomerFactory _factory;
         public event Action<CustomerController> OnCustomerCreated;
 
-        private void Awake()
+        [Inject]
+        private void Constructor(CustomerFactory factory, OfferRandomService offerRandomService)
         {
-            _factory = new CustomerFactory(_poolManager, _charRoot, _models);
-            _offerService = new OfferRandomService();
+            _factory = factory;
+            _offerService = offerRandomService;
         }
 
         private void Start()

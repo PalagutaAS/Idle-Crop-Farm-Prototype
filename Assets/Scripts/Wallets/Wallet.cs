@@ -1,12 +1,14 @@
-﻿using DefaultNamespace;
+﻿using System;
 
 namespace Wallets
 {
     public class Wallet : IWallet
     {
         private int _count;
+        
+        public event Action<int> OnChangedCoin;
 
-        public Wallet(int count)
+        public Wallet(int count = 0)
         {
             Count = count;
         }
@@ -17,7 +19,7 @@ namespace Wallets
             private set
             {
                 _count = value; 
-                EventsHolder.UpdateWallet.Invoke(_count);
+                OnChangedCoin?.Invoke(_count);
             }
         }
 

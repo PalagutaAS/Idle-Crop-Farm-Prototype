@@ -1,22 +1,23 @@
-﻿using Tools.Interface;
+﻿using Tools;
+using Tools.Interface;
 using UnityEngine;
 
 namespace Player.Tools
 {
     public class ToolFactory : IToolFactory
     {
-        private readonly GameObject _toolPrefab;
+        private readonly Tool _toolPrefab;
         private readonly Transform _parent;
 
-        public ToolFactory(GameObject toolPrefab, Transform parent)
+        protected ToolFactory(Tool toolPrefab)
         {
+            _parent = new GameObject("TOOLS").transform;
             _toolPrefab = toolPrefab;
-            _parent = parent;
         }
 
         public ITool CreateTool() //type
         {
-            GameObject toolInstance = Object.Instantiate(_toolPrefab, _parent);
+            GameObject toolInstance = Object.Instantiate(_toolPrefab.gameObject, _parent);
             return toolInstance.GetComponent<ITool>();
         }
     }

@@ -7,19 +7,19 @@ namespace AI
     public class CustomerFactory
     {
         private readonly PoolManager _poolManager;
-        private readonly GameObject _charRoot;
+        private readonly GameObject _charPrefab;
         private readonly CustomerModels _customerModels;
 
-        public CustomerFactory(PoolManager poolManager, GameObject charRoot, CustomerModels customerModels)
+        public CustomerFactory(PoolManager poolManager, CustomerController charRoot, CustomerModels customerModels)
         {
             _poolManager = poolManager;
-            _charRoot = charRoot;
+            _charPrefab = charRoot.gameObject;
             _customerModels = customerModels;
         }
 
         public CustomerController Create()
         {
-            var customer = _poolManager.GetObject<CustomerController>(_charRoot);
+            var customer = _poolManager.GetObject<CustomerController>(_charPrefab);
             customer.gameObject.SetActive(true);
             if (customer.isInit) return customer;
             

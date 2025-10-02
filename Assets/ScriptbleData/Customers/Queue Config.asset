@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa09af3c8cd47f098ec3e34f9cc6393, type: 3}
-  m_Name: Pull Customers
+  m_Script: {fileID: 11500000, guid: f389f464c83b4c72a7940c49fe2ad7f2, type: 3}
+  m_Name: Queue Config
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8326453474896303718, guid: 2ffe5bfbfcbd04041b0425f858afe73f, type: 3}
-  initialSize: 1
-  preloadOnAwake: 1
+  _initCount: 10
+  _offset: 4

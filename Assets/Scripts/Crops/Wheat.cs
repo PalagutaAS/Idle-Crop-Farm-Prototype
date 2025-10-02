@@ -1,16 +1,7 @@
-using UnityEngine;
-
 namespace Crops
 {
     public class Wheat : Crop
     {
-        [SerializeField] private int _count;
-        [SerializeField] private Grow _grow;
-        private void Awake()
-        {
-            _grow = GetComponent<Grow>();
-        }
-
         public override void PreparingForHarvest()
         {
             IsHarvesting = true;
@@ -20,12 +11,12 @@ namespace Crops
         {
             gameObject.SetActive(false);
             Grow();
-            return _count;
+            return _config.Count;
         }
 
         public override void Grow()
         {
-            _grow.StartGrow();
+            Invoke(nameof(Ripe), _config.GrowTime);
         }
 
         public override void Ripe()

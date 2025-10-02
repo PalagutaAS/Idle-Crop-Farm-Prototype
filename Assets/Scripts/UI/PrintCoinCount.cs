@@ -1,22 +1,24 @@
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
+using Wallets;
 
 namespace UI
 {
     public class PrintCoinCount : MonoBehaviour
     {
         [SerializeField] private Text _text;
-        void Awake()
+
+        [Inject]
+        private void Constructor(Wallet wallet)
         {
-            Print(0);
-            EventsHolder.UpdateWallet.AddListener(Print);
+            wallet.OnChangedCoin += Print;
+            Print(wallet.Count);
         }
 
-        void Print(int _count)
+        void Print(int count)
         {
-            // GCollector++
-            _text.text = $"COIN: {_count}" ;
+            _text.text = $"COIN: {count}";
         }
         
     }

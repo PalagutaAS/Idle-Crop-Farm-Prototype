@@ -1,4 +1,5 @@
 ﻿using Player.Tools;
+using Tools.Interface;
 using UnityEngine;
 using Wallets;
 
@@ -10,6 +11,6 @@ namespace Player.Interface
         Inventory Inventory { get; }
         Wallet Wallet { get; }
         
-        PlayerTools Tools { get; }  
+        IToolManager Tools { get; }  
     }
 }

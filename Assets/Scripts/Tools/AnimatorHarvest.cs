@@ -5,14 +5,13 @@ namespace Tools
 {
     public class AnimatorHarvest
     {
-        private readonly Tool _tool;
         private readonly Transform _model;
         private readonly Animator _animation;
         private readonly float _animDuration;
         private readonly Vector3[] _path = new Vector3[3];
 
         private Tweener _currentTween;
-        public AnimatorHarvest(Tool tool, Transform model, float animDuration)
+        public AnimatorHarvest(Transform model, float animDuration)
         {
             _model = model;
             _animDuration = animDuration;

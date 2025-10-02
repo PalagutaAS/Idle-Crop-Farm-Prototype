@@ -20,11 +20,7 @@ namespace ObjectPull
             }
         
             _config = config;
-            Initialize();
-        }
-
-        private void Initialize()
-        {
+            
             _pool = new Queue<GameObject>();
             _activeObjects = new List<GameObject>();
         
@@ -48,26 +44,12 @@ namespace ObjectPull
 
         public GameObject GetObject()
         {
-            GameObject obj = null;
-        
-            while (_pool.Count > 0 && obj == null)
-            {
-                obj = _pool.Dequeue();
-                //Тут проверить
-                if (obj.gameObject.activeSelf) obj = null;
-            }
-
-            obj ??= CreateNewObject();
-
-            if (obj != null)
-            {
-                obj.SetActive(true);
-                _activeObjects.Add(obj);
+            GameObject obj = (_pool.Count <= 0) ? CreateNewObject() : null;
             
-                //var poolable = obj.GetComponent<PoolableObject>();
-                //poolable?.OnGetFromPool();
-            }
-        
+            obj = _pool.Dequeue();
+            obj.SetActive(true);
+            _activeObjects.Add(obj);
+             
             return obj;
         }
 
@@ -86,9 +68,7 @@ namespace ObjectPull
         
             _activeObjects.Remove(obj); 
             _pool.Enqueue(obj);
-        
-            //var poolable = obj.GetComponent<PoolableObject>();
-            //poolable?.OnReturnToPool();
+            
         }
     }
 }

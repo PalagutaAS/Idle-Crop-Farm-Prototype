@@ -4,11 +4,6 @@ namespace Offers
 {
     public class OfferRandomService
     {
-        public OfferRandomService()
-        {
-            
-        }
-
         public Offer GetRandomOffer()
         {
             int count = Random.Range(1,5);

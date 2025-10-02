@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3371500537790581303}
-  - component: {fileID: 3762946244227012551}
   - component: {fileID: 499059048662813036}
   - component: {fileID: 7331352010574138631}
   m_Layer: 6
@@ -35,19 +34,6 @@ Transform:
   - {fileID: 3728055928735415116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3762946244227012551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6475274679828996367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3576c774845554b9e9fc74a66a47a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _growTime: 10
 --- !u!114 &499059048662813036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,9 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ff4ec05afe09e41b400d0986d6c3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 1
-  _count: 2
-  _grow: {fileID: 3762946244227012551}
+  _config: {fileID: 11400000, guid: 17b705ad4b99eae4ea8e21349df46c47, type: 2}
 --- !u!65 &7331352010574138631
 BoxCollider:
   m_ObjectHideFlags: 0

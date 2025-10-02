@@ -1,31 +1,32 @@
 using UnityEngine;
 using System.Collections.Generic;
+using AI.ScriptableObjects;
 
 namespace AI
 {
     public class QueueManager : MonoBehaviour
     {
-        [SerializeField] private int _count = 10;
-        [field: SerializeField] public int OffsetBetween { get; private set; }
+        [SerializeField] private QueueConfig _queueConfig;
 
         private Queue<CustomerController> _queue;
 
         public Queue<CustomerController> QueueCollection => _queue;
+
+        //public void QueueManager(QueueConfig queueConfig)
+        //{
+        //    _queueConfig = _queueConfig;
+        //}
         
         private void Awake()
         {
-            _queue = new Queue<CustomerController>(_count);
+            _queue = new Queue<CustomerController>(_queueConfig.InitCount);
         }
 
-        public CustomerController GetFirst()
-        {
-            return _queue.Dequeue();
-        }
+        public float OffsetBetween() => _queueConfig.Offset;
+        
+        public CustomerController GetFirst() => _queue.Dequeue();
 
-        public int GetCount()
-        {
-            return _queue.Count;
-        }
+        public int GetCount() => _queue.Count;
 
         public int Enqueue(CustomerController customerController)
         {
@@ -33,5 +34,12 @@ namespace AI
             return GetCount();
         }
 
+        public bool IsFirstInQueue(CustomerController customer)
+        {
+            if (_queue.Count == 0)
+                return false;
+            
+            return _queue.Peek() == customer;
+        }
     }
 }

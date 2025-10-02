@@ -17,14 +17,17 @@ namespace AI
         {
             int queueCount = _queueManager.GetCount();
             Vector3 dir = (_coordinator.TradePoint.position - _coordinator.StartPoint.position).normalized;
-            return _coordinator.TradePoint.position - (dir * _queueManager.OffsetBetween * (queueCount - 1));
+            return _coordinator.TradePoint.position - (dir * _queueManager.OffsetBetween() * (queueCount - 1));
         }
         
-        public Vector3 GetPositionByPlaceInQueue(int place)
+        public Vector3 GetPositionByIndex(int index)
         {
-            int queueCount = _queueManager.GetCount();
-            Vector3 dir = (_coordinator.TradePoint.position - _coordinator.StartPoint.position).normalized;
-            return _coordinator.TradePoint.position - (dir * _queueManager.OffsetBetween * (queueCount - (queueCount - place)));
+            Vector3 tradePosition = _coordinator.TradePoint.position;
+            Vector3 startPosition = _coordinator.StartPoint.position;
+            Vector3 direction = (tradePosition - startPosition).normalized;
+            float offset = _queueManager.OffsetBetween();
+        
+            return tradePosition - (direction * offset * index);
         }
         
     }
