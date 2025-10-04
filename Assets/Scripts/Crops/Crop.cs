@@ -1,26 +1,28 @@
-﻿using Crops.ScriptableObjects;
-using UnityEngine;
-
-namespace Crops
+﻿namespace Crops
 {
-    public abstract class Crop : MonoBehaviour
+    public class Crop : BaseCrop
     {
-        [SerializeField] protected CropConfig _config;
-        public CropType Type => _config.Type;
-
-        public bool IsHarvesting
+        public override void PreparingForHarvest()
         {
-            get;
-            protected set;
+            IsHarvesting = true;
         }
 
-        public abstract void PreparingForHarvest();
+        public override int OnHarvest()
+        {
+            gameObject.SetActive(false);
+            Grow();
+            return _config.Count;
+        }
 
-        public abstract int OnHarvest();
+        public override void Grow()
+        {
+            Invoke(nameof(Ripe), _config.GrowTime);
+        }
 
-        public abstract void Grow();
-        public abstract void Ripe();
-        
-        
+        public override void Ripe()
+        {
+            IsHarvesting = false;
+            gameObject.SetActive(true);
+        }
     }
 }

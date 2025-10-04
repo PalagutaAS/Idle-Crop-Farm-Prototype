@@ -1,4 +1,5 @@
-﻿using Crops;
+﻿using System.Collections;
+using Crops;
 using UnityEngine;
 
 namespace Tools
@@ -8,10 +9,12 @@ namespace Tools
         private readonly Tool _tool;
         private readonly LayerMask _layerMask;
         private readonly Collider[] _hitColliders;
-        public CropFinder(Tool tool, LayerMask layerMask)
+        private readonly CropType[] _cropType;
+        public CropFinder(Tool tool, LayerMask layerMask, CropType[] type)
         {
             _tool = tool;
             _layerMask = layerMask;
+            _cropType = type;
             _hitColliders = new Collider[12];
         }
         
@@ -22,7 +25,7 @@ namespace Tools
             
             for (int i = 0; i < count; i++)
             {
-                if (!_hitColliders[i].TryGetComponent(out Crop crop) || crop.IsHarvesting) continue;
+                if (!_hitColliders[i].TryGetComponent(out BaseCrop crop) || !((IList) _cropType).Contains(crop.Type) || crop.IsHarvesting) continue;
                 
                 _tool.TriggerEnter(crop);
                 return;

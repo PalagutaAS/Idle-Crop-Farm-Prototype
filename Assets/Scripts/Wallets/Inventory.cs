@@ -1,11 +1,15 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Wallets
 {
-    public class Inventory
+    public class Inventory : IChangedInventory
     {
         private readonly Dictionary<CropType, int> _dictionary;
-
+        
+        public event Action<CropType, int> OnChangedByType;
+        
         public Inventory()
         {
             _dictionary = new Dictionary<CropType, int>();
@@ -16,6 +20,7 @@ namespace Wallets
             if (!Check(type, count)) return false;
 
             _dictionary[type] -= count;
+            OnChangedByType?.Invoke(type, _dictionary[type]);
             return true;
         }
         
@@ -27,6 +32,7 @@ namespace Wallets
             }
 
             _dictionary[type] += count;
+            OnChangedByType?.Invoke(type, _dictionary[type]);
         }
 
         public bool Check(CropType type, int count)

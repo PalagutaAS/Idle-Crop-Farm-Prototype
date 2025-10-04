@@ -4,8 +4,10 @@ public class SmoothCameraFollow : MonoBehaviour
 {
     [Header("Target Settings")]
     [SerializeField] private Transform _target;
-    
-    [Header("Position Settings")]
+
+    [Header("Position Settings")] 
+    [Range(1f, 5f)] 
+    [SerializeField] private float _distance = 1f;
     [SerializeField] private float _fixedHeight = 10f;
     [SerializeField] private float _offsetZ = -10f;
     
@@ -25,8 +27,8 @@ public class SmoothCameraFollow : MonoBehaviour
 
         Vector3 targetPosition = new Vector3(
             _target.position.x,
-            _fixedHeight,
-            _target.position.z + _offsetZ
+            _fixedHeight * _distance,
+            _target.position.z + _offsetZ * _distance
         );
 
         transform.position = Vector3.Lerp(

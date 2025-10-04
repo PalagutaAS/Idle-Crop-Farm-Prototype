@@ -12,18 +12,20 @@ namespace UI.Panels
 {
     public class InteractionPanel : MonoBehaviour, IPanel
     {
-        [SerializeField] private ThirdPersonController _player;
+        
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
         
         private PoolManager _poolManager;
+        private ThirdPersonController _player;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
         private ButtonPrepareService _buttonPrepare;
         public event Action OnClickButton;
 
         [Inject]
-        private void Constructor(PoolManager poolManager)
+        private void Constructor(PoolManager poolManager, ThirdPersonController player)
         {
+            _player = player;
             _poolManager = poolManager;
             _buttonPrepare = new ButtonPrepareService(_buttonsContainer);
         }

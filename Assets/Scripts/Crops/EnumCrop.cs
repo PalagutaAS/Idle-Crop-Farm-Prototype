@@ -2,4 +2,6 @@
 {
     None,
     Wheat,
+    Corn,
+    Potato,
 }
