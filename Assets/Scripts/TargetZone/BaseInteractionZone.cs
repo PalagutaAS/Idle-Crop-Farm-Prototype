@@ -4,6 +4,8 @@ using Player.Interface;
 using TargetZone.Interfaces;
 using UI;
 using UnityEngine;
+using VContainer;
+using Wallets;
 
 namespace TargetZone
 {
@@ -11,6 +13,7 @@ namespace TargetZone
     {
         [SerializeField] protected GameObject _gameObjectPanel;
         
+        [Inject] protected IWallet _wallet;
         protected IPlayer _player;
         protected IPanel _panel;
 
@@ -24,7 +27,6 @@ namespace TargetZone
             if (_player == null && other.TryGetComponent(out IPlayer player))
             {
                 _player = player;
-
             }
             OnPlayerEnter();
         }
@@ -60,6 +62,11 @@ namespace TargetZone
                 var commands = GenerateCommands();
                 _panel.Open(commands);
             }
+        }
+
+        protected void RefreshPanelByChange(int i)
+        {
+            RefreshPanel();
         }
 
         protected abstract bool CanOpenPanel();

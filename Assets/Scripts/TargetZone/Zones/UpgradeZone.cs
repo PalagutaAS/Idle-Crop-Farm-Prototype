@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using TargetZone.Command;
 using TargetZone.Interfaces;
-using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
-using UnityEngine;
+using VContainer;
 
 namespace TargetZone.Zones
 {
     public class UpgradeZone : BaseInteractionZone
     {
-        [SerializeField] private LibraryConfigsByLevel _libraryConfigs;
+        [Inject] private LibraryConfigsByLevel _libraryConfigs;
         
         protected override void Awake()
         {
@@ -37,7 +36,6 @@ namespace TargetZone.Zones
                 IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(type, 1);
                 commands.Add(new BuyNewToolCommand(toolConfig));
             }
-            
             
             List<ITool> currentTools = _player.Tools.GetAllTools();
             int countTool = currentTools.Count;

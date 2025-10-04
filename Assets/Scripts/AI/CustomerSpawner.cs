@@ -30,6 +30,7 @@ namespace AI
             var customer = _factory.Create();
             customer.SetOffer(_offerService.GetRandomOffer());
             OnCustomerCreated?.Invoke(customer);
+            Invoke(nameof(Spawn), _spawnRate);
         }
 
         private void Update()

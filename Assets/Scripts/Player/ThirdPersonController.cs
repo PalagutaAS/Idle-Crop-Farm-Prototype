@@ -39,7 +39,6 @@ namespace Player
         {
             _characterController.Move(movement);
         }
-
         
         [ContextMenu("Payout + 500")]
         private void Payout()

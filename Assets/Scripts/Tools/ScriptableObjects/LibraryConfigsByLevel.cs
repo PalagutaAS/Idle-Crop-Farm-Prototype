@@ -8,7 +8,7 @@ namespace Tools.ScriptableObjects
     [CreateAssetMenu(fileName = "New Library Configs", menuName = "Custom/Library Configs")]
     public class LibraryConfigsByLevel : ScriptableObject, ILibraryToolConfigs
     {
-        [SerializeField] private ConfigsToolByType[] _libraryConfigs;
+        [SerializeField] private ConfigsToolByType[] _libraryToolConfigs;
 
         private Dictionary<ToolType, Dictionary<int, IToolConfig>> _dictionaryLibraryConfig;
         
@@ -32,7 +32,7 @@ namespace Tools.ScriptableObjects
             try
             {
                 _dictionaryLibraryConfig = new Dictionary<ToolType, Dictionary<int, IToolConfig>>();
-                foreach (ConfigsToolByType libraryByType in _libraryConfigs)
+                foreach (ConfigsToolByType libraryByType in _libraryToolConfigs)
                 {
                     ToolType type = libraryByType.Type;
                     
@@ -49,8 +49,12 @@ namespace Tools.ScriptableObjects
                         
                         if (config == null)
                             throw new InvalidOperationException($"Null config found at index {i} for tool type: {type}");
+                        
+                        config.Level = i + 1;
+                        
                         if (dictionary.ContainsKey(config.Level))
                             throw new InvalidOperationException($"Duplicate level {config.Level} found for tool type: {type}");
+                        
                         
                         config.Type = type;
                         dictionary.Add(config.Level, config);

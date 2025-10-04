@@ -6,7 +6,7 @@ namespace Wallets
     {
         private int _count;
         
-        public event Action<int> OnChangedCoin;
+        public event Action<int> OnChanged;
 
         public Wallet(int count = 0)
         {
@@ -19,7 +19,7 @@ namespace Wallets
             private set
             {
                 _count = value; 
-                OnChangedCoin?.Invoke(_count);
+                OnChanged?.Invoke(_count);
             }
         }
 

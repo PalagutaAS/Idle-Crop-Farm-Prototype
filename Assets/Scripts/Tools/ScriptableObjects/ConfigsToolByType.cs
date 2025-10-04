@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Tools.Interface;
+using UnityEngine;
 
 namespace Tools.ScriptableObjects
 {
@@ -7,10 +8,10 @@ namespace Tools.ScriptableObjects
     public class ConfigsToolByType : ScriptableObject
     {
         [SerializeField] private ToolType _type;
-        [SerializeField] private BaseConfig[] _toolConfigs;
+        [SerializeField] private ToolConfig[] _toolConfigs;
         
         public ToolType Type => _type;
-        public BaseConfig[] ToolConfigs => _toolConfigs;
+        public IToolConfig[] ToolConfigs => _toolConfigs;
 
     }
 }

@@ -32,7 +32,7 @@ namespace Tools
 
         private void Construct()
         {
-            _cropFinder = new CropFinder(this, _layerMask);
+            _cropFinder = new CropFinder(this, _layerMask, _toolConfig.HarvestableCrops);
             _follow = new Follow(this, _parentModel, _slot.Transform);
             _animatorHarvest = new AnimatorHarvest(_parentModel, _animDuration);
             _modelChanger = new ChildModelChanger(_parentModel, _toolConfig.Model);
@@ -52,15 +52,15 @@ namespace Tools
             _follow.ToSlot();
         }
 
-        private void CropHarvest(Crop crop)
+        private void CropHarvest(BaseCrop baseCrop)
         {
-            int cropCount = crop.OnHarvest();
-            _player.Inventory.Add(crop.Type, cropCount);
+            int cropCount = baseCrop.OnHarvest();
+            _player.Inventory.Add(baseCrop.Type, cropCount);
 
             StartCoroutine(CooldownCoroutine());
         }
 
-        public void TriggerEnter(Crop component)
+        public void TriggerEnter(BaseCrop component)
         {
             IsCooldown = true;
             component.PreparingForHarvest();
@@ -68,10 +68,10 @@ namespace Tools
             StartCoroutine(DelayBeforeHarvest(_animDuration, component));
         }
         
-        private IEnumerator DelayBeforeHarvest(float delay, Crop crop)
+        private IEnumerator DelayBeforeHarvest(float delay, BaseCrop baseCrop)
         {
             yield return new WaitForSeconds(delay);
-            CropHarvest(crop);
+            CropHarvest(baseCrop);
         }
         
         private IEnumerator CooldownCoroutine()

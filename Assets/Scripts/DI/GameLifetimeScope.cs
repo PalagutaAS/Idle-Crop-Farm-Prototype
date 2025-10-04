@@ -1,5 +1,6 @@
 using AI;
 using AI.ScriptableObjects;
+using Fields.ScriptableObjects;
 using ObjectPull;
 using ObjectPull.ScriptableObjects;
 using Offers;
@@ -28,27 +29,47 @@ namespace DI
         [Space,Header("Scriptable Object Register")]
         [SerializeField] private PoolConfigsSO _poolConfigsSo; 
         [SerializeField] private LibraryConfigsByLevel _toolLibraryConfig; 
+        [SerializeField] private ConfigLibraryFieldsByType _fieldLibraryConfig; 
         [SerializeField] private CustomerModels _customerModels;
         [SerializeField] private QueueConfig _queueConfig;
         
+        private IContainerBuilder _builder;
+
         protected override void Configure(IContainerBuilder builder)
         {
+            _builder = builder;
             
-            builder.RegisterInstance(_customerModels);
-            builder.RegisterInstance(_poolConfigsSo);
-            builder.RegisterInstance(_toolLibraryConfig);
-            builder.RegisterInstance(_queueConfig);
+            _builder.RegisterInstance(_player).As<IPlayer, ThirdPersonController>();
             
-            builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-            builder.RegisterInstance(_player).As<IPlayer, ThirdPersonController>();
-            builder.Register<CustomerFactory>(Lifetime.Scoped);
-            builder.Register<Inventory>(Lifetime.Scoped);
-            builder.Register<Wallet>(Lifetime.Scoped).WithParameter(120);
-            builder.Register<PrintCoinCount>(Lifetime.Scoped);
-            builder.Register<OfferRandomService>(Lifetime.Transient);
-            builder.Register<IToolFactory, ToolFactory>(Lifetime.Scoped);
-            builder.RegisterInstance(_toolPrefab).As<Tool>();
-            builder.RegisterInstance(_customerController);
+            RegisterPrefabs();
+            RegisterScriptableObjects();
+            Register();
+        }
+
+        private void Register()
+        {
+            _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            _builder.Register<CustomerFactory>(Lifetime.Scoped);
+            _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
+            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter(2500);
+            _builder.Register<PrintCount>(Lifetime.Scoped);
+            _builder.Register<OfferRandomService>(Lifetime.Transient);
+            _builder.Register<IToolFactory, ToolFactory>(Lifetime.Scoped);
+        }
+
+        private void RegisterScriptableObjects()
+        {
+            _builder.RegisterInstance(_poolConfigsSo);
+            _builder.RegisterInstance(_toolLibraryConfig);
+            _builder.RegisterInstance(_queueConfig);
+            _builder.RegisterInstance(_fieldLibraryConfig);
+        }
+
+        private void RegisterPrefabs()
+        {
+            _builder.RegisterInstance(_toolPrefab).As<Tool>();
+            _builder.RegisterInstance(_customerModels);
+            _builder.RegisterInstance(_customerController);
         }
     }
 }
