@@ -10,6 +10,6 @@ namespace Tools.Interface
         public GameObject Model { get; }
         public float Radius { get; }
         float TimeOut { get; }
-        public CropType[] HarvestableCrops { get; }
+        public CropType HarvestableCrops { get; }
     }
 }

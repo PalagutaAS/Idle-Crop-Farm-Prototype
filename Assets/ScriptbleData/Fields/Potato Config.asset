@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Potato Config
   m_EditorClassIdentifier: 
   _price: 500
-  _typeField: 3
+  _typeField: 4

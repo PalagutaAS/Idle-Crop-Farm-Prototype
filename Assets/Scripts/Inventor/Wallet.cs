@@ -1,15 +1,16 @@
 ﻿using System;
+using Inventor;
 
 namespace Wallets
 {
-    public class Wallet : IWallet
+    public class Wallet : IWallet, IValueSource
     {
         private int _count;
+        private readonly MoneyType _type;
         
-        public event Action<int> OnChanged;
-
-        public Wallet(int count = 0)
+        public Wallet(MoneyType type = MoneyType.Coin, int count = 0)
         {
+            _type = type;
             Count = count;
         }
 
@@ -19,7 +20,7 @@ namespace Wallets
             private set
             {
                 _count = value; 
-                OnChanged?.Invoke(_count);
+                OnChangedByType?.Invoke((InventoryType)_type, _count);
             }
         }
 
@@ -34,6 +35,12 @@ namespace Wallets
         public void Payout(int count)
         {
             Count += count;
+        }
+
+        public event Action<InventoryType, int> OnChangedByType;
+        public int CheckCountByType(InventoryType type)
+        {
+            return ((InventoryType)_type == type) ? Count : 0;
         }
     }
 }

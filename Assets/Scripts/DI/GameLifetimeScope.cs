@@ -1,6 +1,7 @@
 using AI;
 using AI.ScriptableObjects;
 using Fields.ScriptableObjects;
+using Inventor;
 using ObjectPull;
 using ObjectPull.ScriptableObjects;
 using Offers;
@@ -51,8 +52,7 @@ namespace DI
             _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             _builder.Register<CustomerFactory>(Lifetime.Scoped);
             _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
-            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter(2500);
-            _builder.Register<PrintCount>(Lifetime.Scoped);
+            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter<MoneyType>(MoneyType.Coin).WithParameter<int>(2500);
             _builder.Register<OfferRandomService>(Lifetime.Transient);
             _builder.Register<IToolFactory, ToolFactory>(Lifetime.Scoped);
         }

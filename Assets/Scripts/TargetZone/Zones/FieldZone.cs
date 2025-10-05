@@ -21,7 +21,7 @@ namespace TargetZone.Zones
         
         private void NeedRefreshByChangedMoney()
         {
-            _wallet.OnChanged += RefreshPanelByChange;
+            _wallet.OnChangedByType += RefreshPanelByChange;
         }
         
         protected override bool CanOpenPanel()

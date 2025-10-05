@@ -50,8 +50,8 @@
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
     <Compile Include="Assets\Scripts\UI\PrintCount.cs" />
+    <Compile Include="Assets\Scripts\Inventor\Inventory.cs" />
     <Compile Include="Assets\Scripts\IInput.cs" />
-    <Compile Include="Assets\Scripts\Wallets\Wallet.cs" />
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
@@ -78,6 +78,8 @@
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewFieldCommand.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigSO.cs" />
+    <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigLibraryFieldsByType.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
@@ -86,7 +88,6 @@
     <Compile Include="Assets\Scripts\AI\Zone\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryConfigsByLevel.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonService\ButtonPrepareService.cs" />
-    <Compile Include="Assets\Scripts\Tools\ToolType.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerQueuePosition.cs" />
@@ -105,14 +106,13 @@
     <Compile Include="Assets\Scripts\DrawCircle.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\UpgradeZone.cs" />
+    <Compile Include="Assets\Scripts\Inventor\Wallet.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolManager.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />
-    <Compile Include="Assets\Scripts\Wallets\IWallet.cs" />
     <Compile Include="Assets\Scripts\Tools\Varieties\Pickaxe.cs" />
     <Compile Include="Assets\Scripts\Fields\Field.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ToolConfig.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolConfig.cs" />
-    <Compile Include="Assets\Scripts\Wallets\Inventory.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\StartZone.cs" />
     <Compile Include="Assets\Scripts\TargetZone\BaseInteractionZone.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IPlayer.cs" />
