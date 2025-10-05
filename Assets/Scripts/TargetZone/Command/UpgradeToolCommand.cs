@@ -14,12 +14,12 @@ namespace TargetZone.Command
         {
             _configByLevel = configByLevels;
             _tool = tool;
-            Title = $"Upgrade Tool:{_configByLevel.Cost}";
+            Title = $"Upgrade {tool.Type.ToString()} {tool.CurrentLevel+1} lvl : {_configByLevel.Cost}";
         }
 
         public bool CanExecute(IPlayer player)
         {
-            return player.Wallet.Count >= _configByLevel.Cost;
+            return (player.Wallet.Count >= _configByLevel.Cost);
             //TO DO ckeck max lvl tool;
         }
 

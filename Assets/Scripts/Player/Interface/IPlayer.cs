@@ -1,8 +1,6 @@
 ﻿using Inventor;
-using Player.Tools;
 using Tools.Interface;
 using UnityEngine;
-using Wallets;
 
 namespace Player.Interface
 {
@@ -10,7 +8,7 @@ namespace Player.Interface
     {
         Transform Transform { get; }
         Inventory Inventory { get; }
-        Wallet Wallet { get; }
+        IWallet Wallet { get; }
         
         IToolManager Tools { get; }  
     }

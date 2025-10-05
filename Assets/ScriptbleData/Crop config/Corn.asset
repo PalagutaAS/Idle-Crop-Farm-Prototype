@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Corn
   m_EditorClassIdentifier: 
   _count: 1
+  _scatter:
+    _min: 0
+    _max: 1
+  _weight: 0.1
+  _pricePerUnit: 5
   _growTime: 50
   _model: {fileID: 0}
   _type: 2

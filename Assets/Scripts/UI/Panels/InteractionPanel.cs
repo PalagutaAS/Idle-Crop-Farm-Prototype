@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ObjectPull;
 using Player;
+using Player.Interface;
 using TargetZone.Interfaces;
 using UI.ButtonService;
 using UnityEngine;
@@ -17,13 +18,13 @@ namespace UI.Panels
         [SerializeField] private Transform _buttonsContainer;
         
         private PoolManager _poolManager;
-        private ThirdPersonController _player;
+        private IPlayer _player;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
         private ButtonPrepareService _buttonPrepare;
         public event Action OnClickButton;
 
         [Inject]
-        private void Constructor(PoolManager poolManager, ThirdPersonController player)
+        private void Constructor(PoolManager poolManager, IPlayer player)
         {
             _player = player;
             _poolManager = poolManager;

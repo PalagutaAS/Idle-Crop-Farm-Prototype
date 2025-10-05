@@ -6961,7 +6961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ce810afd35704da0745dd7a6e9506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnRate: 10
+  _spawnRate: 2
 --- !u!114 &1004096581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8657,7 +8657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObjectPanel: {fileID: 1451868260}
-  _fieldService: {fileID: 1089076736}
 --- !u!65 &1228383433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12006,14 +12005,16 @@ MonoBehaviour:
   - {fileID: 1455540429}
   - {fileID: 1451868260}
   _player: {fileID: 1031485471}
+  _fieldService: {fileID: 1089076736}
   _toolPrefab: {fileID: 676384791396300411, guid: 325ba0279810cf847bd74a67dea6ccb7,
     type: 3}
   _customerController: {fileID: 1883693290738159634, guid: 2ffe5bfbfcbd04041b0425f858afe73f,
     type: 3}
   _poolConfigsSo: {fileID: 11400000, guid: 6cd234826074ef24aaa7f761527cd6aa, type: 2}
-  _toolLibraryConfig: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
-  _fieldLibraryConfig: {fileID: 11400000, guid: 8284c4efee64d7e42979442bbb6a1809,
+  _libraryToolConfig: {fileID: 11400000, guid: 11cd24dfb677b194b870d773bf00865a, type: 2}
+  _libraryFieldConfig: {fileID: 11400000, guid: 8284c4efee64d7e42979442bbb6a1809,
     type: 2}
+  _libraryCropConfig: {fileID: 11400000, guid: 3d094cad678f20e44965afe114afa4fd, type: 2}
   _customerModels: {fileID: 11400000, guid: a678b4021c8e5b84bba5fb237780dc4b, type: 2}
   _queueConfig: {fileID: 11400000, guid: 0aee9c1a2b4ca42488b8e9459652034e, type: 2}
 --- !u!4 &1757223478
@@ -15434,7 +15435,7 @@ PrefabInstance:
     - target: {fileID: 4713975667591671929, guid: d268a2377f4ce92489bf6a6e7a865b43,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15531,7 +15532,7 @@ PrefabInstance:
     - target: {fileID: 2639821962504808282, guid: d924bde178e74ba4fa8fec89380540c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321873314650367055, guid: d924bde178e74ba4fa8fec89380540c0,
         type: 3}

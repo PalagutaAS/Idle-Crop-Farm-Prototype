@@ -11,15 +11,9 @@ namespace TargetZone.Zones
     {
         [Inject] private LibraryConfigsByLevel _libraryConfigs;
         
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             NeedRefreshByOnClickButton();
-        }
-
-        private void NeedRefreshByOnClickButton()
-        {
-            _panel.OnClickButton += RefreshPanel;
         }
 
         protected override bool CanOpenPanel()

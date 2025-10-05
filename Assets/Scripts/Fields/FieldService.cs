@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace Fields
 {
-    public class FieldService : MonoBehaviour
+    public class FieldService : MonoBehaviour, IFieldService, IInitializable
     {
         private Dictionary<CropType, List<Field>> _fieldsDictionary = new ();
         
-        private void Awake()
+        public void Initialize()
         {
              CollectFields();
         }
@@ -36,7 +38,41 @@ namespace Fields
                 }
             }
         }
+
+        public bool HasActiveField(CropType type)
+        {
+            if (!_fieldsDictionary.ContainsKey(type)) return false;
+            
+            foreach (var field in _fieldsDictionary[type])
+            {
+                if (field.gameObject.activeSelf) return true;
+            }
+            return false;
+        }
         
+        
+        public Dictionary<CropType, int> GetActiveCropType()
+        {
+            Dictionary<CropType, int> fieldsDictionary = new();
+
+            foreach (var keyValue in _fieldsDictionary)
+            {
+                if (keyValue.Value.Count == 0) continue;
+                
+                int i = 0;
+                foreach (var field in keyValue.Value)
+                {
+                    i += field.gameObject.activeSelf ? 1 : 0;
+                }
+                
+                if (i == 0) continue;
+                
+                fieldsDictionary[keyValue.Key] = i;
+            }
+
+            return fieldsDictionary;
+        }
+
         private void CollectFields()
         {
             Field[] fields = GetComponentsInChildren<Field>(true);

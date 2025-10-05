@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Reflection.Emit;
 using Inventor;
-using Player;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI;
@@ -23,11 +21,18 @@ namespace TargetZone
         private void Constructor(Wallet wallet)
         {
             _wallet = wallet;
+            _panel = _gameObjectPanel.GetComponent<IPanel>();
         }
         
-        protected virtual void Awake()
+        protected void NeedRefreshByOnClickButton()
         {
-            _panel = _gameObjectPanel.GetComponent<IPanel>();
+            _panel.OnClickButton += RefreshPanel;
+        }
+        
+        protected void NeedRefreshByChangedMoney()
+        {
+            
+            _wallet.OnChangedByType += (_,_) => RefreshPanel();
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -41,11 +46,9 @@ namespace TargetZone
 
         protected virtual void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out ThirdPersonController player))
+            if (other.TryGetComponent(out IPlayer player))
             {
-                _player = null;
                 OnPlayerExit();
-                _panel.Close();
             }
         }
 
@@ -60,7 +63,8 @@ namespace TargetZone
 
         protected virtual void OnPlayerExit()
         {
-            // Базовая реализация - закрытие панели
+            _player = null;
+            _panel.Close();
         }
 
         protected virtual void RefreshPanel()
@@ -70,11 +74,6 @@ namespace TargetZone
                 var commands = GenerateCommands();
                 _panel.Open(commands);
             }
-        }
-
-        protected void RefreshPanelByChange(InventoryType inventoryType, int i)
-        {
-            RefreshPanel();
         }
 
         protected abstract bool CanOpenPanel();

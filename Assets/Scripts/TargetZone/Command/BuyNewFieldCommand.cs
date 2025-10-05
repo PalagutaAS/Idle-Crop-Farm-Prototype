@@ -9,9 +9,9 @@ namespace TargetZone.Command
     {
         public string Title { get; }
         private readonly IFieldConfig _config;
-        private readonly FieldService _fieldService;
+        private readonly IFieldService _fieldService;
 
-        public BuyNewFieldCommand(IFieldConfig config, FieldService fieldService)
+        public BuyNewFieldCommand(IFieldConfig config, IFieldService fieldService)
         {
             _config = config;
             _fieldService = fieldService;
