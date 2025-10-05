@@ -1,47 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
-using VContainer;
-using Wallets;
 
 namespace UI
 {
     public class PrintCount : MonoBehaviour
     {
-        [SerializeField] private CropType _type;
-        private Text _text;
-
-        [Inject]
-        private void Constructor(IChangedInventory inventoryItem, IWallet wallet)
-        {
-            _text = GetComponent<Text>();
-            if (_type == CropType.None)
-            {
-                wallet.OnChanged += PrintCoin;
-                Print(wallet.Count.ToString());
-            }
-            else
-            {
-                inventoryItem.OnChangedByType += PrintByType; 
-            }
-        }
-
-        private void PrintByType(CropType type, int count)
-        {
-            if (_type == type)
-            {
-                Print(count.ToString());
-            }
-        }
+        [SerializeField] private InventoryType _type;
+        [SerializeField] private Text _text;
+        public InventoryType GetSupportType => _type;
         
-        private void PrintCoin(int count)
+        public void Print(int count)
         {
-            Print(count.ToString());
+            _text.text = count.ToString();
         }
-
-        private void Print(string text)
-        {
-            _text.text = text;
-        }
-        
     }
 }

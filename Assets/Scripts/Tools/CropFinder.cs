@@ -9,8 +9,8 @@ namespace Tools
         private readonly Tool _tool;
         private readonly LayerMask _layerMask;
         private readonly Collider[] _hitColliders;
-        private readonly CropType[] _cropType;
-        public CropFinder(Tool tool, LayerMask layerMask, CropType[] type)
+        private readonly CropType _cropType;
+        public CropFinder(Tool tool, LayerMask layerMask, CropType type)
         {
             _tool = tool;
             _layerMask = layerMask;
@@ -25,7 +25,7 @@ namespace Tools
             
             for (int i = 0; i < count; i++)
             {
-                if (!_hitColliders[i].TryGetComponent(out BaseCrop crop) || !((IList) _cropType).Contains(crop.Type) || crop.IsHarvesting) continue;
+                if (!_hitColliders[i].TryGetComponent(out BaseCrop crop) || !_cropType.HasFlag(crop.Type) || crop.IsHarvesting) continue;
                 
                 _tool.TriggerEnter(crop);
                 return;

@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace Wallets
+namespace Inventor
 {
-    public class Inventory : IChangedInventory
+    public class Inventory : IValueSource, IInventoryChanger
     {
         private readonly Dictionary<CropType, int> _dictionary;
         
-        public event Action<CropType, int> OnChangedByType;
+        public event Action<InventoryType, int> OnChangedByType;
         
         public Inventory()
         {
@@ -17,10 +16,10 @@ namespace Wallets
 
         public bool Remove(CropType type, int count)
         {
-            if (!Check(type, count)) return false;
+            if (!HasEnoughByCrop(type, count)) return false;
 
             _dictionary[type] -= count;
-            OnChangedByType?.Invoke(type, _dictionary[type]);
+            OnChangedByType?.Invoke((InventoryType)type, _dictionary[type]);
             return true;
         }
         
@@ -32,15 +31,10 @@ namespace Wallets
             }
 
             _dictionary[type] += count;
-            OnChangedByType?.Invoke(type, _dictionary[type]);
+            OnChangedByType?.Invoke((InventoryType)type, _dictionary[type]);
         }
 
-        public bool Check(CropType type, int count)
-        {
-            if (!_dictionary.ContainsKey(type)) return false;
-            
-            int currentCount = _dictionary[type];
-            return count <= currentCount;
-        }
+        public bool HasEnoughByCrop(CropType type, int count) => count <= CheckCountByType((InventoryType)type);
+        public int CheckCountByType(InventoryType type) => _dictionary.ContainsKey((CropType)type) ? _dictionary[(CropType)type]: 0;
     }
 }

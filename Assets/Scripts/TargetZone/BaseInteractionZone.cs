@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Reflection.Emit;
+using Inventor;
 using Player;
 using Player.Interface;
 using TargetZone.Interfaces;
@@ -12,11 +14,17 @@ namespace TargetZone
     public abstract class BaseInteractionZone : MonoBehaviour
     {
         [SerializeField] protected GameObject _gameObjectPanel;
-        
-        [Inject] protected IWallet _wallet;
+
+        protected IValueSource _wallet;
         protected IPlayer _player;
         protected IPanel _panel;
-
+        
+        [Inject]
+        private void Constructor(Wallet wallet)
+        {
+            _wallet = wallet;
+        }
+        
         protected virtual void Awake()
         {
             _panel = _gameObjectPanel.GetComponent<IPanel>();
@@ -64,7 +72,7 @@ namespace TargetZone
             }
         }
 
-        protected void RefreshPanelByChange(int i)
+        protected void RefreshPanelByChange(InventoryType inventoryType, int i)
         {
             RefreshPanel();
         }

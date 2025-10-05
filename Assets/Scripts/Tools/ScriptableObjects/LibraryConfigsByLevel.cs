@@ -51,17 +51,9 @@ namespace Tools.ScriptableObjects
                             throw new InvalidOperationException($"Null config found at index {i} for tool type: {type}");
                         
                         config.Level = i + 1;
-                        
-                        if (dictionary.ContainsKey(config.Level))
-                            throw new InvalidOperationException($"Duplicate level {config.Level} found for tool type: {type}");
-                        
-                        
                         config.Type = type;
                         dictionary.Add(config.Level, config);
                     }
-                    
-                    if (!dictionary.ContainsKey(1))
-                        throw new InvalidOperationException($"Tool type {type} must have a config with level 1");
 
                     _dictionaryLibraryConfig.Add(type, dictionary);
                 }

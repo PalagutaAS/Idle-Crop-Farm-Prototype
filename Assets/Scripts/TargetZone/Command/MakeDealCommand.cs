@@ -18,7 +18,7 @@ namespace TargetZone.Command
         public bool CanExecute(IPlayer player)
         {
             var offer = _customer.Offer;
-            return _customer.Offer.Active && player.Inventory.Check(offer.Type, offer.Count);
+            return _customer.Offer.Active && player.Inventory.HasEnoughByCrop(offer.Type, offer.Count);
         }
 
         public void Execute(IPlayer player)

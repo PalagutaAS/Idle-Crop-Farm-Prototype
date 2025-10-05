@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4019007649836208501}
-  - component: {fileID: 5181243272655717035}
   - component: {fileID: 8013619880830065969}
+  - component: {fileID: 5181243272655717035}
   m_Layer: 6
   m_Name: Corn
   m_TagString: Untagged
@@ -34,19 +34,6 @@ Transform:
   - {fileID: 6418150286479987154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5181243272655717035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957897482512544214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2cef9ed47f04a09a98d4f3a22cae21e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: c9f13d04a3ccbc4488ad720cb9f75b31, type: 2}
 --- !u!65 &8013619880830065969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.33, y: 1.33, z: 0.33}
   m_Center: {x: 0, y: 0.66, z: 0}
+--- !u!114 &5181243272655717035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957897482512544214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cef9ed47f04a09a98d4f3a22cae21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: c9f13d04a3ccbc4488ad720cb9f75b31, type: 2}
 --- !u!1001 &6817148921283573305
 PrefabInstance:
   m_ObjectHideFlags: 0
