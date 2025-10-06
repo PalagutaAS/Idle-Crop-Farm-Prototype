@@ -5,7 +5,7 @@ using VContainer.Unity;
 
 namespace ObjectPull
 {
-    public class PoolManager : IInitializable
+    public class PoolManager : IInitializable, IPoolManager
     {
         private readonly PoolConfigsSO _poolConfigs;
         private readonly Dictionary<string, ObjectPool> _pools;
@@ -90,5 +90,12 @@ namespace ObjectPull
             }
             return null;
         }
+    }
+
+    public interface IPoolManager
+    {
+        public void ReturnObject(GameObject obj);
+        public GameObject GetObject(GameObject prefab);
+        public T GetObject<T>(GameObject prefab) where T : Component;
     }
 }

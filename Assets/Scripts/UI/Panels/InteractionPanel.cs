@@ -17,14 +17,14 @@ namespace UI.Panels
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
         
-        private PoolManager _poolManager;
+        private IPoolManager _poolManager;
         private IPlayer _player;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
         private ButtonPrepareService _buttonPrepare;
         public event Action OnClickButton;
 
         [Inject]
-        private void Constructor(PoolManager poolManager, IPlayer player)
+        private void Constructor(IPoolManager poolManager, IPlayer player)
         {
             _player = player;
             _poolManager = poolManager;

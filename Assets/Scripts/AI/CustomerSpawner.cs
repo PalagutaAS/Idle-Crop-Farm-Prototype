@@ -9,12 +9,12 @@ namespace AI
     {
         [SerializeField] private float _spawnRate;
 
-        private OfferService _offerService;
-        private CustomerFactory _factory;
+        private IOfferRandomService _offerService;
+        private ICustomerFactory _factory;
         public event Action<CustomerController> OnCustomerCreated;
 
         [Inject]
-        private void Constructor(CustomerFactory factory, OfferService offerRandomService)
+        private void Constructor(ICustomerFactory factory, IOfferRandomService offerRandomService)
         {
             _factory = factory;
             _offerService = offerRandomService;

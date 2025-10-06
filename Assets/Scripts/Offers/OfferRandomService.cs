@@ -1,22 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Crops.ScriptableObjects;
+using Fields;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Offers
 {
-    public class OfferRandomService
+    public class OfferRandomService : IOfferRandomService
     {
         private readonly LibraryCropConfigs _libraryCropConfigs;
-        
-        public OfferRandomService(LibraryCropConfigs libraryCropConfigs)
+        private readonly IFieldService _fieldService;
+
+        public OfferRandomService(LibraryCropConfigs libraryCropConfigs, IFieldService fieldService)
         {
             _libraryCropConfigs = libraryCropConfigs;
+            _fieldService = fieldService;
         }
         
-        public Offer GetRandomOffer(Dictionary<CropType, int> activeCropFields)
+        public Offer GetRandom()
         {
+            Dictionary<CropType, int> activeCropFields = _fieldService.GetActiveCropType();
+                
             List<CropType> keysList = activeCropFields.Keys.ToList();
             if (keysList.Count == 0)
             {
@@ -41,6 +46,7 @@ namespace Offers
             int count = Mathf.Max(activeCount, Random.Range(min, max) + additional);
             return count;
         }
+        
         private int RandomPrice(CropConfig config, int count)
         {
             int priceForAll = config.Price * count;
@@ -55,5 +61,10 @@ namespace Offers
 
             return Mathf.Max(1, Random.Range(priceForAll + additional, priceForAll));
         }
+    }
+
+    public interface IOfferRandomService
+    {
+        public Offer GetRandom();
     }
 }
