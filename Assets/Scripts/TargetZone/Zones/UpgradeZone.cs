@@ -9,7 +9,7 @@ namespace TargetZone.Zones
 {
     public class UpgradeZone : BaseInteractionZone
     {
-        [Inject] private LibraryConfigsByLevel _libraryConfigs;
+        [Inject] private LibraryToolConfigs _libraryToolConfigs;
         
         protected void Awake()
         {
@@ -24,10 +24,10 @@ namespace TargetZone.Zones
         protected override List<IInteractionCommand> GenerateCommands()
         {
             var commands = new List<IInteractionCommand>();
-            var types = _libraryConfigs.GetUsingTypes();
+            var types = _libraryToolConfigs.GetUsingTypes();
             foreach (var type in types)
             {
-                IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(type, 1);
+                IToolConfig toolConfig = _libraryToolConfigs.GetConfigByLevel(type, 1);
                 commands.Add(new BuyNewToolCommand(toolConfig));
             }
             
@@ -37,7 +37,7 @@ namespace TargetZone.Zones
             for (int i = 0; i < countTool; i++)
             {
                 var level = currentTools[i].CurrentLevel;
-                IToolConfig toolConfig = _libraryConfigs.GetConfigByLevel(currentTools[i].Type,level + 1);
+                IToolConfig toolConfig = _libraryToolConfigs.GetConfigByLevel(currentTools[i].Type,level + 1);
                 if (toolConfig == null) continue;
                 commands.Add(new UpgradeToolCommand(toolConfig, currentTools[i]));
             }

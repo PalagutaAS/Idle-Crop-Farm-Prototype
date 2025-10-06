@@ -4,8 +4,8 @@ using UnityEngine;
 namespace Fields.ScriptableObjects
 {
     
-    [CreateAssetMenu(fileName = "New Field Configs By Type", menuName = "Fields/Configs By Type")]
-    public class ConfigLibraryFieldsByType : ScriptableObject , ILibraryFieldConfig
+    [CreateAssetMenu(fileName = "New Library Field Configs", menuName = "Library Configs/New Library Field Config")]
+    public class LibraryFieldConfigs : ScriptableObject , ILibraryFieldConfig
     {
         [SerializeField] private ConfigField[] _configFields;
         

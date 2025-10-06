@@ -13,7 +13,7 @@ namespace Player.Tools
     public class PlayerTools : MonoBehaviour, IToolManager
     {
         [SerializeField] private Slot[] _slots;
-        [SerializeField] private LibraryConfigsByLevel _libraryConfigs;
+        [SerializeField] private LibraryToolConfigs _libraryToolConfigs;
     
         private IToolFactory _toolFactory;
         private IPlayer _player;
@@ -21,11 +21,11 @@ namespace Player.Tools
         public int CountSlots => _slots.Length;
 
         [Inject]
-        public void Constructor(IPlayer player, IToolFactory toolFactory, LibraryConfigsByLevel libraryConfigs)
+        public void Constructor(IPlayer player, IToolFactory toolFactory, LibraryToolConfigs libraryToolConfigs)
         {
             _player = player;
             _toolFactory = toolFactory;
-            _libraryConfigs = libraryConfigs;
+            _libraryToolConfigs = libraryToolConfigs;
         }
     
         public bool TrySetupNewTool(ToolType type)
@@ -33,7 +33,7 @@ namespace Player.Tools
             ISlot freeSlot = GetEmptySlot();
             if (freeSlot == null) return false;
 
-            var config = _libraryConfigs.GetConfigByLevel(type,1);
+            var config = _libraryToolConfigs.GetConfigByLevel(type,1);
             ITool newTool = _toolFactory.CreateTool();
             newTool.Initialize(_player, freeSlot, config);
         

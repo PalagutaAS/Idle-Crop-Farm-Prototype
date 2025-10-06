@@ -25,7 +25,7 @@ namespace TargetZone.Zones
             if (_currentCustomer != null && other.TryGetComponent(out CustomerController customer))
             {
                 _currentCustomer = null;
-                _panel.Close();
+                RefreshPanel();
             }
             
             base.OnTriggerExit(other);
@@ -33,16 +33,17 @@ namespace TargetZone.Zones
 
         protected override bool CanOpenPanel()
         {
-            return _player != null && _currentCustomer != null;
+            return _player != null;
         }
 
         protected override List<IInteractionCommand> GenerateCommands()
         {
-            return new List<IInteractionCommand>
+            return (_currentCustomer) ? new List<IInteractionCommand>
             {
                 new MakeDealCommand(_currentCustomer),
                 new BreakDealCommand(_currentCustomer)
-            };
+            } : new List<IInteractionCommand>();
+
         }
     }
 }

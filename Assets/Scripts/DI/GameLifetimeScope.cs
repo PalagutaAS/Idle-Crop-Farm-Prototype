@@ -31,9 +31,9 @@ namespace DI
         
         [Space,Header("Scriptable Object Register")]
         [SerializeField] private PoolConfigsSO _poolConfigsSo; 
-        [SerializeField] private LibraryConfigsByLevel _libraryToolConfig; 
-        [SerializeField] private ConfigLibraryFieldsByType _libraryFieldConfig; 
-        [SerializeField] private LibraryCropConfigs _libraryCropConfig; 
+        [SerializeField] private LibraryToolConfigs _libraryToolConfig; 
+        [SerializeField] private LibraryFieldConfigs _libraryFieldConfigs; 
+        [SerializeField] private LibraryCropConfigs _libraryCropConfigs; 
         [SerializeField] private CustomerModels _customerModels;
         [SerializeField] private QueueConfig _queueConfig;
         
@@ -66,8 +66,8 @@ namespace DI
             _builder.RegisterInstance(_poolConfigsSo);
             _builder.RegisterInstance(_libraryToolConfig);
             _builder.RegisterInstance(_queueConfig);
-            _builder.RegisterInstance(_libraryFieldConfig);
-            _builder.RegisterInstance(_libraryCropConfig);
+            _builder.RegisterInstance(_libraryFieldConfigs);
+            _builder.RegisterInstance(_libraryCropConfigs);
         }
 
         private void RegisterPrefabs()

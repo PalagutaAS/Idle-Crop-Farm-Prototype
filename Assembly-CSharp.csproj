@@ -62,12 +62,14 @@
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\CropConfig.cs" />
     <Compile Include="Assets\Scripts\UI\Panel.cs" />
     <Compile Include="Assets\Scripts\AI\ScriptableObjects\QueueConfig.cs" />
+    <Compile Include="Assets\Scripts\Fields\ScriptableObjects\LibraryFieldConfigs.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\ITool.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\LibraryCropConfigs.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\BaseConfig.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryToolConfigs.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolableObject.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\MakeDealCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
@@ -82,12 +84,10 @@
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigSO.cs" />
     <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
     <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
-    <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigLibraryFieldsByType.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
     <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\TradeZone.cs" />
-    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryConfigsByLevel.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonService\ButtonPrepareService.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />

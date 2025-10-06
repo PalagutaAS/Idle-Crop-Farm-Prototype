@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Tools.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Library Configs", menuName = "Custom/Library Configs")]
-    public class LibraryConfigsByLevel : ScriptableObject, ILibraryToolConfigs
+    [CreateAssetMenu(fileName = "New Library Tool Configs", menuName = "Library Configs/Library Tool Configs")]
+    public class LibraryToolConfigs : ScriptableObject, ILibraryToolConfigs
     {
         [SerializeField] private ConfigsToolByType[] _libraryToolConfigs;
 
