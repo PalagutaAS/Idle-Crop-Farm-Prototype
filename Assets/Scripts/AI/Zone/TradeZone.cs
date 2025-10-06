@@ -11,13 +11,11 @@ namespace AI
         protected override void SendEnterInvoke(CustomerController customer)
         {
             OnCustomerEnterTradeZone?.Invoke(customer);
-            //Debug.Log("Enter Trade Zone");
         }
 
         protected override void SendExitInvoke(CustomerController customer)
         {
             OnCustomerExitTradeZone?.Invoke(customer);
-            //Debug.Log("Exit Trade Zone");
         }
         
     }

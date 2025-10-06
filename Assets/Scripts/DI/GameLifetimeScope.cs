@@ -56,7 +56,7 @@ namespace DI
             _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CustomerFactory>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
-            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter<MoneyType>(MoneyType.Coin).WithParameter<int>(2500);
+            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter(MoneyType.Coin).WithParameter(1000);
             _builder.Register<OfferRandomService>(Lifetime.Transient).AsImplementedInterfaces();
             _builder.Register<ToolFactory>(Lifetime.Scoped).As<IToolFactory>();
         }

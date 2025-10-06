@@ -1,8 +1,12 @@
-﻿namespace Crops
+﻿using UnityEngine;
+
+namespace Crops
 {
     public interface ICrop
     {
         public CropType Type { get; }
+        
+        public Vector3 Position { get; }
         public int OnHarvest();
         public bool IsHarvesting { get; }
         public void PreparingForHarvest();
