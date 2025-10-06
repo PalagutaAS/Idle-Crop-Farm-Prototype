@@ -33,4 +33,7 @@ public enum InventoryType
     Potato = CropType.Potato,
     Coin = MoneyType.Coin,
     Emerald = MoneyType.Emerald,
+    Pickaxe = ToolType.Pickaxe,
+    Axe = ToolType.Axe,
+    Shovel = ToolType.Shovel,
 }

@@ -6,6 +6,9 @@ namespace Crops.ScriptableObjects
     public class CropConfig : ScriptableObject
     {
         [SerializeField] private int _count;
+        [SerializeField] private Scatter _scatter;
+        [SerializeField, Range(0, 1)] private float _weight;
+        [SerializeField] private int _pricePerUnit;
         [SerializeField] private float _growTime;
         [SerializeField] private GameObject _model;
         [SerializeField] private CropType _type;
@@ -14,5 +17,18 @@ namespace Crops.ScriptableObjects
         public float GrowTime => _growTime;
         public GameObject Model => _model;
         public CropType Type => _type;
+        public int Price => _pricePerUnit;
+        public Scatter Scatter => _scatter;
+        public float Weight => _weight;
+    }
+
+    [System.Serializable]
+    public class Scatter
+    {
+        [SerializeField, Range(-10, 0)] private int _min;
+        [SerializeField, Range(0, 10)] private int _max;
+
+        public int Min => _min;
+        public int Max => _max;
     }
 }

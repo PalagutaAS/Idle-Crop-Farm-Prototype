@@ -9,12 +9,12 @@ namespace AI
     {
         [SerializeField] private float _spawnRate;
 
-        private OfferRandomService _offerService;
+        private OfferService _offerService;
         private CustomerFactory _factory;
         public event Action<CustomerController> OnCustomerCreated;
 
         [Inject]
-        private void Constructor(CustomerFactory factory, OfferRandomService offerRandomService)
+        private void Constructor(CustomerFactory factory, OfferService offerRandomService)
         {
             _factory = factory;
             _offerService = offerRandomService;
@@ -28,7 +28,7 @@ namespace AI
         private void Spawn()
         {
             var customer = _factory.Create();
-            customer.SetOffer(_offerService.GetRandomOffer());
+            customer.SetOffer(_offerService.GetRandom());
             OnCustomerCreated?.Invoke(customer);
             Invoke(nameof(Spawn), _spawnRate);
         }

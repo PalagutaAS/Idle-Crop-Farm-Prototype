@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   _count: 2
+  _scatter:
+    _min: -1
+    _max: 1
+  _weight: 0.2
+  _pricePerUnit: 1
   _growTime: 30
   _model: {fileID: 919132149155446097, guid: 28fcddb110780e947a25c960fbc2db23, type: 3}
   _type: 1

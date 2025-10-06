@@ -1,5 +1,7 @@
 using AI;
 using AI.ScriptableObjects;
+using Crops.ScriptableObjects;
+using Fields;
 using Fields.ScriptableObjects;
 using Inventor;
 using ObjectPull;
@@ -11,7 +13,6 @@ using Player.Tools;
 using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
-using UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,7 +22,8 @@ namespace DI
 {
     public class GameLifetimeScope : LifetimeScope
     {
-        [SerializeField] private ThirdPersonController _player; 
+        [SerializeField] private ThirdPersonController _player;
+        [SerializeField] private FieldService _fieldService;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -29,8 +31,9 @@ namespace DI
         
         [Space,Header("Scriptable Object Register")]
         [SerializeField] private PoolConfigsSO _poolConfigsSo; 
-        [SerializeField] private LibraryConfigsByLevel _toolLibraryConfig; 
-        [SerializeField] private ConfigLibraryFieldsByType _fieldLibraryConfig; 
+        [SerializeField] private LibraryConfigsByLevel _libraryToolConfig; 
+        [SerializeField] private ConfigLibraryFieldsByType _libraryFieldConfig; 
+        [SerializeField] private LibraryCropConfigs _libraryCropConfig; 
         [SerializeField] private CustomerModels _customerModels;
         [SerializeField] private QueueConfig _queueConfig;
         
@@ -40,7 +43,8 @@ namespace DI
         {
             _builder = builder;
             
-            _builder.RegisterInstance(_player).As<IPlayer, ThirdPersonController>();
+            _builder.RegisterInstance(_player).As<IPlayer>();
+            _builder.RegisterInstance(_fieldService).AsImplementedInterfaces();
             
             RegisterPrefabs();
             RegisterScriptableObjects();
@@ -54,15 +58,17 @@ namespace DI
             _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
             _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter<MoneyType>(MoneyType.Coin).WithParameter<int>(2500);
             _builder.Register<OfferRandomService>(Lifetime.Transient);
-            _builder.Register<IToolFactory, ToolFactory>(Lifetime.Scoped);
+            _builder.Register<OfferService>(Lifetime.Scoped);
+            _builder.Register<ToolFactory>(Lifetime.Scoped).As<IToolFactory>();
         }
 
         private void RegisterScriptableObjects()
         {
             _builder.RegisterInstance(_poolConfigsSo);
-            _builder.RegisterInstance(_toolLibraryConfig);
+            _builder.RegisterInstance(_libraryToolConfig);
             _builder.RegisterInstance(_queueConfig);
-            _builder.RegisterInstance(_fieldLibraryConfig);
+            _builder.RegisterInstance(_libraryFieldConfig);
+            _builder.RegisterInstance(_libraryCropConfig);
         }
 
         private void RegisterPrefabs()

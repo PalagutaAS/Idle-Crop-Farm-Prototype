@@ -3,7 +3,6 @@ using Fields;
 using Fields.ScriptableObjects;
 using TargetZone.Command;
 using TargetZone.Interfaces;
-using UnityEngine;
 using VContainer;
 
 namespace TargetZone.Zones
@@ -11,17 +10,11 @@ namespace TargetZone.Zones
     public class FieldZone : BaseInteractionZone
     {
         [Inject] private ConfigLibraryFieldsByType _libraryFieldConfig;
-        [SerializeField] private FieldService _fieldService;
+        [Inject] private IFieldService _fieldService;
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             NeedRefreshByChangedMoney();
-        }
-        
-        private void NeedRefreshByChangedMoney()
-        {
-            _wallet.OnChangedByType += RefreshPanelByChange;
         }
         
         protected override bool CanOpenPanel()

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0586232fb0d4465a37416e74192cef1, type: 3}
-  m_Name: LibrariConfig
+  m_Name: Library Tool Config
   m_EditorClassIdentifier: 
   _libraryToolConfigs:
   - {fileID: 11400000, guid: 255147b67fba4c249ae4c90c532d99b7, type: 2}

@@ -14,19 +14,17 @@ namespace Player
         private IToolManager _toolManager;
         private CharacterController _characterController;
         private Inventory _inventory;
-        private Wallet _wallet;
         public Inventory Inventory => _inventory;
-        public Wallet Wallet => _wallet;
+        public IWallet Wallet { get; private set; }
         public bool IsGrounded => _characterController.isGrounded;
         public Transform Transform => transform;
         public IToolManager Tools => _toolManager;
 
-
         [Inject]
-        private void Constructor(Inventory inventory, Wallet wallet)
+        private void Constructor(Inventory inventory, IWallet wallet)
         {
             _inventory = inventory;
-            _wallet = wallet;
+            Wallet = wallet;
             _characterController = GetComponent<CharacterController>();
             _toolManager = GetComponentInChildren<IToolManager>();
         }
