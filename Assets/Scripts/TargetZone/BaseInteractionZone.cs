@@ -31,7 +31,6 @@ namespace TargetZone
         
         protected void NeedRefreshByChangedMoney()
         {
-            
             _wallet.OnChangedByType += (_,_) => RefreshPanel();
         }
 

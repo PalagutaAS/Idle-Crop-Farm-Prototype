@@ -86,7 +86,6 @@
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigLibraryFieldsByType.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
-    <Compile Include="Assets\Scripts\Offer.cs" />
     <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryConfigsByLevel.cs" />
@@ -117,6 +116,7 @@
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ToolConfig.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolConfig.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\StartZone.cs" />
+    <Compile Include="Assets\Scripts\Offers\Offer.cs" />
     <Compile Include="Assets\Scripts\TargetZone\BaseInteractionZone.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IPlayer.cs" />
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
