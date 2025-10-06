@@ -15,9 +15,10 @@ namespace Player.Tools
             _toolPrefab = toolPrefab;
         }
 
-        public ITool CreateTool() //type
+        public ITool CreateTool(ToolType type)
         {
             GameObject toolInstance = Object.Instantiate(_toolPrefab.gameObject, _parent);
+            toolInstance.name = type.ToString();
             return toolInstance.GetComponent<ITool>();
         }
     }

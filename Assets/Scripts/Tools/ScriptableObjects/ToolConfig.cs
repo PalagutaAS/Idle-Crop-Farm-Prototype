@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Tools.ScriptableObjects
 {
@@ -13,6 +14,19 @@ namespace Tools.ScriptableObjects
         
         private int _level = 0;
         private ToolType _type = ToolType.None;
+        private AnimatorController _animatorController;
+
+        public override AnimatorController AnimatorController
+        {
+            get => _animatorController;
+            set
+            {
+                if (_animatorController == null)
+                {
+                    _animatorController = value;
+                }
+            }
+        }
 
         public override ToolType Type
         {

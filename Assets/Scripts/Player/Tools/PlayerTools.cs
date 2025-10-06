@@ -34,7 +34,7 @@ namespace Player.Tools
             if (freeSlot == null) return false;
 
             var config = _libraryToolConfigs.GetConfigByLevel(type,1);
-            ITool newTool = _toolFactory.CreateTool();
+            ITool newTool = _toolFactory.CreateTool(type);
             newTool.Initialize(_player, freeSlot, config);
         
             freeSlot.SetTool(newTool);

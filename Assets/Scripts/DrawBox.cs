@@ -2,7 +2,7 @@
 {
     using UnityEngine;
 
-    public class DrawCircle : MonoBehaviour
+    public class DrawBox : MonoBehaviour
     {
         public int segments = 64;
         public float radius = 5f;

@@ -52,6 +52,7 @@ namespace Tools.ScriptableObjects
                         
                         config.Level = i + 1;
                         config.Type = type;
+                        config.AnimatorController = libraryByType.AnimatorController;
                         dictionary.Add(config.Level, config);
                     }
 

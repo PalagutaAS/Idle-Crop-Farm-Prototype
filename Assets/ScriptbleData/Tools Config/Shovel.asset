@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shovel
   m_EditorClassIdentifier: 
   _type: 65536
+  _animator: {fileID: 9100000, guid: fd70f61e8d7318e45924d0ba8c76141f, type: 2}
   _toolConfigs:
   - _model: {fileID: 919132149155446097, guid: b0e83adfaddd1c048bcda07b41cd3c25, type: 3}
     _timeOut: 2

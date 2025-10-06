@@ -1,4 +1,5 @@
 using DG.Tweening;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Tools
@@ -11,11 +12,12 @@ namespace Tools
         private readonly Vector3[] _path = new Vector3[3];
 
         private Tweener _currentTween;
-        public AnimatorHarvest(Transform model, float animDuration)
+        public AnimatorHarvest(Transform model, float animDuration, AnimatorController animatorController)
         {
             _model = model;
             _animDuration = animDuration;
             _animation = _model.GetComponent<Animator>();
+            _animation.runtimeAnimatorController = animatorController;
         }
 
         public void MoveTo(Vector3 targetPosition)

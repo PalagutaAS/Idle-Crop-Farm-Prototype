@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
   _type: 16384
+  _animator: {fileID: 9100000, guid: ac4a79ad9f9015b498d10a90dc7f3566, type: 2}
   _toolConfigs:
   - _model: {fileID: 919132149155446097, guid: 19ab9bcf307aece4489239088be02a35, type: 3}
     _timeOut: 2

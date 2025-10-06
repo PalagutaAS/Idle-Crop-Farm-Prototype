@@ -12007,7 +12007,7 @@ MonoBehaviour:
   - {fileID: 0}
   _player: {fileID: 1031485471}
   _fieldService: {fileID: 1089076736}
-  _toolPrefab: {fileID: 676384791396300411, guid: 325ba0279810cf847bd74a67dea6ccb7,
+  _toolPrefab: {fileID: 7226390686178689476, guid: 1808a6e60c9158648acdbbca36e4cb91,
     type: 3}
   _customerController: {fileID: 1883693290738159634, guid: 2ffe5bfbfcbd04041b0425f858afe73f,
     type: 3}
