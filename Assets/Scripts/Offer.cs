@@ -19,6 +19,4 @@ public class Offer
     {
         Active = false;
     }
-
-
 }
