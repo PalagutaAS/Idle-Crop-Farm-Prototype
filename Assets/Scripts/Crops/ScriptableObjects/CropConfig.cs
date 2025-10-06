@@ -18,6 +18,8 @@ namespace Crops.ScriptableObjects
         public GameObject Model => _model;
         public CropType Type => _type;
         public int Price => _pricePerUnit;
+        public Scatter Scatter => _scatter;
+        public float Weight => _weight;
     }
 
     [System.Serializable]

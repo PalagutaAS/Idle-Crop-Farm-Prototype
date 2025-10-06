@@ -91,7 +91,6 @@
     <Compile Include="Assets\Scripts\AI\Zone\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryConfigsByLevel.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonService\ButtonPrepareService.cs" />
-    <Compile Include="Assets\Scripts\InspectorTests.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerQueuePosition.cs" />
