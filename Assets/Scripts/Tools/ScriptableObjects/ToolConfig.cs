@@ -27,7 +27,17 @@ namespace Tools.ScriptableObjects
                 }
             }
         }
-
+        public override int Level
+        {
+            get => _level;
+            set
+            {
+                if (_level == 0)
+                {
+                    _level = value;
+                }
+            }
+        }
         public override ToolType Type
         {
             get => _type;
@@ -44,16 +54,5 @@ namespace Tools.ScriptableObjects
         public override CropType HarvestableCrops => _harvestableCrops;
         public override float Radius => _radius;
         public override int Cost => _cost;
-        public override int Level
-        {
-            get => _level;
-            set
-            {
-                if (_level == 0)
-                {
-                    _level = value;
-                }
-            }
-        }
     }
 }

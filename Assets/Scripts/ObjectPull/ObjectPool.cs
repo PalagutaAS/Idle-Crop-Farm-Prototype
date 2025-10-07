@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ObjectPull
 {
-    public class ObjectPool : MonoBehaviour
+    public class ObjectPool : MonoBehaviour, IObjectPool
     {
         [SerializeField] private PoolConfigSO _config;
     
@@ -35,7 +35,7 @@ namespace ObjectPull
             GameObject obj = Instantiate(_config.prefab, transform);
             obj.SetActive(false);
         
-            var poolable = obj.GetComponent<PoolableObject>() ?? obj.AddComponent<PoolableObject>();
+            var poolable = obj.GetComponent<IPoolableObject>() ?? obj.AddComponent<PoolableObject>();
             poolable.Initialize(this);
         
             _pool.Enqueue(obj);
@@ -70,5 +70,14 @@ namespace ObjectPull
             _pool.Enqueue(obj);
             
         }
+    }
+
+    public interface IObjectPool
+    {
+        public void InitializeWithConfig(PoolConfigSO config);
+        public T GetObject<T>() where T : Component;
+        public GameObject GetObject();
+        public void ReturnObject(GameObject obj);
+        
     }
 }

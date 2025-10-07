@@ -30,7 +30,7 @@ namespace DI
         [SerializeField] private CustomerController _customerController;
         
         [Space,Header("Scriptable Object Register")]
-        [SerializeField] private PoolConfigsSO _poolConfigsSo; 
+        [SerializeField] private LibraryPoolConfigs _libraryPoolConfigs; 
         [SerializeField] private LibraryToolConfigs _libraryToolConfig; 
         [SerializeField] private LibraryFieldConfigs _libraryFieldConfigs; 
         [SerializeField] private LibraryCropConfigs _libraryCropConfigs; 
@@ -63,10 +63,10 @@ namespace DI
 
         private void RegisterScriptableObjects()
         {
-            _builder.RegisterInstance(_poolConfigsSo);
+            _builder.RegisterInstance(_libraryPoolConfigs).AsImplementedInterfaces();
             _builder.RegisterInstance(_libraryToolConfig);
             _builder.RegisterInstance(_queueConfig);
-            _builder.RegisterInstance(_libraryFieldConfigs);
+            _builder.RegisterInstance(_libraryFieldConfigs).AsImplementedInterfaces();
             _builder.RegisterInstance(_libraryCropConfigs);
         }
 

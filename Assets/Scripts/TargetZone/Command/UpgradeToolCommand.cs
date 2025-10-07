@@ -20,7 +20,6 @@ namespace TargetZone.Command
         public bool CanExecute(IPlayer player)
         {
             return (player.Wallet.Count >= _configByLevel.Cost);
-            //TO DO ckeck max lvl tool;
         }
 
         public void Execute(IPlayer player)

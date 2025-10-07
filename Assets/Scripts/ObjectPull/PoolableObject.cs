@@ -2,26 +2,19 @@
 
 namespace ObjectPull
 {
-    public class PoolableObject : MonoBehaviour
+    public class PoolableObject : MonoBehaviour, IPoolableObject
     {
-        public ObjectPool Pool { get; private set; }
+        public IObjectPool Pool { get; private set; }
 
-        public void Initialize(ObjectPool pool)
+        public void Initialize(IObjectPool pool)
         {
             Pool = pool;
         }
+    }
 
-        [ContextMenu("Return To Pool")]
-        public void ReturnToPool()
-        {
-            if (Pool != null)
-            {
-                Pool.ReturnObject(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+    public interface IPoolableObject
+    {
+        public IObjectPool Pool { get; }
+        public void Initialize(IObjectPool pool);
     }
 }

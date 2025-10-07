@@ -5,7 +5,7 @@ namespace Fields.ScriptableObjects
 {
     
     [CreateAssetMenu(fileName = "New Library Field Configs", menuName = "Library Configs/New Library Field Config")]
-    public class LibraryFieldConfigs : ScriptableObject , ILibraryFieldConfig
+    public class LibraryFieldConfigs : ScriptableObject, ILibraryFieldConfig
     {
         [SerializeField] private ConfigField[] _configFields;
         

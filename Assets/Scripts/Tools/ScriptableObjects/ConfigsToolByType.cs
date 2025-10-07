@@ -15,6 +15,5 @@ namespace Tools.ScriptableObjects
         public ToolType Type => _type;
         public AnimatorController AnimatorController => _animator;
         public IToolConfig[] ToolConfigs => _toolConfigs;
-
     }
 }

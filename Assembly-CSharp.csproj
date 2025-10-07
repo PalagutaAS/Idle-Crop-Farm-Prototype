@@ -45,6 +45,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\LibraryPoolConfigs.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigField.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="Assets\Scripts\AI\Zone\ExitZone.cs" />
     <Compile Include="Assets\Scripts\Crops\Interfaces\ICrop.cs" />
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\CropConfig.cs" />
-    <Compile Include="Assets\Scripts\UI\Panel.cs" />
+    <Compile Include="Assets\Scripts\UI\IPanel.cs" />
     <Compile Include="Assets\Scripts\AI\ScriptableObjects\QueueConfig.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\LibraryFieldConfigs.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\ITool.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\IFieldService.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
-    <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigsSO.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />

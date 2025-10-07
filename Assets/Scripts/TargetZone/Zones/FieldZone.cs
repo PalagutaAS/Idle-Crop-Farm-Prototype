@@ -9,7 +9,7 @@ namespace TargetZone.Zones
 {
     public class FieldZone : BaseInteractionZone
     {
-        [Inject] private LibraryFieldConfigs _libraryField;
+        [Inject] private ILibraryFieldConfig _libraryField;
         [Inject] private IFieldService _fieldService;
 
         protected void Awake()

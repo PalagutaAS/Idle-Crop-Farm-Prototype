@@ -38,10 +38,10 @@ namespace Player
             _characterController.Move(movement);
         }
         
-        [ContextMenu("Payout + 500")]
+        [ContextMenu("Payout + 5000")]
         private void Payout()
         {
-            Wallet.Payout(500);
+            Wallet.Payout(5000);
         }
     }
 

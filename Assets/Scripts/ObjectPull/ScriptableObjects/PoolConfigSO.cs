@@ -8,8 +8,5 @@ namespace ObjectPull.ScriptableObjects
         [Header("Pool Settings")]
         public GameObject prefab;
         public int initialSize = 10;
-
-        [Header("Preload Settings")]
-        public bool preloadOnAwake = true;
     }
 }
