@@ -1,5 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tools.ScriptableObjects
 {
@@ -14,9 +13,9 @@ namespace Tools.ScriptableObjects
         
         private int _level = 0;
         private ToolType _type = ToolType.None;
-        private AnimatorController _animatorController;
+        private RuntimeAnimatorController _animatorController;
 
-        public override AnimatorController AnimatorController
+        public override RuntimeAnimatorController AnimatorController
         {
             get => _animatorController;
             set

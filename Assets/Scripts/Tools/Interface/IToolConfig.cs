@@ -1,5 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tools.Interface
 {
@@ -12,6 +11,6 @@ namespace Tools.Interface
         public float Radius { get; }
         float TimeOut { get; }
         public CropType HarvestableCrops { get; }
-        public AnimatorController AnimatorController { get; set; }
+        public RuntimeAnimatorController AnimatorController { get; set; }
     }
 }

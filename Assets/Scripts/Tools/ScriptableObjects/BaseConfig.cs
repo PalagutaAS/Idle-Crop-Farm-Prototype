@@ -1,5 +1,4 @@
 ﻿using Tools.Interface;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Tools.ScriptableObjects
@@ -13,6 +12,6 @@ namespace Tools.ScriptableObjects
         public abstract float Radius { get; }
         public abstract float TimeOut { get; }
         public abstract CropType HarvestableCrops { get; }
-        public abstract AnimatorController AnimatorController { get; set; }
+        public abstract RuntimeAnimatorController AnimatorController { get; set; }
     }
 }
