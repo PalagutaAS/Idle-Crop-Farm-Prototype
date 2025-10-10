@@ -32,14 +32,5 @@ namespace AI
             OnCustomerCreated?.Invoke(customer);
             Invoke(nameof(Spawn), _spawnRate);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            { 
-                Spawn();
-            }
-        }
-        
     }
 }
