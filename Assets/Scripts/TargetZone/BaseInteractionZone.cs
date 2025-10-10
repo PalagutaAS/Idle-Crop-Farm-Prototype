@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Inventor;
 using Player.Interface;
 using TargetZone.Interfaces;
@@ -17,6 +18,8 @@ namespace TargetZone
         protected IPlayer _player;
         protected IPanel _panel;
         
+        private Action<InventoryType, int> _onChangedHandler; 
+        
         [Inject]
         private void Constructor(Wallet wallet)
         {
@@ -31,8 +34,8 @@ namespace TargetZone
         
         protected void NeedRefreshByChangedMoney()
         {
-            
-            _wallet.OnChangedByType += (_,_) => RefreshPanel();
+            _onChangedHandler = (_, _) => RefreshPanel();
+            _wallet.OnChangedByType += _onChangedHandler;
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -74,6 +77,12 @@ namespace TargetZone
                 var commands = GenerateCommands();
                 _panel.Open(commands);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _panel.OnClickButton -= RefreshPanel;
+            _wallet.OnChangedByType -= _onChangedHandler;
         }
 
         protected abstract bool CanOpenPanel();

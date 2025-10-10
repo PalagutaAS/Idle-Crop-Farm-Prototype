@@ -30,10 +30,10 @@ namespace DI
         [SerializeField] private CustomerController _customerController;
         
         [Space,Header("Scriptable Object Register")]
-        [SerializeField] private PoolConfigsSO _poolConfigsSo; 
-        [SerializeField] private LibraryConfigsByLevel _libraryToolConfig; 
-        [SerializeField] private ConfigLibraryFieldsByType _libraryFieldConfig; 
-        [SerializeField] private LibraryCropConfigs _libraryCropConfig; 
+        [SerializeField] private LibraryPoolConfigs _libraryPoolConfigs; 
+        [SerializeField] private LibraryToolConfigs _libraryToolConfig; 
+        [SerializeField] private LibraryFieldConfigs _libraryFieldConfigs; 
+        [SerializeField] private LibraryCropConfigs _libraryCropConfigs; 
         [SerializeField] private CustomerModels _customerModels;
         [SerializeField] private QueueConfig _queueConfig;
         
@@ -53,22 +53,21 @@ namespace DI
 
         private void Register()
         {
-            _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-            _builder.Register<CustomerFactory>(Lifetime.Scoped);
+            _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<CustomerFactory>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
-            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter<MoneyType>(MoneyType.Coin).WithParameter<int>(2500);
-            _builder.Register<OfferRandomService>(Lifetime.Transient);
-            _builder.Register<OfferService>(Lifetime.Scoped);
+            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter(MoneyType.Coin).WithParameter(1000);
+            _builder.Register<OfferRandomService>(Lifetime.Transient).AsImplementedInterfaces();
             _builder.Register<ToolFactory>(Lifetime.Scoped).As<IToolFactory>();
         }
 
         private void RegisterScriptableObjects()
         {
-            _builder.RegisterInstance(_poolConfigsSo);
+            _builder.RegisterInstance(_libraryPoolConfigs).AsImplementedInterfaces();
             _builder.RegisterInstance(_libraryToolConfig);
             _builder.RegisterInstance(_queueConfig);
-            _builder.RegisterInstance(_libraryFieldConfig);
-            _builder.RegisterInstance(_libraryCropConfig);
+            _builder.RegisterInstance(_libraryFieldConfigs).AsImplementedInterfaces();
+            _builder.RegisterInstance(_libraryCropConfigs);
         }
 
         private void RegisterPrefabs()

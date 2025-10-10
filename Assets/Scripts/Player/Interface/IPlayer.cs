@@ -7,7 +7,7 @@ namespace Player.Interface
     public interface IPlayer
     {
         Transform Transform { get; }
-        Inventory Inventory { get; }
+        IInventoryChanger Inventory { get; }
         IWallet Wallet { get; }
         
         IToolManager Tools { get; }  

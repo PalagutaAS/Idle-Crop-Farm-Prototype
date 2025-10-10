@@ -2,6 +2,6 @@
 {
     public interface IToolFactory
     {
-        ITool CreateTool();
+        ITool CreateTool(ToolType type);
     }
 }

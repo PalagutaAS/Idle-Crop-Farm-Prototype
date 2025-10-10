@@ -13,17 +13,16 @@ namespace Player
     {
         private IToolManager _toolManager;
         private CharacterController _characterController;
-        private Inventory _inventory;
-        public Inventory Inventory => _inventory;
+        public IInventoryChanger Inventory { get; private set; }
         public IWallet Wallet { get; private set; }
         public bool IsGrounded => _characterController.isGrounded;
         public Transform Transform => transform;
         public IToolManager Tools => _toolManager;
 
         [Inject]
-        private void Constructor(Inventory inventory, IWallet wallet)
+        private void Constructor(IInventoryChanger inventory, IWallet wallet)
         {
-            _inventory = inventory;
+            Inventory = inventory;
             Wallet = wallet;
             _characterController = GetComponent<CharacterController>();
             _toolManager = GetComponentInChildren<IToolManager>();
@@ -39,10 +38,10 @@ namespace Player
             _characterController.Move(movement);
         }
         
-        [ContextMenu("Payout + 500")]
+        [ContextMenu("Payout + 5000")]
         private void Payout()
         {
-            Wallet.Payout(500);
+            Wallet.Payout(5000);
         }
     }
 

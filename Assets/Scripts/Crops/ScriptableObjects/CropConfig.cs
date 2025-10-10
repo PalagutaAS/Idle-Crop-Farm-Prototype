@@ -10,12 +10,10 @@ namespace Crops.ScriptableObjects
         [SerializeField, Range(0, 1)] private float _weight;
         [SerializeField] private int _pricePerUnit;
         [SerializeField] private float _growTime;
-        [SerializeField] private GameObject _model;
         [SerializeField] private CropType _type;
         
         public int Count => _count;
         public float GrowTime => _growTime;
-        public GameObject Model => _model;
         public CropType Type => _type;
         public int Price => _pricePerUnit;
         public Scatter Scatter => _scatter;

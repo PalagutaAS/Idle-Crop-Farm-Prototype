@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -7,7 +6,7 @@ namespace Fields
 {
     public class FieldService : MonoBehaviour, IFieldService, IInitializable
     {
-        private Dictionary<CropType, List<Field>> _fieldsDictionary = new ();
+        private Dictionary<CropType, List<IField>> _fieldsDictionary = new();
         
         public void Initialize()
         {
@@ -20,7 +19,7 @@ namespace Fields
             
             foreach (var field in _fieldsDictionary[type])
             {
-                if (!field.gameObject.activeSelf) return true;
+                if (!field.ActiveSelf) return true;
             }
             return false;
         }
@@ -31,26 +30,14 @@ namespace Fields
             
             foreach (var field in _fieldsDictionary[type])
             {
-                if (!field.gameObject.activeSelf)
+                if (!field.ActiveSelf)
                 {
-                    field.gameObject.SetActive(true);
+                    field.ActiveSelf = true;
                     return;
                 }
             }
         }
 
-        public bool HasActiveField(CropType type)
-        {
-            if (!_fieldsDictionary.ContainsKey(type)) return false;
-            
-            foreach (var field in _fieldsDictionary[type])
-            {
-                if (field.gameObject.activeSelf) return true;
-            }
-            return false;
-        }
-        
-        
         public Dictionary<CropType, int> GetActiveCropType()
         {
             Dictionary<CropType, int> fieldsDictionary = new();
@@ -62,7 +49,7 @@ namespace Fields
                 int i = 0;
                 foreach (var field in keyValue.Value)
                 {
-                    i += field.gameObject.activeSelf ? 1 : 0;
+                    i += field.ActiveSelf ? 1 : 0;
                 }
                 
                 if (i == 0) continue;
@@ -75,14 +62,14 @@ namespace Fields
 
         private void CollectFields()
         {
-            Field[] fields = GetComponentsInChildren<Field>(true);
+            IField[] fields = GetComponentsInChildren<IField>(true);
         
-            foreach (Field field in fields)
+            foreach (IField field in fields)
             {
                 CropType fieldType = field.Type;
 
                 if (!_fieldsDictionary.ContainsKey(fieldType))
-                    _fieldsDictionary[fieldType] = new List<Field>();
+                    _fieldsDictionary[fieldType] = new List<IField>();
 
                 _fieldsDictionary[fieldType].Add(field);
             }

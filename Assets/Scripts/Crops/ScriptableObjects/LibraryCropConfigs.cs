@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Crops.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Library Crop Configs", menuName = "Custom/Crop/New Library Crop Configs")]
+    [CreateAssetMenu(fileName = "New Library Crop Configs", menuName = "Library Configs/New Library Crop Configs")]
 
     public class LibraryCropConfigs : ScriptableObject
     {

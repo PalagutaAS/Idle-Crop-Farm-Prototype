@@ -1,4 +1,5 @@
 ﻿using Tools.Interface;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Tools.ScriptableObjects
@@ -8,10 +9,11 @@ namespace Tools.ScriptableObjects
     public class ConfigsToolByType : ScriptableObject
     {
         [SerializeField] private ToolType _type;
+        [SerializeField] private AnimatorController _animator;
         [SerializeField] private ToolConfig[] _toolConfigs;
         
         public ToolType Type => _type;
+        public AnimatorController AnimatorController => _animator;
         public IToolConfig[] ToolConfigs => _toolConfigs;
-
     }
 }

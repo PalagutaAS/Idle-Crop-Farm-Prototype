@@ -14,7 +14,7 @@ namespace AI
         [SerializeField] private CustomerSpawner _spawner;
         
         [Inject]
-        private PoolManager _poolManager;
+        private IPoolManager _poolManager;
 
         private CustomerQueuePosition _queuePosition;
 

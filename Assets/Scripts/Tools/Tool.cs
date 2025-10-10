@@ -6,16 +6,17 @@ using UnityEngine;
 
 namespace Tools
 {
-    public abstract class Tool : MonoBehaviour, ITool
+    public class Tool : MonoBehaviour, ITool
     {
         [SerializeField] private Transform _parentModel;
+        
         [SerializeField] private float _speedFollow = 1f;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private float _checkInterval = 0.1f;
         [SerializeField] private float _animDuration;
 
         private IToolConfig _toolConfig;
-        
+
         public bool IsCooldown { get; private set; }
         public float Radius => _toolConfig.Radius;
         public float SpeedFollow => _speedFollow;
@@ -34,11 +35,17 @@ namespace Tools
         {
             _cropFinder = new CropFinder(this, _layerMask, _toolConfig.HarvestableCrops);
             _follow = new Follow(this, _parentModel, _slot.Transform);
-            _animatorHarvest = new AnimatorHarvest(_parentModel, _animDuration);
+            _animatorHarvest = new AnimatorHarvest(_parentModel, _animDuration, _toolConfig.AnimatorController);
             _modelChanger = new ChildModelChanger(_parentModel, _toolConfig.Model);
         }
+        
+        private void Update()
+        {
+            FollowToSlot();
+            CropDetecting();
+        }
 
-        protected void CropDetecting()
+        private void CropDetecting()
         {
             if (IsCooldown) return;
             if (Time.time < _nextCheckTime) return;
@@ -47,12 +54,12 @@ namespace Tools
             _nextCheckTime = Time.time + _checkInterval;
         }
         
-        protected void FollowToSlot()
+        private void FollowToSlot()
         {
             _follow.ToSlot();
         }
 
-        private void CropHarvest(BaseCrop baseCrop)
+        private void CropHarvest(ICrop baseCrop)
         {
             int cropCount = baseCrop.OnHarvest();
             _player.Inventory.Add(baseCrop.Type, cropCount);
@@ -60,18 +67,18 @@ namespace Tools
             StartCoroutine(CooldownCoroutine());
         }
 
-        public void TriggerEnter(BaseCrop component)
+        public void TriggerEnter(ICrop component)
         {
             IsCooldown = true;
             component.PreparingForHarvest();
-            _animatorHarvest.MoveTo(component.transform.position);
+            _animatorHarvest.MoveTo(component.Position);
             StartCoroutine(DelayBeforeHarvest(_animDuration, component));
         }
         
-        private IEnumerator DelayBeforeHarvest(float delay, BaseCrop baseCrop)
+        private IEnumerator DelayBeforeHarvest(float delay, ICrop crop)
         {
             yield return new WaitForSeconds(delay);
-            CropHarvest(baseCrop);
+            CropHarvest(crop);
         }
         
         private IEnumerator CooldownCoroutine()

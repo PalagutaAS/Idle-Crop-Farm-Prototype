@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace AI
 {
-    public class CustomerFactory
+    public class CustomerFactory : ICustomerFactory
     {
-        private readonly PoolManager _poolManager;
+        private readonly IPoolManager _poolManager;
         private readonly GameObject _charPrefab;
         private readonly CustomerModels _customerModels;
 
-        public CustomerFactory(PoolManager poolManager, CustomerController charRoot, CustomerModels customerModels)
+        public CustomerFactory(IPoolManager poolManager, CustomerController charRoot, CustomerModels customerModels)
         {
             _poolManager = poolManager;
             _charPrefab = charRoot.gameObject;
@@ -27,5 +27,10 @@ namespace AI
             customer.Init(skinGameObject.GetComponent<Animator>());
             return customer;
         }
+    }
+
+    public interface ICustomerFactory
+    {
+        public CustomerController Create();
     }
 }

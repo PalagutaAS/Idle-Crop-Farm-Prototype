@@ -21,13 +21,11 @@ namespace AI
         protected override void SendEnterInvoke(CustomerController customer)
         {
             OnCustomerEnterZone?.Invoke(customer);
-            //Debug.Log("Enter Exit Zone");
         }
 
         protected override void SendExitInvoke(CustomerController customer)
         {
             OnCustomerExitZone?.Invoke(customer);
-            //Debug.Log("Exit Exit Zone");
         }
     }
 }

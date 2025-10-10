@@ -9,7 +9,7 @@ namespace TargetZone.Zones
 {
     public class FieldZone : BaseInteractionZone
     {
-        [Inject] private ConfigLibraryFieldsByType _libraryFieldConfig;
+        [Inject] private ILibraryFieldConfig _libraryField;
         [Inject] private IFieldService _fieldService;
 
         protected void Awake()
@@ -25,7 +25,7 @@ namespace TargetZone.Zones
         protected override List<IInteractionCommand> GenerateCommands()
         {
             var commands = new List<IInteractionCommand>();
-            foreach (var item in _libraryFieldConfig.ConfigFields)
+            foreach (var item in _libraryField.ConfigFields)
             {
                 if (!_fieldService.HasInactiveField(item.Type)) continue;
                 commands.Add(new BuyNewFieldCommand(item, _fieldService));

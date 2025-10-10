@@ -10,13 +10,11 @@ namespace AI
         protected override void SendEnterInvoke(CustomerController customer)
         {
             OnCustomerEnterStartZone?.Invoke(customer);
-            //Debug.Log("Enter Start Zone");
         }
 
         protected override void SendExitInvoke(CustomerController customer)
         {
             OnCustomerExitStartZone?.Invoke(customer);
-            //Debug.Log("Exit Start Zone");
         }
     }
 }

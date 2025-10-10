@@ -5,24 +5,24 @@ using VContainer.Unity;
 
 namespace ObjectPull
 {
-    public class PoolManager : IInitializable
+    public class PoolManager : IInitializable, IPoolManager
     {
-        private readonly PoolConfigsSO _poolConfigs;
-        private readonly Dictionary<string, ObjectPool> _pools;
+        private readonly ILibraryPoolConfigs _libraryPoolConfigs;
+        private readonly Dictionary<string, IObjectPool> _pools;
         private readonly Dictionary<GameObject, string> _prefabToKey;
         private readonly Transform _transform;
         
-        public PoolManager(PoolConfigsSO poolConfigs)
+        public PoolManager(ILibraryPoolConfigs libraryPoolConfigs)
         {
-            _poolConfigs = poolConfigs;
-            _pools = new Dictionary<string, ObjectPool>();
+            _libraryPoolConfigs = libraryPoolConfigs;
+            _pools = new Dictionary<string, IObjectPool>();
             _prefabToKey = new Dictionary<GameObject, string>();
             _transform = new GameObject("ObjectPool").transform;
         }
 
         public void Initialize()
         {
-            foreach (var config in _poolConfigs.List)
+            foreach (var config in _libraryPoolConfigs.ListConfigs)
             {
                 if (config.prefab == null) 
                 {
@@ -51,7 +51,7 @@ namespace ObjectPull
             }
         
             if (_prefabToKey.TryGetValue(prefab, out string key) && 
-                _pools.TryGetValue(key, out ObjectPool pool))
+                _pools.TryGetValue(key, out IObjectPool pool))
             {
                 return pool.GetObject();
             }
@@ -70,7 +70,7 @@ namespace ObjectPull
         {
             if (obj == null) return;
         
-            var poolable = obj.GetComponent<PoolableObject>();
+            var poolable = obj.GetComponent<IPoolableObject>();
             if (poolable != null && poolable.Pool != null)
             {
                 poolable.Pool.ReturnObject(obj);
@@ -81,14 +81,21 @@ namespace ObjectPull
             }
         }
 
-        public ObjectPool GetPool(GameObject prefab)
+        public IObjectPool GetPool(GameObject prefab)
         {
             if (_prefabToKey.TryGetValue(prefab, out string key) && 
-                _pools.TryGetValue(key, out ObjectPool pool))
+                _pools.TryGetValue(key, out IObjectPool pool))
             {
                 return pool;
             }
             return null;
         }
+    }
+
+    public interface IPoolManager
+    {
+        public void ReturnObject(GameObject obj);
+        public GameObject GetObject(GameObject prefab);
+        public T GetObject<T>(GameObject prefab) where T : Component;
     }
 }
