@@ -6,7 +6,7 @@ public class SmoothCameraFollow : MonoBehaviour
     [SerializeField] private Transform _target;
 
     [Header("Position Settings")] 
-    [Range(1f, 5f)] 
+    [Range(0.5f, 2f)] 
     [SerializeField] private float _distance = 1f;
     [SerializeField] private float _fixedHeight = 10f;
     [SerializeField] private float _offsetZ = -10f;
@@ -36,5 +36,14 @@ public class SmoothCameraFollow : MonoBehaviour
             targetPosition,
             _smoothSpeed * Time.deltaTime * 60
         );
+    }
+    
+    void Update()
+    {
+        float scrollValue = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollValue == 0) return;
+        
+        _distance = Mathf.Clamp(_distance + scrollValue, 0.5f, 2f);
+        
     }
 }
