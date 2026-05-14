@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\IFieldService.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
+    <Compile Include="Assets\Scripts\AI\StateMachine\MoveToPointState.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />
@@ -85,8 +86,10 @@
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
     <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\TradeZone.cs" />
+    <Compile Include="Assets\Scripts\AI\StateMachine\CustomerStateMachine.cs" />
     <Compile Include="Assets\Scripts\DrawBox.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonService\ButtonPrepareService.cs" />
+    <Compile Include="Assets\Scripts\AI\StateMachine\WaitForDealState.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerQueuePosition.cs" />

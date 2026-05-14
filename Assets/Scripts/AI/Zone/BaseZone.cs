@@ -7,7 +7,7 @@ namespace AI
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out CustomerController customer) && AdditionalConditionEnter(customer))
+            if (other.TryGetComponent(out CustomerController customer) )
             {
                 SendEnterInvoke(customer);
             }
@@ -15,7 +15,7 @@ namespace AI
         
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out CustomerController customer) && AdditionalConditionExit(customer))
+            if (other.TryGetComponent(out CustomerController customer))
             {
                 SendExitInvoke(customer);
             }

@@ -24,8 +24,7 @@ namespace TargetZone.Command
         {
             if (CanExecute(player))
             {
-                _customer.Offer.Done();
-                _customer.ChangeState(CustomerState.Leaving);
+                _customer.DealIsDone();
             }
         }
 

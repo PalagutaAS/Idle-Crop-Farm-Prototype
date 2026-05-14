@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Pull Customers
   m_EditorClassIdentifier: 
   prefab: {fileID: 8326453474896303718, guid: 2ffe5bfbfcbd04041b0425f858afe73f, type: 3}
-  initialSize: 1
-  preloadOnAwake: 1
+  initialSize: 5

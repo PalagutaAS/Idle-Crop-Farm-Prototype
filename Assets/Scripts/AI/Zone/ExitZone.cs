@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 namespace AI
 {
@@ -10,12 +9,12 @@ namespace AI
 
         protected override bool AdditionalConditionEnter(CustomerController customer)
         {
-            return customer.State == CustomerState.Leaving;
+            return false;
         }
 
         protected override bool AdditionalConditionExit(CustomerController customer)
         {
-            return customer.State == CustomerState.Leaving;
+            return false;
         }
 
         protected override void SendEnterInvoke(CustomerController customer)

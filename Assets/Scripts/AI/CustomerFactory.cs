@@ -23,8 +23,8 @@ namespace AI
             customer.gameObject.SetActive(true);
             if (customer.isInit) return customer;
             
-            var skinGameObject = Object.Instantiate(_customerModels.GetRandomModel(), customer.transform);
-            customer.Init(skinGameObject.GetComponent<Animator>());
+            Object.Instantiate(_customerModels.GetRandomModel(), customer.transform);
+            customer.Init();
             return customer;
         }
     }
