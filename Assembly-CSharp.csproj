@@ -48,6 +48,7 @@
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\LibraryPoolConfigs.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigField.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UI\ScreenLoading.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
     <Compile Include="Assets\Scripts\DI\CoroutineRunner.cs" />
@@ -125,6 +126,28 @@
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Slots\Slot.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ConfigsToolByType.cs" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

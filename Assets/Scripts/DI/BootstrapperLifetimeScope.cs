@@ -1,11 +1,15 @@
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 public class BootstrapperLifetimeScope : LifetimeScope, ICoroutineRunner
 {
+    [SerializeField] private ScreenLoading _screenLoading;
+    
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
+        builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton);
         builder.Register<SceneLoader>(Lifetime.Singleton);
         builder.Register<LoadLevelState>(Lifetime.Singleton).AsSelf().As<IExitableState, IPayloadedState<string>>();
         builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();

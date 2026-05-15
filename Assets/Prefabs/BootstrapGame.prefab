@@ -49,6 +49,8 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _screenLoading: {fileID: 7873397129467288982, guid: 54e4d4c0f68ec384aa0ab158d452f70b,
+    type: 3}
 --- !u!114 &3040940626937303312
 MonoBehaviour:
   m_ObjectHideFlags: 0
