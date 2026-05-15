@@ -50,8 +50,10 @@
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
+    <Compile Include="Assets\Scripts\DI\CoroutineRunner.cs" />
     <Compile Include="Assets\Scripts\UI\PrintCount.cs" />
     <Compile Include="Assets\Scripts\Inventor\Inventory.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
@@ -79,8 +81,10 @@
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewFieldCommand.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigSO.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\GameLoopState.cs" />
     <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
     <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\GameStateMachine.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
     <Compile Include="Assets\Scripts\Tools\CropFinder.cs" />
@@ -109,11 +113,13 @@
     <Compile Include="Assets\Scripts\Tools\Interface\IToolManager.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Fields\Field.cs" />
+    <Compile Include="Assets\Scripts\DI\BootstrapperLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IInput.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ToolConfig.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolConfig.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\StartZone.cs" />
     <Compile Include="Assets\Scripts\Offers\Offer.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\LoadLevelState.cs" />
     <Compile Include="Assets\Scripts\TargetZone\BaseInteractionZone.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IPlayer.cs" />
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
