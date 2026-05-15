@@ -18,7 +18,7 @@ using VContainer;
 using VContainer.Unity;
 using Wallets;
 
-namespace DI
+namespace Infrastructure.DI
 {
     public class GameLifetimeScope : LifetimeScope
     {
