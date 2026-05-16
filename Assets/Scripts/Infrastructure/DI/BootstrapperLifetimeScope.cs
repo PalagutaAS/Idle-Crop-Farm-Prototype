@@ -34,7 +34,7 @@ namespace Infrastructure.DI
 
         public void Start()
         {
-            StateMachine.Enter<LoadLevelState, string>("SampleScene");
+            StateMachine.Enter<LoadLevelState, string>("MainGame Scene");
         }
     }
 }
