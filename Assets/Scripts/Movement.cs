@@ -1,4 +1,5 @@
 using Player;
+using Player.Input;
 using UnityEngine;
 
 public class Movement : MonoBehaviour

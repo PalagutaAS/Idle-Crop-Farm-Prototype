@@ -1,3 +1,4 @@
+using Player.Input;
 using UnityEngine;
 
 public class RotationMovement : MonoBehaviour

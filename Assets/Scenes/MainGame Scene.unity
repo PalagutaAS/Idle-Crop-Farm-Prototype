@@ -12828,7 +12828,7 @@ MonoBehaviour:
   valueMultiplier: 1
   thumb: {fileID: 114592483169078122}
   movementAreaRadius: 75
-  maxOpacity: 1
+  maxOpacity: 0.7
   deadzoneRadius: 0
   isDynamicJoystick: 1
   dynamicJoystickMovementArea: {fileID: 1542500806}
@@ -12846,7 +12846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

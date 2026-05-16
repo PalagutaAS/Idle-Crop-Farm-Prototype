@@ -6,12 +6,13 @@ namespace Player.Input
     {
         protected const string Horizontal = "Horizontal";
         protected const string Vertical = "Vertical";
-        private float _horizontal;
-        private float _vertical;
-        public Vector2 Axis => new Vector2(_horizontal, _vertical);
-        public bool AnyAxis => _horizontal > 0.01f || _vertical > 0.01f || _horizontal < -0.01f || _vertical < -0.01f;
+        public abstract Vector2 Axis { get; }
+        public bool AnyAxis => Axis.x > 0.01f || Axis.y > 0.01f || Axis.x < -0.01f || Axis.y < -0.01f;
 
         protected static Vector2 SimpleInputAxis() => 
             new Vector2(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
+        
+        protected static Vector2 UnityAxis() => 
+            new Vector2(UnityEngine.Input.GetAxis(Horizontal), UnityEngine.Input.GetAxis(Vertical));
     }
 }
