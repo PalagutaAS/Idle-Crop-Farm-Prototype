@@ -6032,10 +6032,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1031485468}
-  - component: {fileID: 1031485467}
   - component: {fileID: 1031485465}
-  - component: {fileID: 1031485469}
   - component: {fileID: 1031485471}
+  - component: {fileID: 1031485467}
+  - component: {fileID: 1031485469}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10998,7 +10998,6 @@ MonoBehaviour:
   - {fileID: 670708345}
   - {fileID: 1305621376}
   - {fileID: 1728029819}
-  _libraryToolConfigs: {fileID: 0}
 --- !u!1001 &1972798146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12846,7 +12845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

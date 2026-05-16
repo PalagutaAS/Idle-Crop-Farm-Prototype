@@ -1,15 +1,11 @@
-using Player.Input;
 using UnityEngine;
+using VContainer;
 
 public class RotationMovement : MonoBehaviour
 {
     [SerializeField] private float _scaleRotation = 500f;
-    
+    [Inject]
     private IInputService _inputService;
-    private void Awake()
-    {
-        _inputService = new StandaloneInputService();
-    }
     private void LateUpdate()
     {
         if (!_inputService.AnyAxis) return;

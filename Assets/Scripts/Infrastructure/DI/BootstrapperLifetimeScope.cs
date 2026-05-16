@@ -1,4 +1,5 @@
 using Infrastructure.StateMachine;
+using Player.Input;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -18,6 +19,7 @@ namespace Infrastructure.DI
             builder.Register<LoadLevelState>(Lifetime.Singleton).AsSelf().As<IExitableState, IPayloadedState<string>>();
             builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
             builder.Register<GameStateMachine>(Lifetime.Singleton).AsSelf().As<IStateSwitcher>();
+            builder.Register<StandaloneInputService>(Lifetime.Scoped).As<IInputService>();
 
             builder.RegisterEntryPoint<GameBootstrap>();
         }
