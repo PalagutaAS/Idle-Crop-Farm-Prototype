@@ -4,16 +4,16 @@ public class RotationMovement : MonoBehaviour
 {
     [SerializeField] private float _scaleRotation = 500f;
     
-    private IInput _input;
+    private IInputService _inputService;
     private void Awake()
     {
-        _input = GetComponent<IInput>();
+        _inputService = new StandaloneInputService();
     }
     private void LateUpdate()
     {
-        if (!_input.GetKey) return;
+        if (!_inputService.AnyAxis) return;
 
-        RotateTowards(new Vector3(_input.Horizontal, 0f, _input.Vertical));
+        RotateTowards(new Vector3(_inputService.Axis.x, 0f, _inputService.Axis.y));
     }
 
     private void RotateTowards(Vector3 direction)

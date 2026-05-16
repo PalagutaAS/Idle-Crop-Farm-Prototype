@@ -55,6 +55,7 @@
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\InputService.cs" />
     <Compile Include="Assets\Scripts\Offers\OfferRandomService.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\ExitZone.cs" />
     <Compile Include="Assets\Scripts\Crops\Interfaces\ICrop.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="Assets\Scripts\Infrastructure\DI\GameLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\Fields\IFieldService.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
+    <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
+    <Compile Include="Assets\Scripts\Player\Input\PlayerInputService.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />
@@ -102,7 +105,6 @@
     <Compile Include="Assets\Scripts\UI\Panels\InteractionPanel.cs" />
     <Compile Include="Assets\Scripts\Tools\AnimatorHarvest.cs" />
     <Compile Include="Assets\Scripts\Tools\Follow.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\FieldZone.cs" />
     <Compile Include="Assets\Scripts\Crops\Crop.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\CoroutineRunner.cs" />
@@ -117,7 +119,6 @@
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\ContainerStateFactory.cs" />
     <Compile Include="Assets\Scripts\Fields\Field.cs" />
-    <Compile Include="Assets\Scripts\Player\Interface\IInput.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ToolConfig.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolConfig.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\StartZone.cs" />
@@ -872,11 +873,11 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>E:\GameDev\Unity3d Projects\Idle Grass Farm Prototype\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>

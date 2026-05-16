@@ -7,18 +7,18 @@ public class Movement : MonoBehaviour
     [SerializeField] private Animator _animator;
     
     private IMovable _personController;
-    private IInput _input;
+    private IInputService _inputService;
     
     private void Awake()
     {
-        _input = GetComponent<IInput>();
+        _inputService = new StandaloneInputService();
         _personController = GetComponent<IMovable>();
     }
 
     private void Update()
     {
-        _animator.SetBool("IsMove", _input.GetKey);
-        Vector3 moveVelocity = new Vector3(_input.Horizontal, 0f, _input.Vertical);
+        _animator.SetBool("IsMove", _inputService.AnyAxis);
+        Vector3 moveVelocity = new Vector3(_inputService.Axis.x, 0f, _inputService.Axis.y);
         
         moveVelocity *= (_speed * Time.deltaTime);
         moveVelocity.y = (!_personController.IsGrounded) ? Physics.gravity.y * Time.deltaTime : 0;
