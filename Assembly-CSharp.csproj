@@ -893,6 +893,14 @@
       <Project>{6405902f-c0cc-2443-4ecf-e56ce75801e8}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{e25ddacd-877c-8a36-b7e8-efdf6d6a9cd6}</Project>
+      <Name>SimpleInput.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{b97da1cd-26ae-2098-d1ef-6711282f7717}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
