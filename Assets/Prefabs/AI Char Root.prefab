@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5443490664709258896}
   - component: {fileID: 3404429725772526763}
   - component: {fileID: 1883693290738159634}
+  - component: {fileID: -565908390287087116}
+  - component: {fileID: -612064013620105867}
+  - component: {fileID: -4829117812767155399}
   m_Layer: 0
   m_Name: AI Char Root
   m_TagString: Untagged
@@ -71,11 +74,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754bf87203c42154e986124fe122d446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _csm: {fileID: -565908390287087116}
+--- !u!114 &-565908390287087116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326453474896303718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3731ebf4a75d441ba86bf0f02b7edb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _states:
+  - {fileID: -612064013620105867}
+  - {fileID: -4829117812767155399}
+--- !u!114 &-612064013620105867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326453474896303718}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cdb734a19f40448065f57f3ddcad34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _moveSpeed: 5
   _rotationSpeed: 5
   _stoppingDistance: 0.1
-  <Offer>k__BackingField:
-    <Type>k__BackingField: 1
-    <Count>k__BackingField: 5
-    <Price>k__BackingField: 10
-    <Active>k__BackingField: 1
+--- !u!114 &-4829117812767155399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326453474896303718}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6416f5f41a3f4f1b90ce4dd11c00fff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
