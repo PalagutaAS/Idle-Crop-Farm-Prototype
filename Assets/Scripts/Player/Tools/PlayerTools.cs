@@ -12,8 +12,8 @@ namespace Player.Tools
     public class PlayerTools : MonoBehaviour, IToolManager
     {
         [SerializeField] private Slot[] _slots;
-        [SerializeField] private LibraryToolConfigs _libraryToolConfigs;
     
+        private LibraryToolConfigs _libraryToolConfigs;
         private IToolFactory _toolFactory;
         private IPlayer _player;
         
