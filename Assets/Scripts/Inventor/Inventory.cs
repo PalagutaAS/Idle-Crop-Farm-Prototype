@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Inventor
 {
-    public class Inventory : IValueSource, IInventoryChanger
+    public class Inventory : IValueSource, IInventoryChanger, IInventory 
     {
         private readonly Dictionary<CropType, int> _dictionary;
         
