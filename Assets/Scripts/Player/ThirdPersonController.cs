@@ -1,10 +1,8 @@
 using Inventor;
 using Player.Interface;
-using Tools;
 using Tools.Interface;
 using UnityEngine;
 using VContainer;
-using Wallets;
 
 namespace Player
 {
