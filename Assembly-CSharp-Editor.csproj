@@ -64,6 +64,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Editor\EditorUtils.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\Editor\PixelRatioMobile.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\Editor\InfoYGEditorWindow.cs" />
+    <Compile Include="Assets\Editor\Tools.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\Editor\RewardedAdv_build.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\Editor\SyncInitSDK.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Editor\DocumentationEditor.cs" />

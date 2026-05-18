@@ -47,8 +47,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\LibraryPoolConfigs.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigField.cs" />
-    <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
+    <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_info.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
@@ -63,8 +63,8 @@
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
-    <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\AllDemoScenes.cs" />
+    <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Player\Input\StandaloneInputService.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
@@ -98,8 +98,8 @@
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\BaseConfig.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\ObjectPool.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettingsAttributes.cs" />
-    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryToolConfigs.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\LabelYGAttribute.cs" />
+    <Compile Include="Assets\Scripts\Tools\ScriptableObjects\LibraryToolConfigs.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolableObject.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\MakeDealCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
@@ -109,8 +109,8 @@
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\ImageLoadYG.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\AdvCallingSimulation.cs" />
-    <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs" />
+    <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
@@ -120,8 +120,8 @@
     <Compile Include="Assets\Scripts\Infrastructure\SavesData\GameProgress.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewFieldCommand.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings.cs" />
-    <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigSO.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\BootstrapperLifetimeScope.cs" />
+    <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\PoolConfigSO.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
     <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\SceneLoader.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\GameReadyAPI.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonService\ButtonPrepareService.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LoadSavesState.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYG_lang.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yandexPlatform.cs" />
@@ -185,8 +186,8 @@
     <Compile Include="Assets\Scripts\Infrastructure\ContainerStateFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\LocalStorage_yg.cs" />
-    <Compile Include="Assets\Scripts\Fields\Field.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoSceneLoadButton.cs" />
+    <Compile Include="Assets\Scripts\Fields\Field.cs" />
     <Compile Include="Assets\Scripts\Tools\ScriptableObjects\ToolConfig.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolConfig.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DebugViewing.cs" />

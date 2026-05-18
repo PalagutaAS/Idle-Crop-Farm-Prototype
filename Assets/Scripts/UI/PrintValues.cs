@@ -20,7 +20,7 @@ namespace UI
             
             foreach (var valueSource in valueSources)
             {
-                valueSource.OnChangedByType += SendToPrint;
+                valueSource.OnChangedByTypeForUI += SendToPrint;
                 foreach (var item in _dictionaryPrintCount)
                 {
                     var type = item.Value.GetSupportType;

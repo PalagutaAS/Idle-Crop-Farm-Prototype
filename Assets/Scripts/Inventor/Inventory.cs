@@ -7,7 +7,7 @@ namespace Inventor
     {
         private readonly Dictionary<CropType, int> _dictionary;
         
-        public event Action<InventoryType, int> OnChangedByType;
+        public event Action<InventoryType, int> OnChangedByTypeForUI;
         
         public Inventory()
         {
@@ -19,7 +19,7 @@ namespace Inventor
             if (!HasEnoughByCrop(type, count)) return false;
 
             _dictionary[type] -= count;
-            OnChangedByType?.Invoke((InventoryType)type, _dictionary[type]);
+            OnChangedByTypeForUI?.Invoke((InventoryType)type, _dictionary[type]);
             return true;
         }
         
@@ -31,7 +31,7 @@ namespace Inventor
             }
 
             _dictionary[type] += count;
-            OnChangedByType?.Invoke((InventoryType)type, _dictionary[type]);
+            OnChangedByTypeForUI?.Invoke((InventoryType)type, _dictionary[type]);
         }
 
         public bool HasEnoughByCrop(CropType type, int count) => count <= CheckCountByType((InventoryType)type);

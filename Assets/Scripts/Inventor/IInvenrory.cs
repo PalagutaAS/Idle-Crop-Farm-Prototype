@@ -16,7 +16,7 @@ namespace Inventor
 
     public interface IValueSource
     {
-        public event Action<InventoryType, int> OnChangedByType;
+        public event Action<InventoryType, int> OnChangedByTypeForUI;
         public int CheckCountByType(InventoryType type);
     }
 

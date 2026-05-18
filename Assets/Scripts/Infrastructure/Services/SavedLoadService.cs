@@ -2,11 +2,10 @@
 using Inventor;
 using SavesData;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace Infrastructure
 {
-    public class SavedLoadService : ISavedLoadService, IStartable
+    public class SavedLoadService : ISavedLoadService
     {
         private readonly IPersistenceProgressService _progressService;
         private readonly IInventoryChanger _inventory;
@@ -22,38 +21,34 @@ namespace Infrastructure
 
         public void SaveProgress()
         {
-            // 1. Получаем текущие данные
+            var walletData = new WalletData {Gold = _wallet.Count};
             var inventoryData = new InventoryData
             {
-                Gold = _wallet.Count,
                 Wheat = _inventory.CheckCountByType(InventoryType.Wheat),
                 Potato = _inventory.CheckCountByType(InventoryType.Potato),
                 Corn = _inventory.CheckCountByType(InventoryType.Corn)
             };
 
-            // 2. Заполняем GameProgress
             var progress = _progressService.Progress ?? new GameProgress();
             progress.InventoryData = inventoryData;
+            progress.WalletData = walletData;
 
-            // 3. Сериализуем в JSON
             string json = JsonUtility.ToJson(progress);
 
-            // 4. Сохраняем в PlayerPrefs
             PlayerPrefs.SetString(GameProgressKey, json);
             PlayerPrefs.Save();
-
         }
 
         public GameProgress LoadProgress()
         {
-            return NewGameProgress();
-        }
-        
-        private GameProgress NewGameProgress() => new GameProgress();
+            GameProgress progress = null;
+            if (PlayerPrefs.HasKey(GameProgressKey))
+            {
+                string json = PlayerPrefs.GetString(GameProgressKey);
+                progress = JsonUtility.FromJson<GameProgress>(json);
+            }
 
-        public void Start()
-        {
-            SaveProgress();
+            return progress;
         }
     }
 

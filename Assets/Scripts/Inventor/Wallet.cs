@@ -20,7 +20,7 @@ namespace Wallets
             private set
             {
                 _count = value; 
-                OnChangedByType?.Invoke((InventoryType)_type, _count);
+                OnChangedByTypeForUI?.Invoke((InventoryType)_type, _count);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Wallets
             Count += count;
         }
 
-        public event Action<InventoryType, int> OnChangedByType;
+        public event Action<InventoryType, int> OnChangedByTypeForUI;
         public int CheckCountByType(InventoryType type)
         {
             return ((InventoryType)_type == type) ? Count : 0;
