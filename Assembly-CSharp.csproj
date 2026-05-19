@@ -154,6 +154,7 @@
     <Compile Include="Assets\Scripts\UI\Panels\InteractionPanel.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ResolverStateFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\EventsYG2.cs" />
     <Compile Include="Assets\Scripts\Tools\AnimatorHarvest.cs" />
@@ -183,7 +184,6 @@
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YG2.cs" />
-    <Compile Include="Assets\Scripts\Infrastructure\ContainerStateFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\LocalStorage_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoSceneLoadButton.cs" />

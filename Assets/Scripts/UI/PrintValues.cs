@@ -12,7 +12,7 @@ namespace UI
         private Dictionary<InventoryType, PrintCount> _dictionaryPrintCount = new();
         
         [Inject]
-        private void Constructor(Inventory inventory, Wallet wallet)
+        private void Constructor(IInventory inventory, IWallet wallet)
         {
             _dictionaryPrintCount = GetComponentsInChildren<PrintCount>()
                 .ToDictionary(pc => pc.GetSupportType, pc => pc);

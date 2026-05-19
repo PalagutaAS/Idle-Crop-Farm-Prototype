@@ -3,11 +3,11 @@ using VContainer;
 
 namespace Infrastructure
 {
-    public class ContainerStateFactory : IStateFactory
+    public class ResolverStateFactory : IStateFactory
     {
         private readonly IObjectResolver _resolver;
 
-        public ContainerStateFactory(IObjectResolver resolver) => _resolver = resolver;
+        public ResolverStateFactory(IObjectResolver resolver) => _resolver = resolver;
 
         public TState Create<TState>() where TState : class, IExitableState
         {
