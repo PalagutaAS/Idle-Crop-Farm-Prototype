@@ -35,7 +35,7 @@ namespace TargetZone
         protected void NeedRefreshByChangedMoney()
         {
             _onChangedHandler = (_, _) => RefreshPanel();
-            _wallet.OnChangedByType += _onChangedHandler;
+            _wallet.OnChangedByTypeForUI += _onChangedHandler;
         }
 
         protected virtual void OnTriggerEnter(Collider other)
@@ -82,7 +82,7 @@ namespace TargetZone
         private void OnDestroy()
         {
             _panel.OnClickButton -= RefreshPanel;
-            _wallet.OnChangedByType -= _onChangedHandler;
+            _wallet.OnChangedByTypeForUI -= _onChangedHandler;
         }
 
         protected abstract bool CanOpenPanel();

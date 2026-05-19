@@ -3,6 +3,7 @@ using AI.ScriptableObjects;
 using Crops.ScriptableObjects;
 using Fields;
 using Fields.ScriptableObjects;
+using Infrastructure.PersistenceProgress;
 using Inventor;
 using ObjectPull;
 using ObjectPull.ScriptableObjects;
@@ -55,8 +56,8 @@ namespace Infrastructure.DI
         {
             _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CustomerFactory>(Lifetime.Scoped).AsImplementedInterfaces();
-            _builder.Register<Inventory>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
-            _builder.Register<Wallet>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf().WithParameter(MoneyType.Coin).WithParameter(1000);
+            _builder.Register<SavedLoadService>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
+            _builder.Register<PersistenceProgressService>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
             _builder.Register<OfferRandomService>(Lifetime.Transient).AsImplementedInterfaces();
             _builder.Register<ToolFactory>(Lifetime.Scoped).As<IToolFactory>();
         }

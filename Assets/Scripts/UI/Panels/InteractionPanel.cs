@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ObjectPull;
-using Player;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI.ButtonService;
@@ -13,7 +12,6 @@ namespace UI.Panels
 {
     public class InteractionPanel : MonoBehaviour, IPanel
     {
-        
         [SerializeField] private Button _buttonPrefab;
         [SerializeField] private Transform _buttonsContainer;
         
@@ -34,24 +32,29 @@ namespace UI.Panels
         public void Open(List<IInteractionCommand> commands)
         {
             ClearButtons();
-            foreach (var command in commands)
+            foreach (IInteractionCommand command in commands)
             {
-                Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
-                
-                _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () =>
-                {
-                    foreach (var btnAndCmd in _buttons)
-                    {
-                        btnAndCmd.Key.interactable = false;
-                    }
-
-                    command.Execute(_player);
-                    OnClickButton?.Invoke();
-                });
-
-                _buttons.Add(button, command);
+                PrepareButton(command);
             }
             gameObject.SetActive(true);
+        }
+
+        private void PrepareButton(IInteractionCommand command)
+        {
+            Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
+
+            _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () => ActionOnPushButton(command));
+            _buttons.Add(button, command);
+        }
+
+        private void ActionOnPushButton(IInteractionCommand command)
+        {
+            foreach (var btnAndCmd in _buttons)
+            {
+                btnAndCmd.Key.interactable = false;
+            }
+            command.Execute(_player);
+            OnClickButton?.Invoke();
         }
 
         private void ClearButtons()
