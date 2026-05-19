@@ -6,7 +6,6 @@ using TargetZone.Interfaces;
 using UI;
 using UnityEngine;
 using VContainer;
-using Wallets;
 
 namespace TargetZone
 {
@@ -21,7 +20,7 @@ namespace TargetZone
         private Action<InventoryType, int> _onChangedHandler; 
         
         [Inject]
-        private void Constructor(Wallet wallet)
+        private void Constructor(IWallet wallet)
         {
             _wallet = wallet;
             _panel = _gameObjectPanel.GetComponent<IPanel>();

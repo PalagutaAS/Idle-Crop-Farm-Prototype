@@ -2,12 +2,12 @@
 
 namespace Inventor
 {
-    public interface IInventory
+    public interface IInventory : IValueSource
     {
         public bool HasEnoughByCrop(CropType type, int count);
         public int CheckCountByType(InventoryType type);
     }
-    public interface IWallet
+    public interface IWallet : IValueSource
     {
         bool Payment(int count);
         void Payout(int count);

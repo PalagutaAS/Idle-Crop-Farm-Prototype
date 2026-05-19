@@ -12,24 +12,36 @@ namespace Infrastructure.DI
     public class BootstrapperLifetimeScope : LifetimeScope, ICoroutineRunner
     {
         [SerializeField] private ScreenLoading _screenLoading;
+        private IContainerBuilder _builder;
     
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
-            builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton);
-            builder.Register<SceneLoader>(Lifetime.Singleton);
-            builder.Register<PersistenceProgressService>(Lifetime.Scoped).AsImplementedInterfaces();
-            builder.Register<ContainerStateFactory>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-            builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf().WithParameter(MoneyType.Coin).WithParameter(0);
-            builder.Register<LoadSavesState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
-            builder.Register<SavedLoadService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
-            builder.Register<LoadLevelState>(Lifetime.Singleton).AsSelf().As<IExitableState, IPayloadedState<string>>();
-            builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
-            builder.Register<GameStateMachine>(Lifetime.Singleton).AsSelf().As<IStateSwitcher>();
-            builder.Register<StandaloneInputService>(Lifetime.Singleton).As<IInputService>();
+            _builder = builder;
+            RegisterOtherServices();
+            RegisterStateMachine();
+            
+            _builder.RegisterEntryPoint<GameBootstrap>();
+        }
 
-            builder.RegisterEntryPoint<GameBootstrap>();
+        private void RegisterOtherServices()
+        {
+            _builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
+            _builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton);
+            _builder.Register<SceneLoader>(Lifetime.Singleton);
+            _builder.Register<PersistenceProgressService>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);
+            _builder.Register<StandaloneInputService>(Lifetime.Singleton).As<IInputService>();
+        }
+
+        private void RegisterStateMachine()
+        {
+            _builder.Register<ResolverStateFactory>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<LoadSavesState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.Register<SavedLoadService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.Register<LoadLevelState>(Lifetime.Singleton).AsSelf().As<IExitableState, IPayloadedState<string>>();
+            _builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
+            _builder.Register<GameStateMachine>(Lifetime.Singleton).AsSelf().As<IStateSwitcher>();
         }
     }
 
