@@ -1,24 +1,21 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
 namespace Fields
 {
     public class FieldService : IFieldService
     {
-        private readonly IFieldCollectProvider _fieldCollectProvider;
-        private Dictionary<CropType, List<IField>> _fieldsDictionary = new();
+        private readonly IFieldCollectProvider _fieldProvider;
 
-        public FieldService(IFieldCollectProvider fieldCollectProvider)
+        public FieldService(IFieldCollectProvider fieldProvider)
         {
-            _fieldCollectProvider = fieldCollectProvider;
-            CollectFields();
+            _fieldProvider = fieldProvider;
         }
 
         public bool HasInactiveField(CropType type)
         {
-            if (!_fieldsDictionary.ContainsKey(type)) return false;
+            if (!_fieldProvider.FieldsDictionary.ContainsKey(type)) return false;
             
-            foreach (var field in _fieldsDictionary[type])
+            foreach (var field in _fieldProvider.FieldsDictionary[type])
             {
                 if (!field.ActiveSelf) return true;
             }
@@ -27,9 +24,9 @@ namespace Fields
 
         public void OpenField(CropType type)
         {
-            if (!_fieldsDictionary.ContainsKey(type)) return;
+            if (!_fieldProvider.FieldsDictionary.ContainsKey(type)) return;
             
-            foreach (var field in _fieldsDictionary[type])
+            foreach (var field in _fieldProvider.FieldsDictionary[type])
             {
                 if (!field.ActiveSelf)
                 {
@@ -43,7 +40,7 @@ namespace Fields
         {
             Dictionary<CropType, int> fieldsDictionary = new();
 
-            foreach (var keyValue in _fieldsDictionary)
+            foreach (var keyValue in _fieldProvider.FieldsDictionary)
             {
                 if (keyValue.Value.Count == 0) continue;
                 
@@ -59,21 +56,6 @@ namespace Fields
             }
 
             return fieldsDictionary;
-        }
-
-        private void CollectFields()
-        {
-            Object[] fields = Object.FindObjectsByType(typeof(Field), FindObjectsInactive.Include, FindObjectsSortMode.None);
-        
-            foreach (IField field in fields)
-            {
-                CropType fieldType = field.Type;
-
-                if (!_fieldsDictionary.ContainsKey(fieldType))
-                    _fieldsDictionary[fieldType] = new List<IField>();
-
-                _fieldsDictionary[fieldType].Add(field);
-            }
         }
     }
 }

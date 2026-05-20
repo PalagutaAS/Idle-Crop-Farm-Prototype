@@ -6,10 +6,7 @@ using VContainer.Unity;
 public class FieldCollectProvider : MonoBehaviour, IFieldCollectProvider, IInitializable
 {
     [SerializeField] private Field[] _fields;
-    private void Awake()
-    {
-        IField[] fields = GetComponentsInChildren<IField>(true);
-    }
+    public Dictionary<CropType, List<IField>> FieldsDictionary { get; private set; }
 
     public Dictionary<CropType, int> GetAllFields()
     {
@@ -18,11 +15,20 @@ public class FieldCollectProvider : MonoBehaviour, IFieldCollectProvider, IIniti
 
     public void Initialize()
     {
-        Debug.Log("INIT");
+        FieldsDictionary = new();
+        foreach (IField field in _fields)
+        {
+            CropType fieldType = field.Type;
+
+            if (!FieldsDictionary.ContainsKey(fieldType))
+                FieldsDictionary[fieldType] = new List<IField>();
+
+            FieldsDictionary[fieldType].Add(field);
+        }
     }
 }
 
 public interface IFieldCollectProvider
 {
-    Dictionary<CropType, int> GetAllFields();
+    public Dictionary<CropType, List<IField>> FieldsDictionary { get; }
 }
