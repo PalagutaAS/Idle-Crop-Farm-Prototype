@@ -1,8 +1,9 @@
 ﻿using Infrastructure;
+using Infrastructure.DI;
+using Infrastructure.Services;
 using UnityEditor;
 using UnityEngine;
 using VContainer;
-using VContainer.Unity;
 
 public class Tools 
 {
@@ -17,12 +18,18 @@ public class Tools
     [MenuItem("Tools/Save player prefs")]
     public static void SavePrefs()
     {
-        var scope = Object.FindObjectOfType<LifetimeScope>();
+        var scope = Object.FindObjectOfType<GameLifetimeScope>();
         if (scope != null)
         {
-            ISavedLoadService saveService = scope.Container.Resolve<ISavedLoadService>();
+            scope.Container.TryResolve<ISaveService>(out var saveService);
+            if (saveService == null)
+            {
+                Debug.LogWarning("No ISaveService found.");
+                return;
+            }
             saveService.SaveProgress();
             Debug.Log("Progress saved via ISavedLoadService.");
+            Debug.Log($" {PlayerPrefs.GetString(BaseSaveService.GameProgressKey)}");
         }
         else
         {

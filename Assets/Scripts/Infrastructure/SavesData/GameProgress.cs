@@ -7,6 +7,7 @@ namespace SavesData
     {
         public InventoryData InventoryData;
         public WalletData WalletData;
+        public FieldsData FieldData;
 
         public GameProgress()
         {
@@ -22,6 +23,22 @@ namespace SavesData
 
     [Serializable]
     public class InventoryData
+    {
+        public int Wheat;
+        public int Potato;
+        public int Corn;
+    }
+    
+    [Serializable]
+    public class FieldsData
+    {
+        public int Wheat;
+        public int Potato;
+        public int Corn;
+    }    
+    
+    [Serializable]
+    public class ToolsData
     {
         public int Wheat;
         public int Potato;

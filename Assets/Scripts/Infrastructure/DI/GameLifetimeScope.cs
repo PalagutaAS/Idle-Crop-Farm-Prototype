@@ -3,7 +3,8 @@ using AI.ScriptableObjects;
 using Crops.ScriptableObjects;
 using Fields;
 using Fields.ScriptableObjects;
-using Infrastructure.PersistenceProgress;
+using Infrastructure.Services;
+using Infrastructure.StateMachine;
 using Inventor;
 using ObjectPull;
 using ObjectPull.ScriptableObjects;
@@ -24,7 +25,7 @@ namespace Infrastructure.DI
     public class GameLifetimeScope : LifetimeScope
     {
         [SerializeField] private ThirdPersonController _player;
-        [SerializeField] private FieldService _fieldService;
+        [SerializeField] private FieldCollectProvider _fieldCollectProvider;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -45,8 +46,9 @@ namespace Infrastructure.DI
             _builder = builder;
             
             _builder.RegisterInstance(_player).As<IPlayer>();
-            _builder.RegisterInstance(_fieldService).AsImplementedInterfaces();
+            _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
             
+            RegisterStates();
             RegisterPrefabs();
             RegisterScriptableObjects();
             Register();
@@ -54,12 +56,27 @@ namespace Infrastructure.DI
 
         private void Register()
         {
+            _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);
+            _builder.Register<SaveService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CustomerFactory>(Lifetime.Scoped).AsImplementedInterfaces();
-            _builder.Register<SavedLoadService>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
-            _builder.Register<PersistenceProgressService>(Lifetime.Scoped).AsImplementedInterfaces().AsSelf();
             _builder.Register<OfferRandomService>(Lifetime.Transient).AsImplementedInterfaces();
             _builder.Register<ToolFactory>(Lifetime.Scoped).As<IToolFactory>();
+        }
+        
+        private void RegisterStates()
+        {
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                var stateSwitcher = resolver.Resolve<IStateSwitcher>();
+                var stateFactory = resolver.Resolve<IStateFactory>();
+                stateSwitcher.SetStateFactory(stateFactory);
+            });
+
+            _builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
+            _builder.Register<ApplyGameProgressState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
         }
 
         private void RegisterScriptableObjects()

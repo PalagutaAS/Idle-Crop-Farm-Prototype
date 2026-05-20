@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace Fields
 {
-    public class FieldService : MonoBehaviour, IFieldService, IInitializable
+    public class FieldService : IFieldService
     {
+        private readonly IFieldCollectProvider _fieldCollectProvider;
         private Dictionary<CropType, List<IField>> _fieldsDictionary = new();
-        
-        public void Initialize()
+
+        public FieldService(IFieldCollectProvider fieldCollectProvider)
         {
-             CollectFields();
+            _fieldCollectProvider = fieldCollectProvider;
+            CollectFields();
         }
 
         public bool HasInactiveField(CropType type)
@@ -38,7 +39,7 @@ namespace Fields
             }
         }
 
-        public Dictionary<CropType, int> GetActiveCropType()
+        public Dictionary<CropType, int> GetActiveFieldCountPerCropType()
         {
             Dictionary<CropType, int> fieldsDictionary = new();
 
@@ -62,7 +63,7 @@ namespace Fields
 
         private void CollectFields()
         {
-            IField[] fields = GetComponentsInChildren<IField>(true);
+            Object[] fields = Object.FindObjectsByType(typeof(Field), FindObjectsInactive.Include, FindObjectsSortMode.None);
         
             foreach (IField field in fields)
             {

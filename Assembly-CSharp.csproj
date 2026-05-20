@@ -63,6 +63,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
+    <Compile Include="Assets\Scripts\Fields\FieldCollectProvider.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\AllDemoScenes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ApplyGameProgressState.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameLoopState.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\ScreenLoading.cs" />
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\LibraryCropConfigs.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ResolverStateFactory.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\Services\SaveService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\EventsYG2.cs" />
     <Compile Include="Assets\Scripts\Tools\AnimatorHarvest.cs" />

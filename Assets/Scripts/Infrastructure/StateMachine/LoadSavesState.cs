@@ -5,6 +5,7 @@ namespace Infrastructure.StateMachine
 {
     public class LoadSavesState : IState
     {
+        const string NameGameScene = "MainGame Scene";
         private readonly IStateSwitcher _sateMachine;
         private readonly IPersistenceProgressService _progressService;
         private readonly ISavedLoadService _savedLoadService;
@@ -19,8 +20,8 @@ namespace Infrastructure.StateMachine
         public void Enter()
         {
             _progressService.Progress = _savedLoadService.LoadProgress() ?? DefaultGameProgress();
-            
-            _sateMachine.Enter<LoadLevelState, string>("MainGame Scene");
+
+            _sateMachine.Enter<LoadLevelState, string>(NameGameScene);
         }
 
 

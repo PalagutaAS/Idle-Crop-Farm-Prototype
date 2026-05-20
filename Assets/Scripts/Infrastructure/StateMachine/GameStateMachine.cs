@@ -7,12 +7,13 @@ namespace Infrastructure.StateMachine
     {
         void Enter<TState>() where TState : class, IState;
         void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>;
+        void SetStateFactory(IStateFactory resolve);
     }
 
     public class GameStateMachine : IStateSwitcher
     {
         private readonly Dictionary<Type, IExitableState> _states;
-        private readonly IStateFactory _stateFactory;
+        private IStateFactory _stateFactory;
         
         private IExitableState _activeState;
     
@@ -32,6 +33,11 @@ namespace Infrastructure.StateMachine
         {
             IPayloadedState<TPayload> state = ChangeState<TState>();;
             state.Enter(payload);
+        }
+
+        public void SetStateFactory(IStateFactory resolve)
+        {
+            _stateFactory = resolve;
         }
 
         private TState ChangeState<TState>() where TState : class, IExitableState
