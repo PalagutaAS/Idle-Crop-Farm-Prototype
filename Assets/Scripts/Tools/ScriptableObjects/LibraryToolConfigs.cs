@@ -14,7 +14,7 @@ namespace Tools.ScriptableObjects
         
         public IToolConfig GetConfigByLevel(ToolType type, int level)
         {
-            if (_dictionaryLibraryConfig == null) Regroup();
+            if (_dictionaryLibraryConfig == null) OnEnable();
             
             if (!_dictionaryLibraryConfig.ContainsKey(type)) return null;
             if (!_dictionaryLibraryConfig.TryGetValue(type, out Dictionary<int, IToolConfig> configs)) return null;
@@ -24,10 +24,12 @@ namespace Tools.ScriptableObjects
 
         public Dictionary<ToolType, Dictionary<int, IToolConfig>>.KeyCollection GetUsingTypes()
         {
+            if (_dictionaryLibraryConfig == null) OnEnable();
+
             return _dictionaryLibraryConfig.Keys;
         }
 
-        private void Regroup()
+        private void OnEnable()
         {
             try
             {

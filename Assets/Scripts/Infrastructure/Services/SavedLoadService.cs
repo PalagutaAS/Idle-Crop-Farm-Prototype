@@ -10,8 +10,9 @@ namespace Infrastructure
             GameProgress progress = null;
             if (PlayerPrefs.HasKey(GameProgressKey))
             {
-                string json = PlayerPrefs.GetString(GameProgressKey);
-                progress = JsonUtility.FromJson<GameProgress>(json);
+                string jsonProgress = PlayerPrefs.GetString(GameProgressKey);
+                Debug.Log(jsonProgress);
+                progress = JsonUtility.FromJson<GameProgress>(jsonProgress);
             }
 
             return progress;

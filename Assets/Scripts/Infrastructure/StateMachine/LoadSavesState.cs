@@ -20,6 +20,11 @@ namespace Infrastructure.StateMachine
         public void Enter()
         {
             _progressService.Progress = _savedLoadService.LoadProgress() ?? DefaultGameProgress();
+            
+            _progressService.Progress.FieldData ??= DefaultFieldsData();
+            _progressService.Progress.ToolsData ??= DefaultToolsData();
+            _progressService.Progress.InventoryData ??= DefaultInventoryData();
+            _progressService.Progress.WalletData ??= DefaultWalletData();
 
             _sateMachine.Enter<LoadLevelState, string>(NameGameScene);
         }
@@ -36,8 +41,26 @@ namespace Infrastructure.StateMachine
         private GameProgress DefaultGameProgress() =>
             new GameProgress
             {
-                InventoryData = new InventoryData {Corn = 0, Wheat = 0, Potato = 0},
-                WalletData = new WalletData() {Gold = 3000}
+                InventoryData = DefaultInventoryData(),
+                WalletData = DefaultWalletData(),
+                ToolsData = DefaultToolsData(),
+                FieldData = DefaultFieldsData(),
+            };
+
+        private static FieldsData DefaultFieldsData() => 
+            new FieldsData {};
+
+        private static InventoryData DefaultInventoryData() => 
+            new InventoryData {Corn = 0, Wheat = 0, Potato = 0};
+
+        private static WalletData DefaultWalletData() => 
+            new WalletData {Gold = 100};
+
+        private static ToolsData DefaultToolsData() => 
+            new ToolsData()
+            {
+                Scythe = 0,
+                Shovel = 0,
             };
     }
 }

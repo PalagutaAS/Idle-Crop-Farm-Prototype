@@ -26,11 +26,6 @@ namespace Player
             _toolManager = GetComponentInChildren<IToolManager>();
         }
 
-        private void Awake()
-        {
-            _toolManager.TrySetupNewTool(ToolType.Pickaxe);
-        }
-
         public void Move(Vector3 movement)
         {
             _characterController.Move(movement);

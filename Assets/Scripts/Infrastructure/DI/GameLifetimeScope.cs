@@ -26,6 +26,7 @@ namespace Infrastructure.DI
     {
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private FieldCollectProvider _fieldCollectProvider;
+        [SerializeField] private PlayerTools _toolsManager;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -47,6 +48,7 @@ namespace Infrastructure.DI
             
             _builder.RegisterInstance(_player).As<IPlayer>();
             _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
+            _builder.RegisterInstance(_toolsManager).AsImplementedInterfaces();
             
             RegisterStates();
             RegisterPrefabs();

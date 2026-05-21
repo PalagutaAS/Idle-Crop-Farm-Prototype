@@ -9660,6 +9660,7 @@ MonoBehaviour:
   - {fileID: 1451868260}
   _player: {fileID: 1031485471}
   _fieldCollectProvider: {fileID: 5834826127477848997}
+  _toolsManager: {fileID: 1963951039}
   _toolPrefab: {fileID: 7226390686178689476, guid: 1808a6e60c9158648acdbbca36e4cb91,
     type: 3}
   _customerController: {fileID: 1883693290738159634, guid: 2ffe5bfbfcbd04041b0425f858afe73f,

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace SavesData
 {
@@ -8,6 +10,7 @@ namespace SavesData
         public InventoryData InventoryData;
         public WalletData WalletData;
         public FieldsData FieldData;
+        public ToolsData ToolsData;
 
         public GameProgress()
         {
@@ -40,8 +43,7 @@ namespace SavesData
     [Serializable]
     public class ToolsData
     {
-        public int Wheat;
-        public int Potato;
-        public int Corn;
+        public int Shovel;
+        public int Scythe;
     }
 }
