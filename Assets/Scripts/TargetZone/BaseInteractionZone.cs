@@ -13,11 +13,11 @@ namespace TargetZone
     {
         [SerializeField] protected GameObject _gameObjectPanel;
 
-        protected IValueSource _wallet;
+        protected IValueSource<MoneyType> _wallet;
         protected IPlayer _player;
         protected IPanel _panel;
         
-        private Action<InventoryType, int> _onChangedHandler; 
+        private Action<MoneyType, int> _onChangedHandler; 
         
         [Inject]
         private void Constructor(IWallet wallet)

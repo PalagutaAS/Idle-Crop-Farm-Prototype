@@ -2,22 +2,21 @@
 
 namespace Inventor
 {
-    public interface IInventory : IValueSource
+    public interface IInventory : IValueSource<CropType>
     {
         public bool HasEnoughByCrop(CropType type, int count);
-        public int CheckCountByType(InventoryType type);
     }
-    public interface IWallet : IValueSource
+    public interface IWallet : IValueSource<MoneyType>
     {
         bool Payment(int count);
         void Payout(int count);
         int Count { get; }
     }
 
-    public interface IValueSource
+    public interface IValueSource<TKey>
     {
-        public event Action<InventoryType, int> OnChangedByTypeForUI;
-        public int CheckCountByType(InventoryType type);
+        event Action<TKey, int> OnChangedByTypeForUI;
+        int CheckCountByType(TKey type);
     }
 
     public interface IInventoryChanger : IInventory

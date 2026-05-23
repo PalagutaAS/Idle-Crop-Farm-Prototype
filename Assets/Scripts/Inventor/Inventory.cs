@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Inventor
 {
-    public class Inventory : IValueSource, IInventoryChanger, IInventory 
+    public class Inventory : IInventoryChanger
     {
         private readonly Dictionary<CropType, int> _dictionary;
         
-        public event Action<InventoryType, int> OnChangedByTypeForUI;
+        public event Action<CropType, int> OnChangedByTypeForUI;
         
         public Inventory()
         {
@@ -19,7 +19,7 @@ namespace Inventor
             if (!HasEnoughByCrop(type, count)) return false;
 
             _dictionary[type] -= count;
-            OnChangedByTypeForUI?.Invoke((InventoryType)type, _dictionary[type]);
+            OnChangedByTypeForUI?.Invoke(type, _dictionary[type]);
             return true;
         }
         
@@ -31,10 +31,10 @@ namespace Inventor
             }
 
             _dictionary[type] += count;
-            OnChangedByTypeForUI?.Invoke((InventoryType)type, _dictionary[type]);
+            OnChangedByTypeForUI?.Invoke(type, _dictionary[type]);
         }
 
-        public bool HasEnoughByCrop(CropType type, int count) => count <= CheckCountByType((InventoryType)type);
-        public int CheckCountByType(InventoryType type) => _dictionary.ContainsKey((CropType)type) ? _dictionary[(CropType)type]: 0;
+        public bool HasEnoughByCrop(CropType type, int count) => count <= CheckCountByType(type);
+        public int CheckCountByType(CropType type) => _dictionary.ContainsKey(type) ? _dictionary[type]: 0;
     }
 }

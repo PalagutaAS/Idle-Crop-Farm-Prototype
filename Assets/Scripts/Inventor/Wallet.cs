@@ -3,7 +3,7 @@ using Inventor;
 
 namespace Wallets
 {
-    public class Wallet : IWallet, IValueSource
+    public class Wallet : IWallet
     {
         private int _count;
         private readonly MoneyType _type;
@@ -20,7 +20,7 @@ namespace Wallets
             private set
             {
                 _count = value; 
-                OnChangedByTypeForUI?.Invoke((InventoryType)_type, _count);
+                OnChangedByTypeForUI?.Invoke(_type, _count);
             }
         }
 
@@ -37,10 +37,10 @@ namespace Wallets
             Count += count;
         }
 
-        public event Action<InventoryType, int> OnChangedByTypeForUI;
-        public int CheckCountByType(InventoryType type)
+        public event Action<MoneyType, int> OnChangedByTypeForUI;
+        public int CheckCountByType(MoneyType type)
         {
-            return ((InventoryType)_type == type) ? Count : 0;
+            return (_type == type) ? Count : 0;
         }
     }
 }

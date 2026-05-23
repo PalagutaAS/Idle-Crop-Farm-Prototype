@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fields;
 using Infrastructure.PersistenceProgress;
 using Inventor;
@@ -51,7 +52,7 @@ namespace Infrastructure.Services
             var toolsData = new ToolsData
             {
                 Shovel = toolsDict.ContainsKey(ToolType.Shovel) ? toolsDict[ToolType.Shovel] : 0,
-                Scythe = toolsDict.ContainsKey(ToolType.Pickaxe) ? toolsDict[ToolType.Pickaxe] : 0,
+                Scythe = toolsDict.ContainsKey(ToolType.Scythe) ? toolsDict[ToolType.Scythe] : 0,
             };
             
             var progress = _progressService.Progress ?? new GameProgress();
