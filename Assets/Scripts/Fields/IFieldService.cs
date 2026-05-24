@@ -4,7 +4,7 @@ namespace Fields
 {
     public interface IFieldService
     {
-        Dictionary<CropType, int> GetActiveCropType();
+        Dictionary<CropType, int> GetActiveFieldCountPerCropType();
         bool HasInactiveField(CropType itemType);
         void OpenField(CropType configType);
     }

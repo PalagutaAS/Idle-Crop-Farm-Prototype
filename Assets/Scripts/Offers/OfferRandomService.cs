@@ -20,9 +20,9 @@ namespace Offers
         
         public Offer GetRandom()
         {
-            Dictionary<CropType, int> activeCropFields = _fieldService.GetActiveCropType();
+            Dictionary<CropType, int> activeCropTypesToCountDict = _fieldService.GetActiveFieldCountPerCropType();
                 
-            List<CropType> keysList = activeCropFields.Keys.ToList();
+            List<CropType> keysList = activeCropTypesToCountDict.Keys.ToList();
             if (keysList.Count == 0)
             {
                 keysList.Add(CropType.Wheat);
@@ -30,7 +30,7 @@ namespace Offers
             CropType randomType = keysList[Random.Range(0, keysList.Count)];
             CropConfig config = _libraryCropConfigs.GetConfigByType(randomType);
 
-            int activeCount = activeCropFields[randomType];
+            int activeCount = (activeCropTypesToCountDict.Count == 0) ? 1 : activeCropTypesToCountDict[randomType];
             
             int count = RandomCount(config, activeCount);
             int price = RandomPrice(config, count);

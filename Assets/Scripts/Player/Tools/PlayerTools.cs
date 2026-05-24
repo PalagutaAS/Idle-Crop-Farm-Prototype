@@ -27,12 +27,16 @@ namespace Player.Tools
             _libraryToolConfigs = libraryToolConfigs;
         }
     
-        public bool TrySetupNewTool(ToolType type)
+        public bool TrySetupNewTool(ToolType type, int level = 1)
         {
+            if (level == 0)
+                return false;
+            
             ISlot freeSlot = GetEmptySlot();
-            if (freeSlot == null) return false;
+            if (freeSlot == null) 
+                return false;
 
-            var config = _libraryToolConfigs.GetConfigByLevel(type,1);
+            var config = _libraryToolConfigs.GetConfigByLevel(type,level);
             ITool newTool = _toolFactory.CreateTool(type);
             newTool.Initialize(_player, freeSlot, config);
         

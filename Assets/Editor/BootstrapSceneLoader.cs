@@ -16,7 +16,6 @@ public static class BootstrapSceneLoader
             if (bootstrapScene != null)
             {
                 EditorSceneManager.playModeStartScene = bootstrapScene;
-                Debug.Log($"[BootstrapLoader] Play Mode Start Scene установлена: {savedPath}");
             }
             else
             {

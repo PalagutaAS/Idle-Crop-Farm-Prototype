@@ -9,32 +9,42 @@ namespace UI
 {
     public class PrintValues : MonoBehaviour
     {
-        private Dictionary<InventoryType, PrintCount> _dictionaryPrintCount = new();
-        
+        private Dictionary<CropType, PrintCrop> _cropPrintDict = new();
+        private Dictionary<MoneyType, PrintMoney> _moneyPrintDict = new();
+
         [Inject]
         private void Constructor(IInventory inventory, IWallet wallet)
         {
-            _dictionaryPrintCount = GetComponentsInChildren<PrintCount>()
-                .ToDictionary(pc => pc.GetSupportType, pc => pc);
-            IValueSource[] valueSources = {inventory, wallet};
-            
-            foreach (var valueSource in valueSources)
+            _cropPrintDict = GetComponentsInChildren<PrintCrop>()
+                .ToDictionary(pc => pc.Type, pc => pc);
+            _moneyPrintDict = GetComponentsInChildren<PrintMoney>()
+                .ToDictionary(pm => pm.Type, pm => pm);
+
+            inventory.OnChangedByTypeForUI += OnCropChanged;
+            wallet.OnChangedByTypeForUI += OnMoneyChanged;
+
+            foreach (var kvp in _cropPrintDict)
             {
-                valueSource.OnChangedByTypeForUI += SendToPrint;
-                foreach (var item in _dictionaryPrintCount)
-                {
-                    var type = item.Value.GetSupportType;
-                    SendToPrint(type, valueSource.CheckCountByType(type));
-                }
+                int count = inventory.CheckCountByType(kvp.Key);
+                kvp.Value.Print(count);
+            }
+            foreach (var kvp in _moneyPrintDict)
+            {
+                int count = wallet.CheckCountByType(kvp.Key);
+                kvp.Value.Print(count);
             }
         }
 
-        private void SendToPrint(InventoryType type, int count)
+        private void OnCropChanged(CropType type, int count)
         {
-            if (_dictionaryPrintCount.ContainsKey(type))
-            {
-                _dictionaryPrintCount[type].Print(count);
-            }
+            if (_cropPrintDict.TryGetValue(type, out var printCrop))
+                printCrop.Print(count);
+        }
+
+        private void OnMoneyChanged(MoneyType type, int count)
+        {
+            if (_moneyPrintDict.TryGetValue(type, out var printMoney))
+                printMoney.Print(count);
         }
     }
 }

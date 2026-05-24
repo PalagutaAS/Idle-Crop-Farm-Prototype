@@ -5,6 +5,7 @@ namespace Infrastructure.StateMachine
 {
     public class LoadSavesState : IState
     {
+        const string NameGameScene = "MainGame Scene";
         private readonly IStateSwitcher _sateMachine;
         private readonly IPersistenceProgressService _progressService;
         private readonly ISavedLoadService _savedLoadService;
@@ -20,7 +21,12 @@ namespace Infrastructure.StateMachine
         {
             _progressService.Progress = _savedLoadService.LoadProgress() ?? DefaultGameProgress();
             
-            _sateMachine.Enter<LoadLevelState, string>("MainGame Scene");
+            _progressService.Progress.FieldData ??= DefaultFieldsData();
+            _progressService.Progress.ToolsData ??= DefaultToolsData();
+            _progressService.Progress.InventoryData ??= DefaultInventoryData();
+            _progressService.Progress.WalletData ??= DefaultWalletData();
+
+            _sateMachine.Enter<LoadLevelState, string>(NameGameScene);
         }
 
 
@@ -35,8 +41,22 @@ namespace Infrastructure.StateMachine
         private GameProgress DefaultGameProgress() =>
             new GameProgress
             {
-                InventoryData = new InventoryData {Corn = 0, Wheat = 0, Potato = 0},
-                WalletData = new WalletData() {Gold = 3000}
+                InventoryData = DefaultInventoryData(),
+                WalletData = DefaultWalletData(),
+                ToolsData = DefaultToolsData(),
+                FieldData = DefaultFieldsData(),
             };
+
+        private static FieldsData DefaultFieldsData() => 
+            new FieldsData { Fields = new SerializableDictionary<CropType, int>() };
+
+        private static InventoryData DefaultInventoryData() => 
+            new InventoryData { Crops = new SerializableDictionary<CropType, int>() };
+
+        private static WalletData DefaultWalletData() => 
+            new WalletData { Money = new SerializableDictionary<MoneyType, int>() };
+
+        private static ToolsData DefaultToolsData() => 
+            new ToolsData() { Tools = new SerializableDictionary<ToolType, int>() };
     }
 }

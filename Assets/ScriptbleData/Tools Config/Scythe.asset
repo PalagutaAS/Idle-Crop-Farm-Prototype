@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a31074f91934c9582282bb84073c626, type: 3}
-  m_Name: Pickaxe
+  m_Name: Scythe
   m_EditorClassIdentifier: 
-  _type: 16384
+  _type: 1
   _animator: {fileID: 9100000, guid: ac4a79ad9f9015b498d10a90dc7f3566, type: 2}
   _toolConfigs:
   - _model: {fileID: 919132149155446097, guid: 19ab9bcf307aece4489239088be02a35, type: 3}

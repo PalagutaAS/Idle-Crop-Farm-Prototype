@@ -55,6 +55,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintCrop.cs" />
     <Compile Include="Assets\Scripts\UI\PrintCount.cs" />
     <Compile Include="Assets\Scripts\Inventor\Inventory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yg.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />
     <Compile Include="Assets\Scripts\Crops\EnumCrop.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
+    <Compile Include="Assets\Scripts\Fields\FieldCollectProvider.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\AllDemoScenes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\Scripts\Crops\Interfaces\ICrop.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_interface.cs" />
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\CropConfig.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintMoney.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YGInsides.cs" />
     <Compile Include="Assets\Scripts\Player\Input\MobileInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\FileYG.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ApplyGameProgressState.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameLoopState.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\ScreenLoading.cs" />
     <Compile Include="Assets\Scripts\Crops\ScriptableObjects\LibraryCropConfigs.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ResolverStateFactory.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\Services\SaveService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\EventsYG2.cs" />
     <Compile Include="Assets\Scripts\Tools\AnimatorHarvest.cs" />
