@@ -10,12 +10,24 @@ public class SmoothCameraFollow : MonoBehaviour
     [SerializeField] private float _distance = 1f;
     [SerializeField] private float _fixedHeight = 10f;
     [SerializeField] private float _offsetZ = -10f;
-    
+    [SerializeField] private bool _isZoom = false;
+
     [Header("Smooth Settings")]
     [Range(0.01f, 1f)]
     [SerializeField] private float _smoothSpeed = 0.1f;
 
     private Vector3 _targetPosition;
+
+    private void Awake()
+    {
+        if (_target == null)
+        {
+            Debug.LogWarning("Camera target not assigned!");
+            return;
+        }
+
+        transform.position = CalcTargetPosition();
+    }
 
     void LateUpdate()
     {
@@ -24,26 +36,34 @@ public class SmoothCameraFollow : MonoBehaviour
             Debug.LogWarning("Camera target not assigned!");
             return;
         }
+        
+        transform.position = Vector3.Lerp(
+            transform.position,
+            CalcTargetPosition(),
+            _smoothSpeed * Time.deltaTime * 60
+        );
+    }
 
+    private Vector3 CalcTargetPosition()
+    {
         Vector3 targetPosition = new Vector3(
             _target.position.x,
             _fixedHeight * _distance,
             _target.position.z + _offsetZ * _distance
         );
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition,
-            _smoothSpeed * Time.deltaTime * 60
-        );
+        return targetPosition;
     }
-    
+
     void Update()
     {
+        if (!_isZoom)
+        {
+            return;
+        }
+        
         float scrollValue = Input.GetAxis("Mouse ScrollWheel");
         if (scrollValue == 0) return;
         
         _distance = Mathf.Clamp(_distance + scrollValue, 0.5f, 2f);
-        
     }
 }
