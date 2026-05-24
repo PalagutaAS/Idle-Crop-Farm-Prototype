@@ -41,38 +41,58 @@ namespace Infrastructure.StateMachine
         private void ApplyGameProgress()
         {
             ApplyInventoryData(_progressService.Progress.InventoryData);
-            _wallet.Payout(_progressService.Progress.WalletData.Gold);
-            ApplyFieldsData();
-            ApplyToolsData();
+            ApplyMoneyData(_progressService.Progress.WalletData);
+            ApplyFieldsData(_progressService.Progress.FieldData);
+            ApplyToolsData(_progressService.Progress.ToolsData);
         }
 
-        private void ApplyToolsData()
+        private void ApplyMoneyData(WalletData data)
         {
-            if (_progressService.Progress.ToolsData == null)
+            if (data?.Money == null) 
                 return;
             
-            _toolManager.TrySetupNewTool(ToolType.Shovel, _progressService.Progress.ToolsData.Shovel);
-            _toolManager.TrySetupNewTool(ToolType.Scythe, _progressService.Progress.ToolsData.Scythe);
+            foreach (var kvp in data.Money)
+            {
+                if (kvp.Key == MoneyType.Coin)
+                {
+                    _wallet.Payout(kvp.Value);
+                }
+            }
+                
         }
 
-        private void ApplyFieldsData()
+        private void ApplyToolsData(ToolsData data)
         {
-            for (int i = _progressService.Progress.FieldData.Corn; i > 0; i--)
-                _fieldService.OpenField(CropType.Corn);
+            if (data?.Tools == null) 
+                return;
 
-            for (int i = _progressService.Progress.FieldData.Wheat; i > 0; i--)
-                _fieldService.OpenField(CropType.Wheat);
+            foreach (var kvp in data.Tools)
+            {
+                _toolManager.TrySetupNewTool(kvp.Key, kvp.Value);
+            }
+        }
 
-            for (int i = _progressService.Progress.FieldData.Potato; i > 0; i--)
-                _fieldService.OpenField(CropType.Potato);
-            
+        private void ApplyFieldsData(FieldsData data)
+        {
+            if (data?.Fields == null) 
+                return;
+
+            foreach (var kvp in data.Fields)
+            {
+                for (int i = 0; i < kvp.Value; i++)
+                {
+                    _fieldService.OpenField(kvp.Key);
+                }
+            }
         }
 
         private void ApplyInventoryData(InventoryData data)
         {
-            _inventory.Add(CropType.Wheat, data.Wheat);
-            _inventory.Add(CropType.Potato, data.Potato);
-            _inventory.Add(CropType.Corn, data.Corn);
+            if (data?.Crops == null) 
+                return;
+            
+            foreach (var kvp in data.Crops)
+                _inventory.Add(kvp.Key, kvp.Value);
         }
     }
 }

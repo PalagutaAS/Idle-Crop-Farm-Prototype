@@ -7,6 +7,7 @@ public enum CropType
     Wheat = 1 << 0,
     Corn = 1 << 1,
     Potato = 1 << 2,
+    Pumpkin = 1 << 4,
 }
 [Flags]
 public enum MoneyType

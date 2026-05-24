@@ -28,33 +28,41 @@ namespace Infrastructure.Services
 
         public void SaveProgress()
         {
-            var walletData = new WalletData {Gold = _wallet.Count};
-            var inventoryData = new InventoryData
-            {
-                Wheat = _inventory.CheckCountByType(InventoryType.Wheat),
-                Potato = _inventory.CheckCountByType(InventoryType.Potato),
-                Corn = _inventory.CheckCountByType(InventoryType.Corn)
-            };
+            var walletData = new WalletData();
+            var fieldData = new FieldsData();
+            var inventoryData = new InventoryData();
+            var toolsData = new ToolsData();
             
-            var activeCrops = _fieldService.GetActiveFieldCountPerCropType();
+            
+            Array cropEnums = Enum.GetValues(typeof(CropType));
+            Array toolEnums = Enum.GetValues(typeof(ToolType));
 
-            var fieldData = new FieldsData
+            walletData.Money[MoneyType.Coin] = _wallet.Count;
+            foreach (CropType crop in cropEnums)
             {
-                Corn = activeCrops.TryGetValue(CropType.Corn, out int cornCount) ? cornCount : 0,
-                Potato = activeCrops.TryGetValue(CropType.Potato, out int potatoCount) ? potatoCount : 0,
-                Wheat = activeCrops.TryGetValue(CropType.Wheat, out int wheatCount) ? wheatCount : 0
-            };
+                if (crop == CropType.None)
+                    continue;
+                int cropAmount = _inventory.CheckCountByType(crop);
+                
+                if (cropAmount > 0)
+                    inventoryData.Crops[crop] = cropAmount;
+                
+                int fieldAmount = _fieldService.GetActiveFieldCountPerCropType().
+                    TryGetValue(crop, out int cornCount) ? cornCount : 0;
+                
+                if (fieldAmount > 0)
+                    fieldData.Fields[crop] = fieldAmount;
+            }
 
             Dictionary<ToolType, int> toolsDict = new();
             foreach (ITool tool in _toolManager.GetAllTools())
                 toolsDict.Add(tool.Type, tool.CurrentLevel);
 
-            var toolsData = new ToolsData
+            foreach (ToolType tool in toolEnums)
             {
-                Shovel = toolsDict.ContainsKey(ToolType.Shovel) ? toolsDict[ToolType.Shovel] : 0,
-                Scythe = toolsDict.ContainsKey(ToolType.Scythe) ? toolsDict[ToolType.Scythe] : 0,
-            };
-            
+                toolsData.Tools[tool] = toolsDict.TryGetValue(tool, out int toolLevel) ? toolLevel : 0;
+            }
+
             var progress = _progressService.Progress ?? new GameProgress();
             progress.InventoryData = inventoryData;
             progress.WalletData = walletData;

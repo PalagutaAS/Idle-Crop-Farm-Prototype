@@ -48,19 +48,15 @@ namespace Infrastructure.StateMachine
             };
 
         private static FieldsData DefaultFieldsData() => 
-            new FieldsData {};
+            new FieldsData { Fields = new SerializableDictionary<CropType, int>() };
 
         private static InventoryData DefaultInventoryData() => 
-            new InventoryData {Corn = 0, Wheat = 0, Potato = 0};
+            new InventoryData { Crops = new SerializableDictionary<CropType, int>() };
 
         private static WalletData DefaultWalletData() => 
-            new WalletData {Gold = 100};
+            new WalletData { Money = new SerializableDictionary<MoneyType, int>() };
 
         private static ToolsData DefaultToolsData() => 
-            new ToolsData()
-            {
-                Scythe = 0,
-                Shovel = 0,
-            };
+            new ToolsData() { Tools = new SerializableDictionary<ToolType, int>() };
     }
 }
