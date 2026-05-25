@@ -53,8 +53,12 @@ namespace Infrastructure.StateMachine
         private static InventoryData DefaultInventoryData() => 
             new InventoryData { Crops = new SerializableDictionary<CropType, int>() };
 
-        private static WalletData DefaultWalletData() => 
-            new WalletData { Money = new SerializableDictionary<MoneyType, int>() };
+        private static WalletData DefaultWalletData()
+        {
+            var walletData = new WalletData {Money = new SerializableDictionary<MoneyType, int>()};
+            walletData.Money[MoneyType.Coin] = 600;
+            return walletData;
+        }
 
         private static ToolsData DefaultToolsData() => 
             new ToolsData() { Tools = new SerializableDictionary<ToolType, int>() };

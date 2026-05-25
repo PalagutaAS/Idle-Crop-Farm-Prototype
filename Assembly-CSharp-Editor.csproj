@@ -63,9 +63,9 @@
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\Editor\TestLabel\TestLabel_build.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\Editor\LogoFormat.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Editor\EditorUtils.cs" />
+    <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Editor\IconEditorSaveFile.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\Editor\PixelRatioMobile.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\Editor\InfoYGEditorWindow.cs" />
-    <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Editor\IconEditorSaveFile.cs" />
     <Compile Include="Assets\Editor\Tools.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\Editor\EnvirData_build.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\Editor\RewardedAdv_build.cs" />

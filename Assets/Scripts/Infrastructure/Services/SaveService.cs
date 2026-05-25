@@ -73,6 +73,7 @@ namespace Infrastructure.Services
 
             PlayerPrefs.SetString(GameProgressKey, json);
             PlayerPrefs.Save();
+            Debug.Log($"Progress saved: {json}");
         }
     }
 

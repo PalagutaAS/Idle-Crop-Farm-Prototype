@@ -6,6 +6,7 @@ using Fields.ScriptableObjects;
 using Infrastructure.Services;
 using Infrastructure.StateMachine;
 using Inventor;
+using Logging;
 using ObjectPull;
 using ObjectPull.ScriptableObjects;
 using Offers;
@@ -33,12 +34,15 @@ namespace Infrastructure.DI
         [SerializeField] private CustomerController _customerController;
         
         [Space,Header("Scriptable Object Register")]
-        [SerializeField] private LibraryPoolConfigs _libraryPoolConfigs; 
-        [SerializeField] private LibraryToolConfigs _libraryToolConfig; 
-        [SerializeField] private LibraryFieldConfigs _libraryFieldConfigs; 
-        [SerializeField] private LibraryCropConfigs _libraryCropConfigs; 
+        [SerializeField] private LibraryPoolConfigs _libraryPoolConfigs;
+        [SerializeField] private LibraryToolConfigs _libraryToolConfig;
+        [SerializeField] private LibraryFieldConfigs _libraryFieldConfigs;
+        [SerializeField] private LibraryCropConfigs _libraryCropConfigs;
         [SerializeField] private CustomerModels _customerModels;
         [SerializeField] private QueueConfig _queueConfig;
+        
+        [Space, Header("DEBUG")]
+        [SerializeField] protected DebugMenu _debugCanvasMenu;
         
         private IContainerBuilder _builder;
 
@@ -58,6 +62,7 @@ namespace Infrastructure.DI
 
         private void Register()
         {
+            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton);
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);
@@ -77,8 +82,9 @@ namespace Infrastructure.DI
                 stateSwitcher.SetStateFactory(stateFactory);
             });
 
-            _builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
-            _builder.Register<ApplyGameProgressState>(Lifetime.Singleton).AsSelf().As<IExitableState, IState>();
+            _builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.Register<GameMenuPauseState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.Register<ApplyGameProgressState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
         }
 
         private void RegisterScriptableObjects()

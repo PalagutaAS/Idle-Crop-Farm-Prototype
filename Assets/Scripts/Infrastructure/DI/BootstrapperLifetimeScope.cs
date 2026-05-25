@@ -1,5 +1,6 @@
 using Infrastructure.PersistenceProgress;
 using Infrastructure.StateMachine;
+using Logging;
 using Player.Input;
 using UnityEngine;
 using VContainer;
@@ -23,6 +24,7 @@ namespace Infrastructure.DI
 
         private void RegisterGlobalServices()
         {
+            _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.Register<SavedLoadService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
             _builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton);
@@ -44,9 +46,10 @@ namespace Infrastructure.DI
     {
         private IStateSwitcher StateMachine { get; }
 
-        public GameBootstrap(IStateSwitcher gameStateMachine)
+        public GameBootstrap(IStateSwitcher gameStateMachine, IObjectResolver resolver)
         {
             StateMachine = gameStateMachine;
+            resolver.TryResolve<IDebugLogService>(out IDebugLogService service);
         }
 
         public void Start()
