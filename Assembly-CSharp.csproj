@@ -45,7 +45,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_interface.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\ScriptableObjects\LibraryPoolConfigs.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigField.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
@@ -54,6 +53,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_info.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
+    <Compile Include="Assets\Logging\DebugMenu.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\PlayerTools.cs" />
     <Compile Include="Assets\Scripts\Tools\ChildModelChanger.cs" />
     <Compile Include="Assets\Scripts\UI\PrintCrop.cs" />
@@ -71,8 +71,8 @@
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZone.cs" />
     <Compile Include="Assets\Scripts\Player\Input\StandaloneInputService.cs" />
-    <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SavesDataExample.cs" />
+    <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PluginPrefs.cs" />
     <Compile Include="Assets\Scripts\Player\Input\InputService.cs" />
     <Compile Include="Assets\Scripts\Offers\OfferRandomService.cs" />
@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\LibraryFieldConfigs.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\ITool.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuStateSwitch.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ApplyGameProgressState.cs" />
@@ -114,12 +115,14 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\NestedYGAttribute.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\GameLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\Fields\IFieldService.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\StateMachine\GameMenuPauseState.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IInteractionCommand.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\ImageLoadYG.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\AdvCallingSimulation.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
+    <Compile Include="Assets\Logging\DebugLogService.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_info.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
     <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
+    <Compile Include="Assets\Logging\LogHandler.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
@@ -184,8 +188,8 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\ToolFactory.cs" />
-    <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />
+    <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\FieldService.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
@@ -196,8 +200,8 @@
     <Compile Include="Assets\Scripts\Inventor\Wallet.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_projectSettings.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolManager.cs" />
-    <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Module.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\SavesYG2.cs" />
+    <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Module.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YG2.cs" />
@@ -217,6 +221,7 @@
     <Compile Include="Assets\Scripts\Player\Interface\IPlayer.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Translates\VersionControl_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\YandexGamePlatform.cs" />
+    <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_interface.cs" />
     <Compile Include="Assets\Scripts\RotationMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Slots\Slot.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Example\Scripts\GetPlayerData.cs" />

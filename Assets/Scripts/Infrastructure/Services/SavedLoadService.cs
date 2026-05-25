@@ -11,7 +11,7 @@ namespace Infrastructure
             if (PlayerPrefs.HasKey(GameProgressKey))
             {
                 string jsonProgress = PlayerPrefs.GetString(GameProgressKey);
-                Debug.Log(jsonProgress);
+                Debug.Log($"Successfully load save: {jsonProgress}");
                 progress = JsonUtility.FromJson<GameProgress>(jsonProgress);
             }
 

@@ -1,5 +1,4 @@
-﻿using Infrastructure;
-using Infrastructure.DI;
+﻿using Infrastructure.DI;
 using Infrastructure.Services;
 using UnityEditor;
 using UnityEngine;
@@ -28,8 +27,6 @@ public class Tools
                 return;
             }
             saveService.SaveProgress();
-            Debug.Log("Progress saved via ISavedLoadService.");
-            Debug.Log($" {PlayerPrefs.GetString(BaseSaveService.GameProgressKey)}");
         }
         else
         {

@@ -1,4 +1,5 @@
-﻿
+﻿using YG;
+
 namespace Infrastructure.StateMachine
 {
     public class GameLoopState : IState
@@ -12,12 +13,12 @@ namespace Infrastructure.StateMachine
 
         public void Exit()
         {
-        
+            PauseGameYG.SetState(0, true, true);
         }
 
         public void Enter()
         {
-        
+            PauseGameYG.SetState(1, true, true);
         }
     }
 }
