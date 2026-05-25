@@ -5,11 +5,10 @@ using Infrastructure.PersistenceProgress;
 using Inventor;
 using SavesData;
 using Tools.Interface;
-using UnityEngine;
 
 namespace Infrastructure.Services
 {
-    public class SaveService : BaseSaveService, ISaveService
+    public class SaveService : ISaveService
     {
         private readonly IPersistenceProgressService _progressService;
         private readonly IInventoryChanger _inventory;
@@ -68,12 +67,8 @@ namespace Infrastructure.Services
             progress.WalletData = walletData;
             progress.FieldData = fieldData;
             progress.ToolsData = toolsData;
-
-            string json = JsonUtility.ToJson(progress);
-
-            PlayerPrefs.SetString(GameProgressKey, json);
-            PlayerPrefs.Save();
-            Debug.Log($"Progress saved: {json}");
+            
+            _progressService.SaveCloudYG();
         }
     }
 

@@ -19,12 +19,22 @@ namespace Infrastructure.DI
             RegisterGlobalServices();
             RegisterStateMachine();
             
+            RegisterDebug();
+            
             _builder.RegisterEntryPoint<GameBootstrap>();
+        }
+
+        private void RegisterDebug()
+        {
+            _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                resolver.TryResolve<IDebugLogService>(out IDebugLogService service);
+            });
         }
 
         private void RegisterGlobalServices()
         {
-            _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.Register<SavedLoadService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
             _builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton);
@@ -49,7 +59,6 @@ namespace Infrastructure.DI
         public GameBootstrap(IStateSwitcher gameStateMachine, IObjectResolver resolver)
         {
             StateMachine = gameStateMachine;
-            resolver.TryResolve<IDebugLogService>(out IDebugLogService service);
         }
 
         public void Start()

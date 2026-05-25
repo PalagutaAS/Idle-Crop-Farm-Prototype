@@ -11,22 +11,23 @@ namespace UI
         private DebugMenu _debugMenu;
         
         [Inject]
-        private void Constructor(IStateSwitcher gsm, DebugMenu debugMenu)
+        private void Constructor(IStateSwitcher gsm)
         {
             _gsm = gsm;
-            _debugMenu = debugMenu;
+            //сделать подставной IDebugMenu - если включен всееда приходит объект пустышка
+            _debugMenu = Object.FindObjectOfType<DebugMenu>(true);
         }
 
         public void OnOpenMenu()
         {
             _gsm?.Enter<GameMenuPauseState>();
-            _debugMenu?.gameObject.SetActive(true);
+            _debugMenu?.Open();
         }
 
         public void OnCloseMenu()
         {
             _gsm?.Enter<GameLoopState>();
-            _debugMenu?.gameObject.SetActive(false);
+            _debugMenu?.Close();
         }
     }
 }

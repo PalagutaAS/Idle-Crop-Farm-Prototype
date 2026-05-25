@@ -1,16 +1,18 @@
-﻿using Infrastructure.DI;
+﻿#if UNITY_EDITOR
+using Infrastructure.DI;
 using Infrastructure.Services;
 using UnityEditor;
 using UnityEngine;
 using VContainer;
+using YG;
 
 public class Tools 
 {
     [MenuItem("Tools/Clear player prefs")]
     public static void ClearPrefs()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        YG2.saves.progress = "";
+        YG2.SaveProgress();
         Debug.Log("Progress save reset");
     }    
     
@@ -18,20 +20,19 @@ public class Tools
     public static void SavePrefs()
     {
         var scope = Object.FindObjectOfType<GameLifetimeScope>();
-        if (scope != null)
+        if (scope == null)
         {
-            scope.Container.TryResolve<ISaveService>(out var saveService);
-            if (saveService == null)
-            {
-                Debug.LogWarning("No ISaveService found.");
-                return;
-            }
-            saveService.SaveProgress();
+            Debug.LogWarning("No LifetimeScope found.");
+            return;
         }
-        else
+        
+        scope.Container.TryResolve<ISaveService>(out var saveService);
+        if (saveService == null)
         {
-            Debug.LogWarning("No LifetimeScope found. Fallback to PlayerPrefs.Save()");
-            PlayerPrefs.Save();
+            Debug.LogWarning("No ISaveService found.");
+            return;
         }
+        saveService.SaveProgress();
     }
 }
+#endif

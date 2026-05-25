@@ -1,19 +1,22 @@
-﻿using Infrastructure.Services;
+﻿using Infrastructure.PersistenceProgress;
+using Infrastructure.Services;
 using TMPro;
 using UnityEngine;
 using VContainer;
 
 namespace Logging
 {
-    public class DebugMenu : MonoBehaviour
+    public class DebugMenu : MonoBehaviour ,IDebugMenu
     {
         [SerializeField] private TMP_Text _logText; 
         private IDebugLogService _debugLogService;
         private ISaveService _saveService;
-        
+        private IPersistenceProgressService _progressService;
+
         [Inject]
-        private void Constructor(IDebugLogService debugLogService, ISaveService saveService)
+        private void Constructor(IDebugLogService debugLogService, ISaveService saveService, IPersistenceProgressService progressService)
         {
+            _progressService = progressService;
             _saveService = saveService;
             _debugLogService = debugLogService;
             _debugLogService.OnDrawDebug += UpdateLogs;
@@ -51,17 +54,21 @@ namespace Logging
         {
             _saveService?.SaveProgress();
         }
-
+        
         public void ClearPrefs()
         {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
-            Debug.Log("Progress save reset");
+            _progressService.ResetCloudYG();
         }
 
         private void OnDestroy()
         {
             _debugLogService.OnDrawDebug -= UpdateLogs;
         }
+    }
+
+    public interface IDebugMenu
+    {
+        public void Open();
+        public void Close();
     }
 }

@@ -1,27 +1,23 @@
 ﻿using SavesData;
 using UnityEngine;
+using YG;
 
 namespace Infrastructure
 {
-    public class SavedLoadService : BaseSaveService, ISavedLoadService
+    public class SavedLoadService : ISavedLoadService
     {
         public GameProgress LoadProgress()
         {
             GameProgress progress = null;
-            if (PlayerPrefs.HasKey(GameProgressKey))
+            string jsonProgress = YG2.saves.progress;
+            if (jsonProgress != "")
             {
-                string jsonProgress = PlayerPrefs.GetString(GameProgressKey);
-                Debug.Log($"Successfully load save: {jsonProgress}");
                 progress = JsonUtility.FromJson<GameProgress>(jsonProgress);
+                Debug.Log($"Successfully load save: {jsonProgress}");
             }
 
             return progress;
         }
-    }
-
-    public abstract class BaseSaveService
-    {
-        public const string GameProgressKey = "GameProgress";
     }
 
     public interface ISavedLoadService

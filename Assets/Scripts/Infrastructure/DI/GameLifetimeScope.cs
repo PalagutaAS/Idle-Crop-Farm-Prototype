@@ -58,11 +58,21 @@ namespace Infrastructure.DI
             RegisterPrefabs();
             RegisterScriptableObjects();
             Register();
+            RegisterDebug();
+        }
+
+        private void RegisterDebug()
+        {
+            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton);
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                resolver.TryResolve(out IDebugMenu service);
+            });
         }
 
         private void Register()
         {
-            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton);
+            //_builder.Register<EmptyDebugMenu>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);

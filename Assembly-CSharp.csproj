@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PluginPrefs.cs" />
     <Compile Include="Assets\Scripts\Player\Input\InputService.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\PersistenceProgress\SavesCloud.cs" />
     <Compile Include="Assets\Scripts\Offers\OfferRandomService.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\ExitZone.cs" />
     <Compile Include="Assets\Scripts\Crops\Interfaces\ICrop.cs" />

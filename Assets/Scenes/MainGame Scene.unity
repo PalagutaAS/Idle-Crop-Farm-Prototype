@@ -10181,6 +10181,8 @@ MonoBehaviour:
     type: 2}
   _customerModels: {fileID: 11400000, guid: a678b4021c8e5b84bba5fb237780dc4b, type: 2}
   _queueConfig: {fileID: 11400000, guid: 0aee9c1a2b4ca42488b8e9459652034e, type: 2}
+  _debugCanvasMenu: {fileID: 3738438990628732538, guid: 3add226beff1e404a92a02c01b962645,
+    type: 3}
 --- !u!4 &1757223478
 Transform:
   m_ObjectHideFlags: 0

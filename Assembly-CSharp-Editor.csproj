@@ -83,6 +83,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Editor\BuildModify\ProcessBuild.cs" />
     <None Include="Assets\PluginYourGames\Editor\BuildLogYG2.txt" />
     <None Include="Assets\PluginYourGames\Scripts\Platform\Editor\AsmdefPlatformCreate.txt" />
+    <None Include="Assets\PluginYourGames\Editor\SavesEditorYG2.json" />
     <None Include="Assets\PluginYourGames\Editor\PluginPrefs.json" />
     <None Include="Assets\PluginYourGames\Editor\ModulesListYG2.txt" />
     <None Include="Assets\PluginYourGames\Scripts\Server\Editor\UpdatePluginYGTemp.txt" />
