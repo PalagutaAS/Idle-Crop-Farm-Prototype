@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.StateMachine
+﻿using Logging;
+
+namespace Infrastructure.StateMachine
 {
     public class LoadLevelState : IPayloadedState<string>
     {
@@ -16,6 +18,7 @@
 
         public void Enter(string nameScene)
         {
+            this.Log("Enter State");
             _screenLoading.Show();
             _sceneLoader.Load(nameScene, OnLoad);
         }
@@ -27,7 +30,7 @@
 
         public void Exit()
         {
-            
+            this.Log("Exit State");
         }
     }
 }

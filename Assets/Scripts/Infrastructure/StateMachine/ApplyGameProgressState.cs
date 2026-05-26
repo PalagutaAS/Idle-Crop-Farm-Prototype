@@ -1,6 +1,7 @@
 ﻿using Fields;
 using Infrastructure.PersistenceProgress;
 using Inventor;
+using Logging;
 using SavesData;
 using Tools.Interface;
 
@@ -29,6 +30,7 @@ namespace Infrastructure.StateMachine
 
         public void Enter()
         {
+            this.Log("Enter State");
             ApplyGameProgress();
             _stateMachine.Enter<GameLoopState>();
         }
@@ -36,6 +38,7 @@ namespace Infrastructure.StateMachine
         public void Exit()
         {
             _screenLoading.Hide();
+            this.Log("Exit State");
         }
 
         private void ApplyGameProgress()

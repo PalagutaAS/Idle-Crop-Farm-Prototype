@@ -1,4 +1,5 @@
 ﻿using Infrastructure.PersistenceProgress;
+using Logging;
 using SavesData;
 
 namespace Infrastructure.StateMachine
@@ -19,6 +20,7 @@ namespace Infrastructure.StateMachine
 
         public void Enter()
         {
+            this.Log("Enter State");
             _progressService.Progress = _savedLoadService.LoadProgress() ?? DefaultGameProgress();
             
             _progressService.Progress.FieldData ??= DefaultFieldsData();
@@ -32,7 +34,7 @@ namespace Infrastructure.StateMachine
 
         public void Exit()
         {
-            
+            this.Log("Exit State");
         }
         /// <summary>
         /// Тут я возьму дефолтные значения из скриптаблобжекта или из json-файла

@@ -1,4 +1,5 @@
-﻿using YG;
+﻿using Logging;
+using YG;
 
 namespace Infrastructure.StateMachine
 {
@@ -11,14 +12,16 @@ namespace Infrastructure.StateMachine
             _gameStateMachine = gameStateMachine;
         }
 
-        public void Exit()
-        {
-            PauseGameYG.SetState(0, true, true);
-        }
-
         public void Enter()
         {
+            this.Log("Enter State");
             PauseGameYG.SetState(1, true, true);
+        }
+
+        public void Exit()
+        {
+            this.Log("Exit State");
+            PauseGameYG.SetState(0, true, true);
         }
     }
 }

@@ -204,6 +204,7 @@
     <Compile Include="Assets\Scripts\Inventor\Wallet.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_projectSettings.cs" />
     <Compile Include="Assets\Scripts\Tools\Interface\IToolManager.cs" />
+    <Compile Include="Assets\Logging\LogExtensions.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Module.cs" />
     <Compile Include="Assets\Scripts\ObjectPull\PoolManager.cs" />

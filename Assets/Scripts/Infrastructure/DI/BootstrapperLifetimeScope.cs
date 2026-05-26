@@ -18,9 +18,14 @@ namespace Infrastructure.DI
         protected override void Configure(IContainerBuilder builder)
         {
             _builder = builder;
+            RegisterDebug();
             RegisterGlobalServices();
             RegisterStateMachine();
-            RegisterDebug();
+            
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                _resolver = resolver;
+            });
             
             _builder.RegisterEntryPoint<GameBootstrap>();
         }
@@ -28,17 +33,9 @@ namespace Infrastructure.DI
         private void RegisterDebug()
         {
 #if UNITY_EDITOR || DEBUG
-            _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
-            _builder.RegisterBuildCallback(resolver =>
-            {
-                resolver.TryResolve(out IDebugLogService service);
-                _resolver = resolver;
-            });
+            var debugService = new DebugLogService();
+            _builder.RegisterInstance(debugService).As<IDebugLogService>();
 #endif
-            _builder.RegisterBuildCallback(resolver =>
-            {
-                _resolver = resolver;
-            });
         }
 
         private void RegisterGlobalServices()
@@ -76,6 +73,7 @@ namespace Infrastructure.DI
         public GameBootstrap(IStateSwitcher gameStateMachine)
         {
             StateMachine = gameStateMachine;
+            this.Log("GameBootstrap Constructor");
         }
 
         public void Start()

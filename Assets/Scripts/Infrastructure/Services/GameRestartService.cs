@@ -1,7 +1,8 @@
 ﻿using Infrastructure.DI;
+using Infrastructure.StateMachine;
 using UnityEngine;
 
-namespace Infrastructure.StateMachine
+namespace Infrastructure.Services
 {
     public class GameRestartService : IRestartGameService
     {

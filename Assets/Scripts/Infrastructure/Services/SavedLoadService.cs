@@ -1,4 +1,5 @@
-﻿using SavesData;
+﻿using Logging;
+using SavesData;
 using UnityEngine;
 using YG;
 
@@ -13,7 +14,7 @@ namespace Infrastructure
             if (jsonProgress != "")
             {
                 progress = JsonUtility.FromJson<GameProgress>(jsonProgress);
-                Debug.Log($"Successfully load save: {jsonProgress}");
+                this.Log($"Successfully load save: {jsonProgress}");
             }
 
             return progress;

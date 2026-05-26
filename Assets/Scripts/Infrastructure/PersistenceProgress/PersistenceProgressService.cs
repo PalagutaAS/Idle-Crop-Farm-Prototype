@@ -1,4 +1,5 @@
-﻿using SavesData;
+﻿using Logging;
+using SavesData;
 using UnityEngine;
 using YG;
 
@@ -12,7 +13,7 @@ namespace Infrastructure.PersistenceProgress
         {
             string jsonSaves = (Progress == null) ? "NULL" : JsonUtility.ToJson(Progress);
             YG2.saves.progress = JsonUtility.ToJson(Progress);
-            Debug.Log($"Progress saved: {jsonSaves}");
+            this.Log($"Progress saved: {jsonSaves}");
             YG2.SaveProgress();
         }
     }

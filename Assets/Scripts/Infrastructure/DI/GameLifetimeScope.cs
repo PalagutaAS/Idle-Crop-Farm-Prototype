@@ -59,6 +59,7 @@ namespace Infrastructure.DI
             RegisterScriptableObjects();
             Register();
             RegisterDebug();
+            this.Log("All containers is build");
         }
 
         private void RegisterDebug()

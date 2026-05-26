@@ -13,12 +13,15 @@ namespace Logging
         private readonly ILogHandler _originalHandler;
         
         public event Action OnDrawDebug;
+        public static IDebugLogService Instance = null;
         public string LogText => _logBuilder.ToString();
 
         public DebugLogService()
         {
+            Instance = this;
             _originalHandler = Debug.unityLogger.logHandler;
             Debug.unityLogger.logHandler = this;
+            this.Log("DebugLogService Constructor");
         }
         
         public void Dispose()
@@ -30,7 +33,13 @@ namespace Logging
         {
             _logBuilder.Clear();
         }
-
+        
+        public void AppendLog(string finalMessage)
+        {
+            _logBuilder.AppendLine(finalMessage);
+            OnDrawDebug?.Invoke();
+        }
+        
         public void LogFormat(LogType logType, Object context, string format, params object[] args)
         {
             var stackTrace = new StackTrace(4, true);
@@ -67,8 +76,10 @@ namespace Logging
 
             _originalHandler.LogFormat(logType, context, "{0}", finalMessage);
 
-            _logBuilder.AppendLine(finalMessage);
-            OnDrawDebug?.Invoke();
+            if (logType != LogType.Log)
+            {
+                AppendLog(finalMessage);
+            }
         }
         
         public void LogException(Exception exception, Object context)
@@ -82,5 +93,6 @@ namespace Logging
         public event Action OnDrawDebug;
         public string LogText { get; }
         public void Clear();
+        void AppendLog(string finalMessage);
     }
 }
