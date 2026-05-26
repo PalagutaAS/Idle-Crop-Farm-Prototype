@@ -1,5 +1,5 @@
-﻿using Infrastructure.PersistenceProgress;
-using Infrastructure.Services;
+﻿using Infrastructure.Services;
+using Infrastructure.StateMachine;
 using TMPro;
 using UnityEngine;
 using VContainer;
@@ -11,12 +11,14 @@ namespace Logging
         [SerializeField] private TMP_Text _logText; 
         private IDebugLogService _debugLogService;
         private ISaveService _saveService;
-        private IPersistenceProgressService _progressService;
+        private IResetSaveService _resetSaveService;
+        private IRestartGameService _restartGameService;
 
         [Inject]
-        private void Constructor(IDebugLogService debugLogService, ISaveService saveService, IPersistenceProgressService progressService)
+        private void Constructor(IDebugLogService debugLogService, ISaveService saveService, IResetSaveService resetSaveService, IRestartGameService restartGameService)
         {
-            _progressService = progressService;
+            _restartGameService = restartGameService;
+            _resetSaveService = resetSaveService;
             _saveService = saveService;
             _debugLogService = debugLogService;
             _debugLogService.OnDrawDebug += UpdateLogs;
@@ -34,17 +36,12 @@ namespace Logging
             gameObject.SetActive(true);
         }
 
-        private void UpdateLogs()
-        {
-            _logText.text = _debugLogService?.LogText;
-        }
-        
         public void Close()
         {
             gameObject.SetActive(false);
         }
 
-        public void Clear()
+        public void ClearLogs()
         {
             _debugLogService.Clear();
             _logText.text = "";
@@ -54,10 +51,20 @@ namespace Logging
         {
             _saveService?.SaveProgress();
         }
-        
+
         public void ClearPrefs()
         {
-            _progressService.ResetCloudYG();
+            _resetSaveService.ResetSave();
+        }
+
+        public void RestartGame()
+        {
+            _restartGameService.DoRestartGame();
+        }
+
+        private void UpdateLogs()
+        {
+            _logText.text = _debugLogService?.LogText;
         }
 
         private void OnDestroy()

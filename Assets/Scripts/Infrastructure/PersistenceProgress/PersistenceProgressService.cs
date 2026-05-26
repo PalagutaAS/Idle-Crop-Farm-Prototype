@@ -10,19 +10,10 @@ namespace Infrastructure.PersistenceProgress
         
         public void SaveCloudYG()
         {
+            string jsonSaves = (Progress == null) ? "NULL" : JsonUtility.ToJson(Progress);
             YG2.saves.progress = JsonUtility.ToJson(Progress);
-            Debug.Log($"Progress saved: {YG2.saves.progress}");
+            Debug.Log($"Progress saved: {jsonSaves}");
             YG2.SaveProgress();
-        }
-        
-        /// <summary>
-        /// ToDO move clear to new class
-        /// </summary>
-        public void ResetCloudYG()
-        {
-            YG2.saves.progress = "";
-            YG2.SaveProgress();
-            Debug.Log("Progress save reset");
         }
     }
 
@@ -30,6 +21,5 @@ namespace Infrastructure.PersistenceProgress
     {
         public GameProgress Progress { get; set; }
         public void SaveCloudYG();
-        public void ResetCloudYG();
     }
 }

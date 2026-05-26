@@ -1,5 +1,4 @@
-﻿
-namespace Infrastructure.StateMachine
+﻿namespace Infrastructure.StateMachine
 {
     public class LoadLevelState : IPayloadedState<string>
     {
@@ -30,6 +29,5 @@ namespace Infrastructure.StateMachine
         {
             
         }
-        
     }
 }

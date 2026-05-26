@@ -8,7 +8,7 @@ using Tools.Interface;
 
 namespace Infrastructure.Services
 {
-    public class SaveService : ISaveService
+    public class SaveToGameDataService : ISaveService
     {
         private readonly IPersistenceProgressService _progressService;
         private readonly IInventoryChanger _inventory;
@@ -16,7 +16,7 @@ namespace Infrastructure.Services
         private readonly IFieldService _fieldService;
         private readonly IToolManager _toolManager;
 
-        public SaveService(IPersistenceProgressService progressService, IInventoryChanger inventory, IWallet wallet, IFieldService fieldService, IToolManager toolManager)
+        public SaveToGameDataService(IPersistenceProgressService progressService, IInventoryChanger inventory, IWallet wallet, IFieldService fieldService, IToolManager toolManager)
         {
             _progressService = progressService;
             _inventory = inventory;
@@ -75,6 +75,5 @@ namespace Infrastructure.Services
     public interface ISaveService
     {
         void SaveProgress();
-
     }
 }

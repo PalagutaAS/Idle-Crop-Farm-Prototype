@@ -1,19 +1,28 @@
 ﻿#if UNITY_EDITOR
 using Infrastructure.DI;
 using Infrastructure.Services;
+using Infrastructure.StateMachine;
 using UnityEditor;
 using UnityEngine;
 using VContainer;
-using YG;
 
 public class Tools 
 {
     [MenuItem("Tools/Clear player prefs")]
     public static void ClearPrefs()
     {
-        YG2.saves.progress = "";
-        YG2.SaveProgress();
-        Debug.Log("Progress save reset");
+        var scope = Object.FindObjectOfType<GameLifetimeScope>();
+        scope.Container.TryResolve<IResetSaveService>(out var resetSaveService);
+        resetSaveService.ResetSave();
+        ResetGame();
+    }
+    
+    [MenuItem("Tools/Reset Game")]
+    public static void ResetGame()
+    {
+        var scope = Object.FindObjectOfType<GameLifetimeScope>();
+        scope.Container.TryResolve<IRestartGameService>(out var stateSwitcher);
+        stateSwitcher.DoRestartGame(); 
     }    
     
     [MenuItem("Tools/Save player prefs")]
