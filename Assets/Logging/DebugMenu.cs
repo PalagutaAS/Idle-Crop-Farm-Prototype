@@ -6,7 +6,7 @@ using VContainer;
 
 namespace Logging
 {
-    public class DebugMenu : MonoBehaviour ,IDebugMenu
+    public class DebugMenu : MonoBehaviour, IDebugMenu
     {
         [SerializeField] private TMP_Text _logText; 
         private IDebugLogService _debugLogService;

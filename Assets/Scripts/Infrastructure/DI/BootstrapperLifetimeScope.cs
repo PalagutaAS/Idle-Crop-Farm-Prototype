@@ -18,7 +18,6 @@ namespace Infrastructure.DI
             _builder = builder;
             RegisterGlobalServices();
             RegisterStateMachine();
-            
             RegisterDebug();
             
             _builder.RegisterEntryPoint<GameBootstrap>();
@@ -26,11 +25,13 @@ namespace Infrastructure.DI
 
         private void RegisterDebug()
         {
+#if UNITY_EDITOR || DEBUG
             _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.RegisterBuildCallback(resolver =>
             {
-                resolver.TryResolve<IDebugLogService>(out IDebugLogService service);
+                resolver.TryResolve(out IDebugLogService service);
             });
+#endif
         }
 
         private void RegisterGlobalServices()

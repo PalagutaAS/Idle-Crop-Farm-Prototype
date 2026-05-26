@@ -63,16 +63,19 @@ namespace Infrastructure.DI
 
         private void RegisterDebug()
         {
-            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton);
+#if UNITY_EDITOR || DEBUG
+            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton).AsImplementedInterfaces();
             _builder.RegisterBuildCallback(resolver =>
             {
                 resolver.TryResolve(out IDebugMenu service);
             });
+#else
+            _builder.Register<EmptyDebugMenu>(Lifetime.Singleton).AsImplementedInterfaces();
+#endif
         }
 
         private void Register()
         {
-            //_builder.Register<EmptyDebugMenu>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);

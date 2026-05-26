@@ -142,6 +142,7 @@
     <Compile Include="Assets\Scripts\Tools\Interface\IToolFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
+    <Compile Include="Assets\Logging\EmptyDebugMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_yg.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerController.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\LoadLevelState.cs" />

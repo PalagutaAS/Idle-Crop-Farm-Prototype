@@ -8,26 +8,25 @@ namespace UI
     public class MenuStateSwitch : MonoBehaviour
     {
         private IStateSwitcher _gsm;
-        private DebugMenu _debugMenu;
+        private IDebugMenu _debugMenu;
         
         [Inject]
-        private void Constructor(IStateSwitcher gsm)
+        private void Constructor(IStateSwitcher gsm, IDebugMenu debugMenu)
         {
             _gsm = gsm;
-            //сделать подставной IDebugMenu - если включен всееда приходит объект пустышка
-            _debugMenu = Object.FindObjectOfType<DebugMenu>(true);
+            _debugMenu = debugMenu;
         }
 
         public void OnOpenMenu()
         {
             _gsm?.Enter<GameMenuPauseState>();
-            _debugMenu?.Open();
+            _debugMenu.Open();
         }
 
         public void OnCloseMenu()
         {
             _gsm?.Enter<GameLoopState>();
-            _debugMenu?.Close();
+            _debugMenu.Close();
         }
     }
 }
