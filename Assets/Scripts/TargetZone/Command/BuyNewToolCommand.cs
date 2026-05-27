@@ -16,14 +16,13 @@ namespace TargetZone.Command
 
         public bool CanExecute(IPlayer player)
         {
-            return player.Wallet.Count >= _toolConfig.Cost && player.Tools.HasEmptySlot();
+            return player.Wallet.Count >= _toolConfig.Cost && !player.Tools.HasToolOfType(_toolConfig.Type) && player.Tools.HasEmptySlot();
         }
 
         public void Execute(IPlayer player)
         {
-            if (CanExecute(player))
+            if (CanExecute(player) && player.Tools.TrySetupNewTool(_toolConfig.Type))
             {
-                player.Tools.TrySetupNewTool(_toolConfig.Type);
                 player.Wallet.Payment(_toolConfig.Cost);
             }
         }

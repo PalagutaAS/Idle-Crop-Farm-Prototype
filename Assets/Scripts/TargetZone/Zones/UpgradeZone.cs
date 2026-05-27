@@ -10,6 +10,7 @@ namespace TargetZone.Zones
     public class UpgradeZone : BaseInteractionZone
     {
         [Inject] private LibraryToolConfigs _libraryToolConfigs;
+        [Inject] private IToolManager _toolManager;
         
         protected void Awake()
         {
@@ -50,6 +51,8 @@ namespace TargetZone.Zones
 
             foreach (var type in types)
             {
+                if (_toolManager.HasToolOfType(type))
+                    continue;
                 IToolConfig toolConfig = _libraryToolConfigs.GetConfigByLevel(type, 1);
                 commands.Add(new BuyNewToolCommand(toolConfig));
             }

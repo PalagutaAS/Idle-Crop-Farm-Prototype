@@ -1,5 +1,6 @@
 ﻿using System;
 using Logging;
+using UnityEngine;
 using YG;
 
 namespace Infrastructure
@@ -14,13 +15,16 @@ namespace Infrastructure
 
         private void OnHideWindowGame()
         {
-            this.Log("Hide Window Game!");
+            this.Log("Stop");
             YG2.GameplayStop();
         }
 
         private void OnShowWindowGame()
         {
-            this.Log("Show Window Game!");
+            if (Time.timeScale == 0)
+                return;
+            
+            this.Log($"Start");
             YG2.GameplayStart();
         }
 

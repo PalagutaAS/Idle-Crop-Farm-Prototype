@@ -16,13 +16,15 @@ namespace Infrastructure.StateMachine
         {
             this.Log("Enter State");
             YG2.GameplayStart();
-            PauseGameYG.SetState(1, false, true);
+            YG2.PauseGame(false, true,false,false,false);
+            //PauseGameYG.SetState(1, false, true );
         }
 
         public void Exit()
         {
             YG2.GameplayStop();
-            PauseGameYG.SetState(0, false, true);
+            YG2.PauseGame(true, true,false,false,false);
+            //PauseGameYG.SetState(0, false, true);
             this.Log("Exit State");
         }
     }
