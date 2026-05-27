@@ -4,6 +4,7 @@ using Inventor;
 using Logging;
 using SavesData;
 using Tools.Interface;
+using YG;
 
 namespace Infrastructure.StateMachine
 {
@@ -38,6 +39,7 @@ namespace Infrastructure.StateMachine
         public void Exit()
         {
             _screenLoading.Hide();
+            YG2.GameReadyAPI();
             this.Log("Exit State");
         }
 
