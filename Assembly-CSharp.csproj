@@ -190,6 +190,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\CoroutineRunner.cs" />
     <Compile Include="Assets\Scripts\AI\QueueManager.cs" />
+    <Compile Include="Assets\Scripts\Infrastructure\GamePlayAPI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\ToolFactory.cs" />

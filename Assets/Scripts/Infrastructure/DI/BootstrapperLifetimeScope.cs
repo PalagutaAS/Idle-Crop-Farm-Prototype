@@ -25,6 +25,7 @@ namespace Infrastructure.DI
             _builder.RegisterBuildCallback(resolver =>
             {
                 _resolver = resolver;
+                _resolver.TryResolve(out IGamePlayAPI api);
             });
             
             _builder.RegisterEntryPoint<GameBootstrap>();
@@ -43,6 +44,7 @@ namespace Infrastructure.DI
 
         private void RegisterGlobalServices()
         {
+            _builder.Register<GamePlayAPI>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<SavedLoadService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             _builder.RegisterInstance(GetComponent<CoroutineRunner>()).As<ICoroutineRunner>();
             _builder.RegisterComponentInNewPrefab(_screenLoading, Lifetime.Singleton).DontDestroyOnLoad();
