@@ -182,6 +182,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SaverTest.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\InitAttributes.cs" />
     <Compile Include="Assets\Scripts\Tools\Follow.cs" />
+    <Compile Include="Assets\Logging\InjectSavesButtonSender.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\FieldZone.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_callingSimulation.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\OptionalPlatform.cs" />

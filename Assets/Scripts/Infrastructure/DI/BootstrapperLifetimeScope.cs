@@ -33,8 +33,11 @@ namespace Infrastructure.DI
         private void RegisterDebug()
         {
 #if UNITY_EDITOR || DEBUG
-            var debugService = new DebugLogService();
-            _builder.RegisterInstance(debugService).As<IDebugLogService>();
+            _builder.Register<DebugLogService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                resolver.Resolve<IDebugLogService>();
+            });
 #endif
         }
 
@@ -60,7 +63,7 @@ namespace Infrastructure.DI
         {
             _resolver.TryResolve(out ScreenLoading screenLoading);
             if (!screenLoading.IsDestroyed())
-                Destroy(screenLoading.gameObject); 
+                Destroy(screenLoading.gameObject);
             
             base.OnDestroy();
         }

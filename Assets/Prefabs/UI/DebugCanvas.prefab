@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 15, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &933399245776514868
 CanvasRenderer:
@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 3084509695007536631}
   - component: {fileID: 4114878556071203592}
   - component: {fileID: 2117084452942670017}
+  - component: {fileID: 931137886656052508}
   m_Layer: 5
   m_Name: Button Inject Save
   m_TagString: Untagged
@@ -957,19 +958,21 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4114878556071203592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3738438990628732538}
-        m_TargetAssemblyTypeName: Logging.DebugMenu, Assembly-CSharp
-        m_MethodName: ClearPrefs
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &931137886656052508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933168897811838011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ffccdb15834f1d9b3a219373f7b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputField: {fileID: 2087611989262919188}
+  _button: {fileID: 2117084452942670017}
 --- !u!1 &3157102110856326273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,7 +2042,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.16296387, w: 0.29431152}
+  m_margin: {x: 5.956085, y: 0, z: -0.16296387, w: 0.29431152}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2438,7 +2441,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &5081304318612831934
 CanvasRenderer:
