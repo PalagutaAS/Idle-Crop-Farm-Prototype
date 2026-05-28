@@ -5,15 +5,19 @@ using VContainer;
 
 namespace Logging
 {
-    public class DebugMenu : MonoBehaviour
+    public class DebugMenu : MonoBehaviour, IDebugMenu
     {
         [SerializeField] private TMP_Text _logText; 
         private IDebugLogService _debugLogService;
         private ISaveService _saveService;
-        
+        private IResetSaveService _resetSaveService;
+        private IRestartGameService _restartGameService;
+
         [Inject]
-        private void Constructor(IDebugLogService debugLogService, ISaveService saveService)
+        private void Constructor(IDebugLogService debugLogService, ISaveService saveService, IResetSaveService resetSaveService, IRestartGameService restartGameService)
         {
+            _restartGameService = restartGameService;
+            _resetSaveService = resetSaveService;
             _saveService = saveService;
             _debugLogService = debugLogService;
             _debugLogService.OnDrawDebug += UpdateLogs;
@@ -31,17 +35,12 @@ namespace Logging
             gameObject.SetActive(true);
         }
 
-        private void UpdateLogs()
-        {
-            _logText.text = _debugLogService?.LogText;
-        }
-        
         public void Close()
         {
             gameObject.SetActive(false);
         }
 
-        public void Clear()
+        public void ClearLogs()
         {
             _debugLogService.Clear();
             _logText.text = "";
@@ -54,14 +53,28 @@ namespace Logging
 
         public void ClearPrefs()
         {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
-            Debug.Log("Progress save reset");
+            _resetSaveService.ResetSave();
+        }
+
+        public void RestartGame()
+        {
+            _restartGameService.DoRestartGame();
+        }
+
+        private void UpdateLogs()
+        {
+            _logText.text = _debugLogService?.LogText;
         }
 
         private void OnDestroy()
         {
             _debugLogService.OnDrawDebug -= UpdateLogs;
         }
+    }
+
+    public interface IDebugMenu
+    {
+        public void Open();
+        public void Close();
     }
 }

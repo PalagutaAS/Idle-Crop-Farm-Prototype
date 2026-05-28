@@ -32,9 +32,10 @@ namespace Player.Tools
             if (level == 0)
                 return false;
             
-            ISlot freeSlot = GetEmptySlot();
-            if (freeSlot == null) 
+            if (HasToolOfType(type) || !HasEmptySlot()) 
                 return false;
+            
+            ISlot freeSlot = GetEmptySlot();
 
             var config = _libraryToolConfigs.GetConfigByLevel(type,level);
             ITool newTool = _toolFactory.CreateTool(type);
@@ -52,6 +53,11 @@ namespace Player.Tools
         public bool HasEmptySlot()
         {
             return (_slots.FirstOrDefault(s => !s.IsOccupied) != null);
+        }
+
+        public bool HasToolOfType(ToolType type)
+        {
+            return _slots.Any(s => s.IsOccupied && s.CurrentTool.Type == type);
         }
 
         public List<ITool> GetAllTools()

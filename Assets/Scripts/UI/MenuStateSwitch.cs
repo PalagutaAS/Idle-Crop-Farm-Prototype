@@ -8,10 +8,10 @@ namespace UI
     public class MenuStateSwitch : MonoBehaviour
     {
         private IStateSwitcher _gsm;
-        private DebugMenu _debugMenu;
+        private IDebugMenu _debugMenu;
         
         [Inject]
-        private void Constructor(IStateSwitcher gsm, DebugMenu debugMenu)
+        private void Constructor(IStateSwitcher gsm, IDebugMenu debugMenu)
         {
             _gsm = gsm;
             _debugMenu = debugMenu;
@@ -20,13 +20,13 @@ namespace UI
         public void OnOpenMenu()
         {
             _gsm?.Enter<GameMenuPauseState>();
-            _debugMenu?.gameObject.SetActive(true);
+            _debugMenu.Open();
         }
 
         public void OnCloseMenu()
         {
             _gsm?.Enter<GameLoopState>();
-            _debugMenu?.gameObject.SetActive(false);
+            _debugMenu.Close();
         }
     }
 }

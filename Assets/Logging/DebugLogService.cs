@@ -19,10 +19,12 @@ namespace Logging
         {
             _originalHandler = Debug.unityLogger.logHandler;
             Debug.unityLogger.logHandler = this;
+            this.Log("DebugLogService Constructor");
         }
         
         public void Dispose()
         {
+            Debug.unityLogger.logHandler = _originalHandler;
             OnDrawDebug = null;
         }
 
@@ -30,45 +32,29 @@ namespace Logging
         {
             _logBuilder.Clear();
         }
-
+        
+        private void AppendLog(string finalMessage)
+        {
+            _logBuilder.AppendLine(finalMessage);
+            OnDrawDebug?.Invoke();
+        }
+        
         public void LogFormat(LogType logType, Object context, string format, params object[] args)
         {
-            var stackTrace = new StackTrace(4, true);
-            var frame = stackTrace.GetFrame(0);
-
-            string callerInfo = "";
-            if (frame != null)
-            {
-                string className = frame.GetMethod()?.DeclaringType?.Name ?? "Unknown";
-                string methodName = frame.GetMethod()?.Name ?? "?";
-                int lineNumber = frame.GetFileLineNumber();
-                var color = LogHandler.GetColor(className);
-
-                callerInfo = $"<color=#{color}><b>[{className}.{methodName}:{lineNumber}]</b></color>";
-            }
-            
             string message = string.Format(format, args);
+            
+            var stackTrace = new StackTrace(4, true);
+            
             switch (logType)
             {
                 case LogType.Error:
-                    message = $"<color=red>{message}</color>";
                     if (!string.IsNullOrEmpty(stackTrace.ToString()))
                         message += $"\n<color=#FF8888>{stackTrace}</color>";
                     break;
-                case LogType.Warning:
-                    message = $"<color=yellow>{message}</color>";
-                    break;
-                default:
-                    message = string.Format(format, args);
-                    break;
             }
             
-            string finalMessage = callerInfo + message;
-
-            _originalHandler.LogFormat(logType, context, "{0}", finalMessage);
-
-            _logBuilder.AppendLine(finalMessage);
-            OnDrawDebug?.Invoke();
+            AppendLog(message);
+            _originalHandler.LogFormat(logType, context, "{0}", message);
         }
         
         public void LogException(Exception exception, Object context)

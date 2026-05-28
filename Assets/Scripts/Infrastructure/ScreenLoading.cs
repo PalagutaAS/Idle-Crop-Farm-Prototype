@@ -12,23 +12,31 @@ namespace Infrastructure
         private void Awake()
         {
             _canvas = GetComponent<CanvasGroup>();
-            DontDestroyOnLoad(this);
         }
 
-        [ContextMenu("SHOW")]
         public void Show()
         {
             gameObject.SetActive(true);
             _canvas.alpha = 1;
         }
 
-        [ContextMenu("HIDE")]
         public void Hide()
         {
             _canvas.DOKill();
         
             _canvas.DOFade(0, _fadeDuration)
                 .OnComplete(() => gameObject.SetActive(false));
+        }
+
+        public void ShowAppear()
+        {
+            gameObject.SetActive(true);
+            _canvas.DOFade(1, _fadeDuration);
+        }
+
+        private void OnDestroy()
+        {
+            _canvas.DOKill();
         }
     }
 }

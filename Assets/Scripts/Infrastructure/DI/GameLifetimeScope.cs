@@ -58,15 +58,31 @@ namespace Infrastructure.DI
             RegisterPrefabs();
             RegisterScriptableObjects();
             Register();
+            RegisterDebug();
+            this.Log("All containers is build");
+        }
+
+        private void RegisterDebug()
+        {
+#if UNITY_EDITOR || DEBUG
+            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.RegisterBuildCallback(resolver =>
+            {
+                resolver.TryResolve(out IDebugMenu service);
+            });
+#else
+            _builder.Register<EmptyDebugMenu>(Lifetime.Singleton).AsImplementedInterfaces();
+#endif
         }
 
         private void Register()
         {
-            _builder.RegisterComponentInNewPrefab(_debugCanvasMenu, Lifetime.Singleton);
+            _builder.Register<GameRestartService>(Lifetime.Scoped).AsImplementedInterfaces();
+            _builder.Register<ResetSaveService>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Inventory>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<Wallet>(Lifetime.Singleton).AsImplementedInterfaces().WithParameter(MoneyType.Coin).WithParameter(0);
-            _builder.Register<SaveService>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<SaveToGameDataService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<PoolManager>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CustomerFactory>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<OfferRandomService>(Lifetime.Transient).AsImplementedInterfaces();
@@ -78,8 +94,7 @@ namespace Infrastructure.DI
             _builder.RegisterBuildCallback(resolver =>
             {
                 var stateSwitcher = resolver.Resolve<IStateSwitcher>();
-                var stateFactory = resolver.Resolve<IStateFactory>();
-                stateSwitcher.SetStateFactory(stateFactory);
+                stateSwitcher.SetStateFactory(resolver.Resolve<IStateFactory>());
             });
 
             _builder.Register<GameLoopState>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();

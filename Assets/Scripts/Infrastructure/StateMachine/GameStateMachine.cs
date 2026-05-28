@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Logging;
 
 namespace Infrastructure.StateMachine
 {
@@ -21,6 +22,7 @@ namespace Infrastructure.StateMachine
         {
             _states = new Dictionary<Type, IExitableState>();
             _stateFactory = factory;
+            this.Log("GameStateMachine Constructor");
         }
     
         public void Enter<TState>() where TState : class, IState
