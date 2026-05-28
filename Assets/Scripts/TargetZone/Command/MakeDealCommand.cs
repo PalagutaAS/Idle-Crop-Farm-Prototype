@@ -1,4 +1,5 @@
-﻿using AI;
+﻿using System.Linq;
+using AI;
 using Player.Interface;
 using TargetZone.Interfaces;
 
@@ -11,14 +12,14 @@ namespace TargetZone.Command
         public MakeDealCommand(CustomerController customer)
         {
             _customer = customer;
-            Title = $"Sell {_customer.Offer.Count} {_customer.Offer.Type} for {_customer.Offer.Price}";
+            Title = $"Sell {_customer.Offer.GetDescription()}";
         }
         public string Title { get; }
 
         public bool CanExecute(IPlayer player)
         {
             var offer = _customer.Offer;
-            return _customer.Offer.Active && player.Inventory.HasEnoughByCrop(offer.Type, offer.Count);
+            return _customer.Offer.Active && offer.Lines.All(line => player.Inventory.HasEnoughByCrop(line.Type, line.Count));
         }
 
         public void Execute(IPlayer player)
@@ -27,7 +28,7 @@ namespace TargetZone.Command
             {
                 var offer = _customer.Offer;
                 player.Wallet.Payout(_customer.Offer.Price);
-                player.Inventory.Remove(offer.Type, offer.Count);
+                offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
                 offer.Done();
                 _customer.ChangeState(CustomerState.Leaving);
             }

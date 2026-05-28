@@ -200,6 +200,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />
+    <Compile Include="Assets\Scripts\Extensions\ListExtension.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\UpgradeZone.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\PersistenceProgress\PersistenceProgressService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\CommonOptions.cs" />
