@@ -31,7 +31,7 @@ namespace Infrastructure.StateMachine
 
         public void Enter()
         {
-            this.Log("Enter State");
+            this.Log("");
             ApplyGameProgress();
             _stateMachine.Enter<GameLoopState>();
         }
@@ -40,7 +40,6 @@ namespace Infrastructure.StateMachine
         {
             _screenLoading.Hide();
             YG2.GameReadyAPI();
-            this.Log("Exit State");
         }
 
         private void ApplyGameProgress()

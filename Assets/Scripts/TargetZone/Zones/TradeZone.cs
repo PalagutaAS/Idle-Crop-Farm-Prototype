@@ -33,7 +33,7 @@ namespace TargetZone.Zones
 
         protected override bool CanOpenPanel()
         {
-            return _player != null;
+            return Player != null;
         }
 
         protected override List<IInteractionCommand> GenerateCommands()

@@ -19,7 +19,7 @@ namespace TargetZone.Zones
 
         protected override bool CanOpenPanel()
         {
-            return _player != null;
+            return Player != null;
         }
 
         protected override List<IInteractionCommand> GenerateCommands()
@@ -33,7 +33,7 @@ namespace TargetZone.Zones
 
         private void CreateUpgradeToolInteractionCommands(List<IInteractionCommand> commands)
         {
-            List<ITool> currentTools = _player.Tools.GetAllTools();
+            List<ITool> currentTools = Player.Tools.GetAllTools();
             int countTool = currentTools.Count;
 
             for (int i = 0; i < countTool; i++)
