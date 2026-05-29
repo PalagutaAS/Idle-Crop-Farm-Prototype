@@ -43,11 +43,11 @@ namespace UI.Panels
         {
             Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
 
-            _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () => ActionOnPushButton(command));
+            _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () => ExecuteCommand(command));
             _buttons.Add(button, command);
         }
 
-        private void ActionOnPushButton(IInteractionCommand command)
+        private void ExecuteCommand(IInteractionCommand command)
         {
             foreach (var btnAndCmd in _buttons)
             {

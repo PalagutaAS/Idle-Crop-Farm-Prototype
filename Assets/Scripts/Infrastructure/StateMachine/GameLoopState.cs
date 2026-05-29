@@ -14,7 +14,7 @@ namespace Infrastructure.StateMachine
 
         public void Enter()
         {
-            this.Log("Enter State");
+            this.Log("");
             YG2.GameplayStart();
             YG2.PauseGame(false, true,false,false,false);
             //PauseGameYG.SetState(1, false, true );
@@ -25,7 +25,6 @@ namespace Infrastructure.StateMachine
             YG2.GameplayStop();
             YG2.PauseGame(true, true,false,false,false);
             //PauseGameYG.SetState(0, false, true);
-            this.Log("Exit State");
         }
     }
 }

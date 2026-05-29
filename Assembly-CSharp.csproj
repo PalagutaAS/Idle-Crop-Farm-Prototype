@@ -189,6 +189,7 @@
     <Compile Include="Assets\Scripts\Crops\Crop.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\CoroutineRunner.cs" />
+    <Compile Include="Assets\Scripts\Offers\OfferTimeout.cs" />
     <Compile Include="Assets\Scripts\AI\QueueManager.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\GamePlayAPI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />

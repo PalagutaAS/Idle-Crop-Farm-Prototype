@@ -82,6 +82,15 @@ namespace AI
             }
         }
 
+        public void CancelDeal()
+        {
+            if (_offer != null && _offer.Active)
+            {
+                _offer.Done();
+                ChangeState(CustomerState.Leaving);
+            }
+        }
+        
         public void ChangeState(CustomerState state)
         {
             _state = state;

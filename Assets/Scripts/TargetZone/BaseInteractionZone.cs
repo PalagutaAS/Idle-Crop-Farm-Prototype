@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Inventor;
+using Logging;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI;
@@ -13,35 +14,35 @@ namespace TargetZone
     {
         [SerializeField] protected GameObject _gameObjectPanel;
 
-        protected IValueSource<MoneyType> _wallet;
-        protected IPlayer _player;
-        protected IPanel _panel;
+        protected IValueSource<MoneyType> Wallet;
+        protected IPlayer Player;
+        protected IPanel Panel;
         
         private Action<MoneyType, int> _onChangedHandler; 
         
         [Inject]
         private void Constructor(IWallet wallet)
         {
-            _wallet = wallet;
-            _panel = _gameObjectPanel.GetComponent<IPanel>();
+            Wallet = wallet;
+            Panel = _gameObjectPanel.GetComponent<IPanel>();
         }
         
         protected void NeedRefreshByOnClickButton()
         {
-            _panel.OnClickButton += RefreshPanel;
+            Panel.OnClickButton += RefreshPanel;
         }
         
         protected void NeedRefreshByChangedMoney()
         {
             _onChangedHandler = (_, _) => RefreshPanel();
-            _wallet.OnChangedByTypeForUI += _onChangedHandler;
+            Wallet.OnChangedByTypeForUI += _onChangedHandler;
         }
 
         protected virtual void OnTriggerEnter(Collider other)
         {
-            if (_player == null && other.TryGetComponent(out IPlayer player))
+            if (Player == null && other.TryGetComponent(out IPlayer player))
             {
-                _player = player;
+                Player = player;
             }
             OnPlayerEnter();
         }
@@ -56,32 +57,29 @@ namespace TargetZone
 
         protected virtual void OnPlayerEnter()
         {
-            if (CanOpenPanel())
-            {
-                var commands = GenerateCommands();
-                _panel.Open(commands);
-            }
+            RefreshPanel();
         }
 
         protected virtual void OnPlayerExit()
         {
-            _player = null;
-            _panel.Close();
+            Player = null;
+            Panel.Close();
         }
 
         protected virtual void RefreshPanel()
         {
-            if (_player != null && CanOpenPanel())
+            if (Player != null && CanOpenPanel())
             {
+                this.Log("Refresh and Generate Commands");
                 var commands = GenerateCommands();
-                _panel.Open(commands);
+                Panel.Open(commands);
             }
         }
 
         private void OnDestroy()
         {
-            _panel.OnClickButton -= RefreshPanel;
-            _wallet.OnChangedByTypeForUI -= _onChangedHandler;
+            Panel.OnClickButton -= RefreshPanel;
+            Wallet.OnChangedByTypeForUI -= _onChangedHandler;
         }
 
         protected abstract bool CanOpenPanel();

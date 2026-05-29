@@ -29,10 +29,8 @@ namespace TargetZone.Command
                 var offer = _customer.Offer;
                 player.Wallet.Payout(_customer.Offer.Price);
                 offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
-                offer.Done();
-                _customer.ChangeState(CustomerState.Leaving);
+                _customer.CancelDeal();
             }
         }
-
     }
 }

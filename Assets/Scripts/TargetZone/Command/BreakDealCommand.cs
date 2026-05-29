@@ -20,14 +20,9 @@ namespace TargetZone.Command
             return _customer.Offer.Active;
         }
 
-        public void Execute(IPlayer player)
+        public void Execute(IPlayer player = null)
         {
-            if (CanExecute(player))
-            {
-                _customer.Offer.Done();
-                _customer.ChangeState(CustomerState.Leaving);
-            }
+            _customer.CancelDeal();
         }
-
     }
 }
