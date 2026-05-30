@@ -16,6 +16,7 @@ using Player.Tools;
 using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
+using UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -29,6 +30,7 @@ namespace Infrastructure.DI
         [SerializeField] private FieldCollectProvider _fieldCollectProvider;
         [SerializeField] private PlayerTools _toolsManager;
         [SerializeField] private OfferTimeout _offerTimeout;
+        [SerializeField] private TradeCanvas _tradeCanvas;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -55,6 +57,7 @@ namespace Infrastructure.DI
             _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
             _builder.RegisterInstance(_toolsManager).AsImplementedInterfaces();
             _builder.RegisterInstance(_offerTimeout).AsImplementedInterfaces();
+            _builder.RegisterInstance(_tradeCanvas).AsImplementedInterfaces();
             
             RegisterStates();
             RegisterPrefabs();

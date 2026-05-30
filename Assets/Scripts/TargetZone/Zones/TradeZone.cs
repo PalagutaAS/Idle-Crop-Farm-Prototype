@@ -3,6 +3,7 @@ using AI;
 using Offers;
 using TargetZone.Command;
 using TargetZone.Interfaces;
+using UI;
 using UnityEngine;
 using VContainer;
 
@@ -14,24 +15,18 @@ namespace TargetZone.Zones
         private BreakDealCommand _breakDealCommand;
 
         [Inject] private OfferTimeout _offerTimeout;
+        [Inject] private TradeCanvas _tradeCanvas;
         
         protected override void OnTriggerEnter(Collider other)
         {
             if (_currentCustomer == null && other.TryGetComponent(out CustomerController customer))
             {
                 _currentCustomer = customer;
-                _offerTimeout.AddTimer(_currentCustomer);
-                _offerTimeout.OnTimerOut += ExecuteCommand;
+                _tradeCanvas.Show();
+                _offerTimeout.AddTimer(_currentCustomer, actionOnOut: ExecuteCommand);
             }
 
             base.OnTriggerEnter(other);
-        }
-
-        private void ExecuteCommand()
-        {
-            _breakDealCommand.Execute();
-            _offerTimeout.OnTimerOut -= ExecuteCommand;
-            RefreshPanel();
         }
 
         protected override void OnTriggerExit(Collider other)
@@ -39,10 +34,16 @@ namespace TargetZone.Zones
             if (_currentCustomer != null && other.TryGetComponent(out CustomerController customer))
             {
                 _currentCustomer = null;
-                RefreshPanel();
+                _tradeCanvas.Close();
             }
             
             base.OnTriggerExit(other);
+        }
+
+        private void ExecuteCommand()
+        {
+            _breakDealCommand?.Execute();
+            RefreshPanel();
         }
 
         protected override bool CanOpenPanel()

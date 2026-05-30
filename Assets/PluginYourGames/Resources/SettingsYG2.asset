@@ -49,7 +49,7 @@ MonoBehaviour:
     durationAdv: 0.5
     loadAdv: 0
     testFailAds: 0
-    pauseOnFocusGame: 1
+    pauseOnFocusGame: 0
   Templates:
     logoImageFormat: 0
     backgroundImgFormat: 0

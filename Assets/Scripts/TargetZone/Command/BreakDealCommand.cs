@@ -15,14 +15,17 @@ namespace TargetZone.Command
 
         public string Title => "Break Deal";
 
-        public bool CanExecute(IPlayer player)
+        public bool CanExecute(IPlayer player = null)
         {
             return _customer.Offer.Active;
         }
 
         public void Execute(IPlayer player = null)
         {
-            _customer.CancelDeal();
+            if (CanExecute())
+            {
+                _customer.CancelDeal();
+            }
         }
     }
 }

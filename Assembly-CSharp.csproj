@@ -193,11 +193,13 @@
     <Compile Include="Assets\Scripts\AI\QueueManager.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\GamePlayAPI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />
+    <Compile Include="Assets\Scripts\UI\TradeCanvas.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\ToolFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\FieldService.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintOfferTimer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />
