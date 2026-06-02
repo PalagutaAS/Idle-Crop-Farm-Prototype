@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58918c550f33436bbcb862d87bf64ca4, type: 3}
-  m_Name: Potato
+  m_Script: {fileID: 11500000, guid: 5fa09af3c8cd47f098ec3e34f9cc6393, type: 3}
+  m_Name: Pooll Icons
   m_EditorClassIdentifier: 
-  _count: 4
-  _scatter:
-    _min: -2
-    _max: 3
-  _weight: 0.5
-  _pricePerUnit: 2
-  _growTime: 40
-  _type: 4
-  _itemSprite: {fileID: 21300000, guid: 5536fb12968fe08499be72493d91d44c, type: 3}
+  prefab: {fileID: 2110960647959046647, guid: a6ef226481e7aeb4aa3d786817e8eec3, type: 3}
+  initialSize: 6

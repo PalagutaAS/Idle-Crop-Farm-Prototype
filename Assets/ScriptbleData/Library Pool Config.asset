@@ -15,3 +15,4 @@ MonoBehaviour:
   _poolConfigs:
   - {fileID: 11400000, guid: ff232f936e435044ba67a38ea96f5936, type: 2}
   - {fileID: 11400000, guid: 6299500d16110a2488b91427ce71d429, type: 2}
+  - {fileID: 11400000, guid: 22ecb5144b1ac414282c975aa7f2b9ee, type: 2}

@@ -11,18 +11,24 @@ namespace Offers
         public int Price { get; private set; }
         public int AdditionalPrice { get; private set; }
         public bool Active { get; private set; }
-
-    
+        
         public Offer(IEnumerable<OfferLine> lines, int additionalPrice)
         {
             Lines = lines.ToList().AsReadOnly();
             AdditionalPrice = additionalPrice;
-            Price = Lines.Select(ol => ol.Price).Sum() + AdditionalPrice;
-            Types = (CropType) Lines.Select(ol => (int) ol.Type).Sum();
+            
+            int totalPrice = 0;
+            int totalTypes = 0;
+            foreach (OfferLine line in Lines)
+            {
+                totalPrice += line.Price;
+                totalTypes += (int)line.Type;
+            }
+            
+            Price = totalPrice + AdditionalPrice;
+            Types = (CropType) totalTypes;
             Active = true;
         }
-
-        public string GetDescription() => string.Join(", ", Lines.Select(l => $"{l.Count} {l.Type}")) + $"\n for {Price}";
         
         public void Done() => Active = false;
 
@@ -32,15 +38,15 @@ namespace Offers
     [System.Serializable]
     public struct OfferLine
     {
+        public readonly CropType Type;
+        public readonly int Count;
+        public readonly int Price;
+        
         public OfferLine(CropType type, int count, int price)
         {
             Type = type;
             Count = count;
             Price = price;
         }
-
-        public CropType Type { get; private set; }
-        public int Count { get; private set; }
-        public int Price { get; private set; }
     }
 }

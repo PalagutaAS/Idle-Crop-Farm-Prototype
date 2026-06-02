@@ -22,7 +22,8 @@ namespace TargetZone.Zones
             if (_currentCustomer == null && other.TryGetComponent(out CustomerController customer))
             {
                 _currentCustomer = customer;
-                _tradeCanvas.Show();
+                _tradeCanvas.Show(_currentCustomer.Offer);
+                OfferDisplay.Show(_currentCustomer.Offer);
                 _offerTimeout.AddTimer(_currentCustomer, actionOnOut: ExecuteCommand);
             }
 
@@ -35,6 +36,8 @@ namespace TargetZone.Zones
             {
                 _currentCustomer = null;
                 _tradeCanvas.Close();
+                OfferDisplay.Close();
+                RefreshPanel();
             }
             
             base.OnTriggerExit(other);

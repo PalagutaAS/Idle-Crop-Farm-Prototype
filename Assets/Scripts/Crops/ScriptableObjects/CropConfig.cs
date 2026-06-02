@@ -11,7 +11,9 @@ namespace Crops.ScriptableObjects
         [SerializeField] private int _pricePerUnit;
         [SerializeField] private float _growTime;
         [SerializeField] private CropType _type;
-        
+        [SerializeField] private Sprite _itemSprite;
+
+        public Sprite Sprite => _itemSprite;
         public int Count => _count;
         public float GrowTime => _growTime;
         public CropType Type => _type;

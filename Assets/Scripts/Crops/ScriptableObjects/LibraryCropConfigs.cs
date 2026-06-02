@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Crops.ScriptableObjects
 {
@@ -9,6 +8,14 @@ namespace Crops.ScriptableObjects
     {
         [SerializeField] private CropConfig[] _cropConfigs;
 
-        public CropConfig GetConfigByType(CropType type) =>  _cropConfigs.FirstOrDefault(config => config.Type == type);
+        public CropConfig GetConfigByType(CropType type)
+        {
+            foreach (CropConfig config in _cropConfigs)
+            {
+                if (config.Type == type)
+                    return config;
+            }
+            return null;
+        }    
     }
 }

@@ -126,6 +126,8 @@
     <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
     <Compile Include="Assets\Logging\DebugLogService.cs" />
+    <Compile Include="Assets\Scripts\UI\Offer\OfferIconView.cs" />
+    <Compile Include="Assets\Scripts\UI\Offer\OfferIconsDisplay.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_info.cs" />
     <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />

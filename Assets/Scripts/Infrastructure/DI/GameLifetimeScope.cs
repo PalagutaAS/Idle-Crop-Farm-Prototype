@@ -31,6 +31,7 @@ namespace Infrastructure.DI
         [SerializeField] private PlayerTools _toolsManager;
         [SerializeField] private OfferTimeout _offerTimeout;
         [SerializeField] private TradeCanvas _tradeCanvas;
+        [SerializeField] private OfferIconsDisplay _offerIconsDisplay;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -114,6 +115,7 @@ namespace Infrastructure.DI
             _builder.RegisterInstance(_queueConfig);
             _builder.RegisterInstance(_libraryFieldConfigs).AsImplementedInterfaces();
             _builder.RegisterInstance(_libraryCropConfigs);
+            _builder.RegisterInstance(_offerIconsDisplay).AsImplementedInterfaces();
         }
 
         private void RegisterPrefabs()

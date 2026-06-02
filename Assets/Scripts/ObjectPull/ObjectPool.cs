@@ -68,7 +68,6 @@ namespace ObjectPull
         
             _activeObjects.Remove(obj); 
             _pool.Enqueue(obj);
-            
         }
     }
 

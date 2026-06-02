@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Inventor;
 using Logging;
+using Offers;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI;
@@ -17,6 +18,7 @@ namespace TargetZone
         protected IValueSource<MoneyType> Wallet;
         protected IPlayer Player;
         protected IPanel Panel;
+        protected IOfferDisplay OfferDisplay;
         
         private Action<MoneyType, int> _onChangedHandler; 
         
@@ -24,6 +26,7 @@ namespace TargetZone
         private void Constructor(IWallet wallet)
         {
             Wallet = wallet;
+            OfferDisplay = _gameObjectPanel.GetComponent<IOfferDisplay>();
             Panel = _gameObjectPanel.GetComponent<IPanel>();
         }
         
