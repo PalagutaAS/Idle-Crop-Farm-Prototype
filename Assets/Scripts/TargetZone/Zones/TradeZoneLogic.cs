@@ -23,9 +23,10 @@ namespace TargetZone.Zones
         public override IZoneContext GenerateContext()
         {
             if (!CanActivate) return ZoneContext.EmptyContext();
-            _breakDealCommand = new BreakDealCommand(_currentCustomer);
-            var commands = new List<IInteractionCommand> { new MakeDealCommand(_currentCustomer), _breakDealCommand };
-            return new ZoneContext(commands, _currentCustomer.Offer);
+            var offer = _currentCustomer.Offer;
+            _breakDealCommand = new BreakDealCommand(offer);
+            var commands = new List<IInteractionCommand> { new MakeDealCommand(offer), _breakDealCommand };
+            return new ZoneContext(commands, offer);
         }
 
         public override void HandleEnter(GameObject obj)

@@ -7,7 +7,7 @@ namespace UI
     {
         [SerializeField] private Image _image;
 
-        public void Show(float duration)
+        public void Show()
         {
             gameObject.SetActive(true);
         }
@@ -26,7 +26,7 @@ namespace UI
     
     public interface IOfferTimerView
     {
-        void Show(float duration);
+        void Show();
         void UpdateFill(float remainingRatio);
         void Hide();
     }

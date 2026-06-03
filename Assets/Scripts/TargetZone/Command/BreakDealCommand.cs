@@ -1,4 +1,4 @@
-﻿using AI;
+﻿using Offers;
 using Player.Interface;
 using TargetZone.Interfaces;
 
@@ -6,25 +6,25 @@ namespace TargetZone.Command
 {
     public class BreakDealCommand : IInteractionCommand
     {
-        private readonly CustomerController _customer;
+        private readonly IOffer _offer;
 
-        public BreakDealCommand(CustomerController customer = null)
+        public BreakDealCommand(IOffer offer = null)
         {
-            _customer = customer;
+            _offer = offer;
         }
 
         public string Title => "Break Deal";
 
         public bool CanExecute(IPlayer player = null)
         {
-            return _customer.Offer.Active;
+            return _offer.Active;
         }
 
         public void Execute(IPlayer player = null)
         {
             if (CanExecute())
             {
-                _customer.CancelDeal();
+                _offer.CancelDeal();
             }
         }
     }

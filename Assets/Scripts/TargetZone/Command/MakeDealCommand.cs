@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using AI;
+using Offers;
 using Player.Interface;
 using TargetZone.Interfaces;
 
@@ -7,29 +7,27 @@ namespace TargetZone.Command
 {
     public class MakeDealCommand : IInteractionCommand
     {
-        private readonly CustomerController _customer;
-
-        public MakeDealCommand(CustomerController customer)
-        {
-            _customer = customer;
-            Title = $"Sell for {_customer.Offer.Price}";
-        }
+        private readonly IOffer _offer;
         public string Title { get; }
+
+        public MakeDealCommand(IOffer offer)
+        {
+            _offer = offer;
+            Title = $"Sell for {_offer.Price}";
+        }
 
         public bool CanExecute(IPlayer player)
         {
-            var offer = _customer.Offer;
-            return offer.Active && offer.Lines.All(line => player.Inventory.HasEnoughByCrop(line.Type, line.Count));
+            return _offer.Active && _offer.Lines.All(line => player.Inventory.HasEnoughByCrop(line.Type, line.Count));
         }
 
         public void Execute(IPlayer player)
         {
             if (CanExecute(player))
             {
-                var offer = _customer.Offer;
-                player.Wallet.Payout(offer.Price);
-                offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
-                _customer.CancelDeal();
+                player.Wallet.Payout(_offer.Price);
+                _offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
+                _offer.CancelDeal();
             }
         }
     }

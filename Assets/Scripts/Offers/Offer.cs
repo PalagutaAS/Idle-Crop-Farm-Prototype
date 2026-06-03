@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Offers
@@ -7,9 +8,23 @@ namespace Offers
     {
         public IReadOnlyList<OfferLine> Lines { get; }
     }
-    
+
+    public interface IOfferCanceler
+    {
+        public void CancelDeal();
+        public event Action<IOfferDisplayData> OnCancel;
+    }
+
+    public interface IOffer : IOfferCanceler, IOfferDisplayData
+    {
+        public CropType Types { get; }
+        public int Price { get; }
+        public int AdditionalPrice { get; }
+        public bool Active { get; }
+    }
+
     [System.Serializable]
-    public class Offer : IOfferDisplayData
+    public class Offer : IOffer
     {
         public IReadOnlyList<OfferLine> Lines { get; private set; }
         public CropType Types { get; private set; }
@@ -17,6 +32,7 @@ namespace Offers
         public int AdditionalPrice { get; private set; }
         public bool Active { get; private set; }
         
+        public event Action<IOfferDisplayData> OnCancel;
         public Offer(IEnumerable<OfferLine> lines, int additionalPrice)
         {
             Lines = lines.ToList().AsReadOnly();
@@ -35,7 +51,13 @@ namespace Offers
             Active = true;
         }
         
-        public void Done() => Active = false;
+        private void Done() => Active = false;
+
+        public void CancelDeal()
+        {
+            Done();
+            OnCancel?.Invoke(this);
+        }
 
         public static Offer Empty() => new Offer(new List<OfferLine>(), 0);
     }

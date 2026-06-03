@@ -203,7 +203,6 @@
     <Compile Include="Assets\Scripts\TargetZone\TriggerZone.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Zones\UpgradeZoneLogic.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />
-    <Compile Include="Assets\Scripts\UI\TradeCanvas.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Scripts\Player\Tools\ToolFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />

@@ -7,11 +7,11 @@ namespace Offers
 {
     public class OfferTimerPresenter : IOfferTimeout, IDisposable, ITickable
     {
+        private readonly IOfferTimerView _view;
         private float _duration = 10f;
-        private IOfferTimerView _view;
         private OfferTimerModel _model;
         private Offer _offer;
-        private Action _action;
+        private Action _actionOnTimeout;
 
         public OfferTimerPresenter(IOfferTimerView view)
         {
@@ -22,12 +22,13 @@ namespace Offers
         {
             StopTimer();
             _offer = offer;
-            _action = onTimeout;
+            _offer.OnCancel += OnCancelDeal;
+            _actionOnTimeout = onTimeout;
             _model = new OfferTimerModel(_duration);
             _model.OnTimeout += HandleTimeout;
             _model.Start();
 
-            _view.Show(_model.Duration);
+            _view.Show();
             _view.UpdateFill(1f);
         }
 
@@ -36,26 +37,26 @@ namespace Offers
             if (_model == null) return;
 
             _model.OnTimeout -= HandleTimeout;
+            _offer.OnCancel -= OnCancelDeal;
             _model.Stop();
             _view.Hide();
             _model = null;
             _offer = null;
-            _action = null;
-        }
-        
-        private void HandleTimeout()
-        {
-            _action?.Invoke();
-            StopTimer();
+            _actionOnTimeout = null;
         }
 
+        private void OnCancelDeal(IOfferDisplayData obj) => StopTimer();
+
         public void Dispose() => StopTimer();
-        
+
+        private void HandleTimeout()
+        {
+            _actionOnTimeout?.Invoke();
+            Dispose();
+        }
+
         public void Tick()
         {
-            if (_offer != null && !_offer.Active)
-                StopTimer();
-            
             if (_model == null || !_model.IsActive) return;
             
             _view.UpdateFill(_model.Tick(Time.deltaTime));
