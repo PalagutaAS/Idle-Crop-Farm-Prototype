@@ -4,18 +4,26 @@ using UnityEngine.UI;
 
 namespace Offers
 {
-    public class OfferIconView : MonoBehaviour
+    public class OfferIconView : MonoBehaviour, IIconView
     {
         [SerializeField] private TMP_Text _count;
         [SerializeField] private Image _image;
         [SerializeField] private Color _hasEnough;
         [SerializeField] private Color _notEnough;
         
+        public GameObject GameObj => gameObject;
+
         public void Setup(Sprite image, int count, int countInInventory)
         {
             _image.sprite = image;
             _count.text = count.ToString();
             _count.color = (countInInventory >= count) ? _hasEnough : _notEnough;
-        } 
+        }
+
+    }
+
+    public interface IIconView
+    {
+        GameObject GameObj { get; }
     }
 }

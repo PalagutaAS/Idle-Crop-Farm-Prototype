@@ -9,13 +9,12 @@ namespace Offers
 {
     public class OfferIconsDisplay : MonoBehaviour, IOfferDisplay
     {
-        //Переделать на интерфейсы
         [SerializeField] private OfferIconView _iconPrefab;
         
         private Transform _iconsContainer;
         private ILibraryCropConfigs _cropConfigs;
         private IPoolManager _poolManager;
-        private List<OfferIconView> _activeIcons = new();
+        private List<IIconView> _activeIcons = new();
         private IInventory _inventory;
 
         [Inject]
@@ -45,19 +44,18 @@ namespace Offers
             _iconsContainer.gameObject.SetActive(false);
         }
 
-        private OfferIconView Prepare(OfferIconView offerIconView)
+        private OfferIconView Prepare(OfferIconView offerIconViewView)
         {
-            offerIconView.gameObject.transform.SetParent(_iconsContainer);
-            offerIconView.gameObject.SetActive(true);
-            return offerIconView;
+            offerIconViewView.gameObject.transform.SetParent(_iconsContainer);
+            offerIconViewView.gameObject.SetActive(true);
+            return offerIconViewView;
         }
         
         private void Clear()
         {
             foreach (var iconView in _activeIcons)
             {
-                GameObject iconGO = iconView.gameObject;
-                iconGO.SetActive(false);
+                GameObject iconGO = iconView.GameObj;
                 _poolManager.ReturnObject(iconGO);
             }
             _activeIcons.Clear();
