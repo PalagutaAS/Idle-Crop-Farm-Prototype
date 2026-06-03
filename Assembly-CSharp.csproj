@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\TargetZone\Zones\TradeZoneLogic.cs" />
     <Compile Include="Assets\Scripts\UI\PrintCount.cs" />
     <Compile Include="Assets\Scripts\Inventor\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Offers\OfferTimerModel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\UnityPackagesManager.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\AllDemoScenes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\Scripts\Player\Input\StandaloneInputService.cs" />
+    <Compile Include="Assets\Scripts\UI\PrintOfferTimerView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SavesDataExample.cs" />
     <Compile Include="Assets\Scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PluginPrefs.cs" />
@@ -100,8 +102,8 @@
     <Compile Include="Assets\Scripts\Tools\Interface\ITool.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\ISlot.cs" />
     <Compile Include="Assets\Scripts\UI\MenuStateSwitch.cs" />
-    <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ScriptableObjects\LibraryPoolConfigs.cs" />
+    <Compile Include="Assets\Scripts\AI\CustomerSpawner.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Interfaces\IZoneContent.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\StateMachine\ApplyGameProgressState.cs" />
@@ -134,8 +136,8 @@
     <Compile Include="Assets\Scripts\UI\Offer\OfferIconsDisplay.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_info.cs" />
-    <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Crops\BaseCrop.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\ProjectSettings.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\UpgradeToolCommand.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\Scripts\Inventor\IInvenrory.cs" />
     <Compile Include="Assets\Scripts\UI\PrintValues.cs" />
+    <Compile Include="Assets\Scripts\Offers\OfferTimerPresenter.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\Services\GameRestartService.cs" />
     <Compile Include="Assets\Logging\LogHandler.cs" />
     <Compile Include="Assets\Scripts\TargetZone\ZoneFacade.cs" />
@@ -195,7 +198,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
     <Compile Include="Assets\Scripts\TargetZone\ZoneContext.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\CoroutineRunner.cs" />
-    <Compile Include="Assets\Scripts\Offers\OfferTimeout.cs" />
     <Compile Include="Assets\Scripts\AI\QueueManager.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\GamePlayAPI.cs" />
     <Compile Include="Assets\Scripts\TargetZone\TriggerZone.cs" />
@@ -207,7 +209,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\FieldService.cs" />
-    <Compile Include="Assets\Scripts\UI\PrintOfferTimer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />

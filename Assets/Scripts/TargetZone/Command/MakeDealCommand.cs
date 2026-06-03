@@ -19,7 +19,7 @@ namespace TargetZone.Command
         public bool CanExecute(IPlayer player)
         {
             var offer = _customer.Offer;
-            return _customer.Offer.Active && offer.Lines.All(line => player.Inventory.HasEnoughByCrop(line.Type, line.Count));
+            return offer.Active && offer.Lines.All(line => player.Inventory.HasEnoughByCrop(line.Type, line.Count));
         }
 
         public void Execute(IPlayer player)
@@ -27,7 +27,7 @@ namespace TargetZone.Command
             if (CanExecute(player))
             {
                 var offer = _customer.Offer;
-                player.Wallet.Payout(_customer.Offer.Price);
+                player.Wallet.Payout(offer.Price);
                 offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
                 _customer.CancelDeal();
             }

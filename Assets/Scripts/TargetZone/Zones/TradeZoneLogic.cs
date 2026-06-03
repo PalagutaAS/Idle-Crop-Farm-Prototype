@@ -12,7 +12,7 @@ namespace TargetZone.Zones
 {
     public class TradeZoneLogic : BaseZoneLogic
     {
-        [Inject] private OfferTimeout _offerTimeout;
+        [Inject] private IOfferTimeout _offerTimerPresenter;
         private CustomerController _currentCustomer;
         private BreakDealCommand _breakDealCommand;
         private bool _playerInside;
@@ -35,7 +35,7 @@ namespace TargetZone.Zones
             else if (obj.TryGetComponent<CustomerController>(out var c))
             {
                 _currentCustomer = c;
-                _offerTimeout.AddTimer(c, OnOfferExpired);
+                _offerTimerPresenter.StartTimer(c.Offer, OnOfferExpired);
             }
             NotifyContextUpdated();
         }
@@ -46,7 +46,7 @@ namespace TargetZone.Zones
             else if (obj.TryGetComponent<CustomerController>(out var c) && c == _currentCustomer)
             {
                 _currentCustomer = null;
-                _offerTimeout.Dispose();
+                _offerTimerPresenter.StopTimer();
             }
             NotifyContextUpdated();
         }

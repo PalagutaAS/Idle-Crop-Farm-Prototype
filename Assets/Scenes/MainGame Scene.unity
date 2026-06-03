@@ -501,7 +501,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 32133956}
-  - component: {fileID: 32133957}
   m_Layer: 5
   m_Name: OfferTimer
   m_TagString: Untagged
@@ -530,19 +529,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &32133957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32133955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5374f074b4894b1d850aae3450c623fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 949841908}
 --- !u!1001 &51058813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5203,14 +5189,13 @@ GameObject:
   - component: {fileID: 684553910}
   - component: {fileID: 684553909}
   - component: {fileID: 684553913}
-  - component: {fileID: 684553914}
   m_Layer: 5
   m_Name: Trade Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &684553909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,23 +5288,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 684553908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1caebb7b0b442ea94b474e0670fdb7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5374f074b4894b1d850aae3450c623fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 10
-  _printTimer: {fileID: 32133957}
---- !u!114 &684553914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684553908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982ffa513a0c4eaabae9d21d60cc7ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _image: {fileID: 949841908}
 --- !u!4 &684768394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6313977829419041397, guid: fce2fae08c930a8409a53c394b0df96e,
@@ -11116,8 +11088,7 @@ MonoBehaviour:
   _player: {fileID: 1031485471}
   _fieldCollectProvider: {fileID: 5834826127477848997}
   _toolsManager: {fileID: 1963951039}
-  _offerTimeout: {fileID: 684553913}
-  _tradeCanvas: {fileID: 684553914}
+  _timerView: {fileID: 684553913}
   _offerIconsDisplay: {fileID: 53858481}
   _toolPrefab: {fileID: 7226390686178689476, guid: 1808a6e60c9158648acdbbca36e4cb91,
     type: 3}

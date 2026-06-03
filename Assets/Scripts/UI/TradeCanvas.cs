@@ -5,7 +5,6 @@ namespace UI
 {
     public class TradeCanvas : MonoBehaviour
     {
-        
         private void Awake()
         {
             Close();
@@ -14,7 +13,6 @@ namespace UI
         public void Show(Offer offer)
         {
             gameObject.SetActive(true);
-            
         }
 
         public void Close()

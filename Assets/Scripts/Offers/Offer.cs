@@ -5,7 +5,7 @@ namespace Offers
 {
     public interface IOfferDisplayData
     {
-        public IReadOnlyList<OfferLine> Lines { get;  }
+        public IReadOnlyList<OfferLine> Lines { get; }
     }
     
     [System.Serializable]

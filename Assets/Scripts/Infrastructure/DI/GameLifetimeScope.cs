@@ -29,8 +29,7 @@ namespace Infrastructure.DI
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private FieldCollectProvider _fieldCollectProvider;
         [SerializeField] private PlayerTools _toolsManager;
-        [SerializeField] private OfferTimeout _offerTimeout;
-        [SerializeField] private TradeCanvas _tradeCanvas;
+        [SerializeField] private PrintOfferTimerView  _timerView;
         [SerializeField] private OfferIconsDisplay _offerIconsDisplay;
         
         [Space,Header("Prefab Register")]
@@ -57,8 +56,7 @@ namespace Infrastructure.DI
             _builder.RegisterInstance(_player).As<IPlayer>();
             _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
             _builder.RegisterInstance(_toolsManager).AsImplementedInterfaces();
-            _builder.RegisterInstance(_offerTimeout).AsImplementedInterfaces();
-            _builder.RegisterInstance(_tradeCanvas).AsImplementedInterfaces();
+            _builder.RegisterInstance(_timerView).AsImplementedInterfaces();
             
             RegisterStates();
             RegisterPrefabs();
@@ -83,6 +81,7 @@ namespace Infrastructure.DI
 
         private void Register()
         {
+            _builder.Register<OfferTimerPresenter>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<GameRestartService>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<ResetSaveService>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
