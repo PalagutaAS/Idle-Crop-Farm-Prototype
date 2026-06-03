@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ObjectPull;
+using ObjectPool;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI.ButtonService;
@@ -40,6 +40,12 @@ namespace UI.Panels
             gameObject.SetActive(true);
         }
 
+        public void Close()
+        {
+            ClearButtons();
+            gameObject.SetActive(false);
+        }
+
         private void PrepareButton(IInteractionCommand command)
         {
             Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
@@ -66,12 +72,6 @@ namespace UI.Panels
                 _poolManager.ReturnObject(btnAndCmd.Key.gameObject);
             }
             _buttons.Clear();
-        }
-        
-        public void Close()
-        {
-            ClearButtons();
-            gameObject.SetActive(false);
         }
     }
 }

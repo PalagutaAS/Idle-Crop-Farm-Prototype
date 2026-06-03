@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ObjectPull
+namespace ObjectPool
 {
     public class PoolableObject : MonoBehaviour, IPoolableObject
     {
