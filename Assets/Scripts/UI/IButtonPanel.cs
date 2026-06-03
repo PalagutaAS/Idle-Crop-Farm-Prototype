@@ -4,7 +4,7 @@ using TargetZone.Interfaces;
 
 namespace UI
 {
-    public interface IPanel
+    public interface IButtonPanel
     {
         public void Open(List<IInteractionCommand> commands);
         public void Close();

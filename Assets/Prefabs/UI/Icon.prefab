@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7326040649916683468}
   - component: {fileID: 6478306159688491010}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,3 +225,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _count: {fileID: 8118560111291481414}
   _image: {fileID: 7326040649916683468}
+  _hasEnough: {r: 0.09019608, g: 0.7254902, b: 0, a: 1}
+  _notEnough: {r: 0.7254902, g: 0.12398833, b: 0, a: 1}

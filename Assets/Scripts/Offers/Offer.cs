@@ -3,8 +3,13 @@ using System.Linq;
 
 namespace Offers
 {
+    public interface IOfferDisplayData
+    {
+        public IReadOnlyList<OfferLine> Lines { get;  }
+    }
+    
     [System.Serializable]
-    public class Offer
+    public class Offer : IOfferDisplayData
     {
         public IReadOnlyList<OfferLine> Lines { get; private set; }
         public CropType Types { get; private set; }

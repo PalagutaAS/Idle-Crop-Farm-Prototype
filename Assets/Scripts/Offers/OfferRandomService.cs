@@ -10,11 +10,11 @@ namespace Offers
 {
     public class OfferRandomService : IOfferRandomService
     {
-        private readonly LibraryCropConfigs _libraryCropConfigs;
+        private readonly ILibraryCropConfigs _libraryCropConfigs;
         private readonly IFieldService _fieldService;
         private readonly int _maxLinesPerOffer;
 
-        public OfferRandomService(LibraryCropConfigs libraryCropConfigs, IFieldService fieldService)
+        public OfferRandomService(ILibraryCropConfigs libraryCropConfigs, IFieldService fieldService)
         {
             _libraryCropConfigs = libraryCropConfigs;
             _fieldService = fieldService;

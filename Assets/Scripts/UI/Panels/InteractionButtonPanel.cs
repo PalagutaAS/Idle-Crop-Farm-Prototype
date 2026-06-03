@@ -10,11 +10,11 @@ using VContainer;
 
 namespace UI.Panels
 {
-    public class InteractionPanel : MonoBehaviour, IPanel
+    public class InteractionButtonPanel : MonoBehaviour, IButtonPanel
     {
         [SerializeField] private Button _buttonPrefab;
-        [SerializeField] private Transform _buttonsContainer;
         
+        private Transform _buttonsContainer;
         private IPoolManager _poolManager;
         private IPlayer _player;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
@@ -24,6 +24,7 @@ namespace UI.Panels
         [Inject]
         private void Constructor(IPoolManager poolManager, IPlayer player)
         {
+            _buttonsContainer = transform;
             _player = player;
             _poolManager = poolManager;
             _buttonPrepare = new ButtonPrepareService(_buttonsContainer);

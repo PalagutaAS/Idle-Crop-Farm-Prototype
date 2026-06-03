@@ -111,10 +111,10 @@ namespace Infrastructure.DI
         private void RegisterScriptableObjects()
         {
             _builder.RegisterInstance(_libraryPoolConfigs).AsImplementedInterfaces();
-            _builder.RegisterInstance(_libraryToolConfig);
+            _builder.RegisterInstance(_libraryToolConfig).AsImplementedInterfaces();
             _builder.RegisterInstance(_queueConfig);
             _builder.RegisterInstance(_libraryFieldConfigs).AsImplementedInterfaces();
-            _builder.RegisterInstance(_libraryCropConfigs);
+            _builder.RegisterInstance(_libraryCropConfigs).AsImplementedInterfaces();
             _builder.RegisterInstance(_offerIconsDisplay).AsImplementedInterfaces();
         }
 

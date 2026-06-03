@@ -4,7 +4,7 @@ namespace Crops.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Library Crop Configs", menuName = "Library Configs/New Library Crop Configs")]
 
-    public class LibraryCropConfigs : ScriptableObject
+    public class LibraryCropConfigs : ScriptableObject, ILibraryCropConfigs
     {
         [SerializeField] private CropConfig[] _cropConfigs;
 
@@ -17,5 +17,10 @@ namespace Crops.ScriptableObjects
             }
             return null;
         }    
+    }
+
+    public interface ILibraryCropConfigs
+    {
+        CropConfig GetConfigByType(CropType type);
     }
 }

@@ -17,6 +17,7 @@ namespace Offers
         public void AddTimer(CustomerController customer, Action actionOnOut)
         {
             Dispose();
+            gameObject.SetActive(true);
             _printTimer.ShowUI(_duration);
             _action = actionOnOut;
             _customer = customer;
@@ -49,6 +50,7 @@ namespace Offers
             _printTimer.Close();
             _customer = null;
             _action = null;
+            gameObject.SetActive(false);
         }
     }
 

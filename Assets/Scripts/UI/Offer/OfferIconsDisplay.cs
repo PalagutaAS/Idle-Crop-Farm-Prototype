@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Crops.ScriptableObjects;
+using Inventor;
 using ObjectPull;
 using UnityEngine;
 using VContainer;
@@ -10,20 +11,23 @@ namespace Offers
     {
         //Переделать на интерфейсы
         [SerializeField] private OfferIconView _iconPrefab;
-        [SerializeField] private Transform _iconsContainer;
-
-        private LibraryCropConfigs _cropConfigs;
+        
+        private Transform _iconsContainer;
+        private ILibraryCropConfigs _cropConfigs;
         private IPoolManager _poolManager;
         private List<OfferIconView> _activeIcons = new();
+        private IInventory _inventory;
 
         [Inject]
-        private void Construct(IPoolManager poolManager, LibraryCropConfigs cropConfigs)
+        private void Construct(IPoolManager poolManager, ILibraryCropConfigs cropConfigs, IInventory inventory)
         {
+            _iconsContainer = transform;
+            _inventory = inventory;
             _cropConfigs = cropConfigs;
             _poolManager = poolManager;
         }
 
-        public void Show(Offer currentOffer)
+        public void Show(IOfferDisplayData currentOffer)
         {
             Clear();
             _iconsContainer.gameObject.SetActive(true);
@@ -31,7 +35,7 @@ namespace Offers
             {
                 var config = _cropConfigs.GetConfigByType(offerLine.Type);
                 OfferIconView iconView = _poolManager.GetObject<OfferIconView>(_iconPrefab.gameObject);
-                Prepare(iconView).Setup(config.Sprite, offerLine.Count);
+                Prepare(iconView).Setup(config.Sprite, offerLine.Count, _inventory.CheckCountByType(offerLine.Type));
                 _activeIcons.Add(iconView);
             }
         }
@@ -62,7 +66,7 @@ namespace Offers
 
     public interface IOfferDisplay
     {
-        void Show(Offer currentOffer);
+        void Show(IOfferDisplayData currentOffer);
         void Close();
     }
 }
