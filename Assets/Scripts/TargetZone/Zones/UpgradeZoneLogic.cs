@@ -15,8 +15,8 @@ namespace TargetZone.Zones
         private ILibraryToolConfigs _libraryToolConfigs;
         private IToolManager _toolManager;
         private IPlayer _player;
-
         private bool _playerInside;
+        
         public override bool CanActivate => _playerInside;
 
         public override event Action OnContextUpdated;

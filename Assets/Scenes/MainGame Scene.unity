@@ -4596,6 +4596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoneLogic:
   - {fileID: 1228383436}
+  - {fileID: 767753400}
+  - {fileID: 966148818}
 --- !u!4 &520187551
 Transform:
   m_ObjectHideFlags: 0

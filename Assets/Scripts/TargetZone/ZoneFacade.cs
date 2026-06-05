@@ -1,5 +1,7 @@
-﻿using UI;
+﻿using Inventor;
+using UI;
 using UnityEngine;
+using VContainer;
 
 namespace TargetZone
 {
@@ -11,6 +13,9 @@ namespace TargetZone
         
         private TriggerZone _triggerZone;
         private IZoneInteractionLogic _logic;
+        [Inject]
+        private IWallet _wallet;
+
         void Awake()
         {
             _triggerZone = GetComponent<TriggerZone>();
@@ -23,6 +28,7 @@ namespace TargetZone
             _triggerZone.OnEnter += Enter;
             _triggerZone.OnExit += Exit;
             _logic.OnContextUpdated += OnContextUpdated;
+            _wallet.OnChangedByTypeForUI += OnMoneyChanged;
         }
 
         private void Enter(GameObject obj) => _logic.HandleEnter(obj);
@@ -36,11 +42,13 @@ namespace TargetZone
                 _zoneUI.Close();
         }
 
+        private void OnMoneyChanged(MoneyType type, int count) => OnContextUpdated();
         private void OnDestroy()
         {
             _triggerZone.OnEnter -= Enter;
             _triggerZone.OnExit -= Exit;
             _logic.OnContextUpdated -= OnContextUpdated;
+            _wallet.OnChangedByTypeForUI -= OnMoneyChanged;
         }
     }
 }
