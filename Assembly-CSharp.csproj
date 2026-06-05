@@ -45,6 +45,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\TargetZone\ZoneFieldBuyFacade.cs" />
     <Compile Include="Assets\Scripts\Fields\ScriptableObjects\ConfigField.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\Scripts\UI\Panels\InteractionButtonPanel.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\MakeDealCommand.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BuyNewToolCommand.cs" />
+    <Compile Include="Assets\Scripts\UI\ZonePanels\ZonePanelUI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\NestedYGAttribute.cs" />
     <Compile Include="Assets\Scripts\Infrastructure\DI\GameLifetimeScope.cs" />
     <Compile Include="Assets\Scripts\Fields\IFieldService.cs" />
@@ -130,7 +132,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs" />
     <Compile Include="Assets\Scripts\Player\Interface\IInputService.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
-    <Compile Include="Assets\Scripts\UI\ZonePanelUI.cs" />
     <Compile Include="Assets\Logging\DebugLogService.cs" />
     <Compile Include="Assets\Scripts\UI\Offer\OfferIconView.cs" />
     <Compile Include="Assets\Scripts\UI\Offer\OfferIconsDisplay.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Assets\Scripts\Infrastructure\Services\SavedLoadService.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerCoordinator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings_langs.cs" />
+    <Compile Include="Assets\Scripts\TargetZone\FieldTriggerZoneMover.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerQueuePosition.cs" />
     <Compile Include="Assets\Scripts\AI\CustomerFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
@@ -208,6 +210,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />
     <Compile Include="Assets\Scripts\TargetZone\Command\BreakDealCommand.cs" />
     <Compile Include="Assets\Scripts\Fields\FieldService.cs" />
+    <Compile Include="Assets\Scripts\UI\ZonePanels\FieldBuyZonePanelUI.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\AI\Zone\BaseZone.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />

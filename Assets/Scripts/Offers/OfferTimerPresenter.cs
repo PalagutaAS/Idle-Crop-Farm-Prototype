@@ -36,23 +36,30 @@ namespace Offers
         {
             if (_model == null) return;
 
-            _model.OnTimeout -= HandleTimeout;
-            _offer.OnCancel -= OnCancelDeal;
             _model.Stop();
             _view.Hide();
+            Dispose();
+        }
+
+        private void OnCancelDeal(IOfferDisplayData obj) => StopTimer();
+
+        public void Dispose()
+        {
+            if (_model != null)
+                _model.OnTimeout -= HandleTimeout;
+            
+            if (_offer != null)
+                _offer.OnCancel -= OnCancelDeal;
+            
             _model = null;
             _offer = null;
             _actionOnTimeout = null;
         }
 
-        private void OnCancelDeal(IOfferDisplayData obj) => StopTimer();
-
-        public void Dispose() => StopTimer();
-
         private void HandleTimeout()
         {
             _actionOnTimeout?.Invoke();
-            Dispose();
+            StopTimer();
         }
 
         public void Tick()

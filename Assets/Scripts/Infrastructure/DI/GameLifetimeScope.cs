@@ -13,6 +13,7 @@ using Offers;
 using Player;
 using Player.Interface;
 using Player.Tools;
+using TargetZone;
 using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
@@ -28,6 +29,7 @@ namespace Infrastructure.DI
     {
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private FieldCollectProvider _fieldCollectProvider;
+        [SerializeField] private FieldTriggerZoneMover _triggerZoneMover;
         [SerializeField] private PlayerTools _toolsManager;
         [SerializeField] private PrintOfferTimerView  _timerView;
         [SerializeField] private OfferIconsDisplay _offerIconsDisplay;
@@ -55,6 +57,7 @@ namespace Infrastructure.DI
             
             _builder.RegisterInstance(_player).As<IPlayer>();
             _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
+            _builder.RegisterInstance(_triggerZoneMover).AsSelf().AsImplementedInterfaces();
             _builder.RegisterInstance(_toolsManager).AsImplementedInterfaces();
             _builder.RegisterInstance(_timerView).AsImplementedInterfaces();
             

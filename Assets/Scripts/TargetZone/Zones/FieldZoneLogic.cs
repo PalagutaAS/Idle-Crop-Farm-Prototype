@@ -13,11 +13,16 @@ namespace TargetZone.Zones
 {
     public class FieldZoneLogic : BaseZoneLogic
     {
+        [SerializeField] private CropType _type;
         private ILibraryFieldConfig _libraryField;
         private IFieldService _fieldService;
         private IWallet _wallet;
         private IPlayer _player;
 
+        public CropType Type => _type;
+        public override bool CanActivate => _player != null;
+        public override event Action OnContextUpdated;
+        
         [Inject]
         protected void Constructor(ILibraryFieldConfig config, IFieldService fieldService, IWallet wallet)
         {
@@ -35,20 +40,18 @@ namespace TargetZone.Zones
             }
         }
 
-        public override bool CanActivate => _player != null;
         public override IZoneContext GenerateContext()
         {
             var commands = new List<IInteractionCommand>();
-            foreach (var item in _libraryField.ConfigFields)
-            {
-                if (!_fieldService.HasInactiveField(item.Type)) continue;
-                commands.Add(new BuyNewFieldCommand(item, _fieldService));
-            }
+            if (!_fieldService.HasInactiveField(Type))
+                return ZoneContext.EmptyContext();
+            
+            IFieldConfig fieldConfig = _libraryField.GetConfigByType(Type);
+            commands.Add(new BuyNewFieldCommand(fieldConfig, _fieldService));
 
             return new ZoneContext(commands);
         }
 
-        public override event Action OnContextUpdated;
         public override void HandleEnter(GameObject obj)
         {
             if (obj.TryGetComponent(out IPlayer player))
@@ -72,6 +75,13 @@ namespace TargetZone.Zones
         private void OnDestroy()
         {
             _wallet.OnChangedByTypeForUI -= WalletOnOnChangedByTypeForUI;
+        }
+
+        private void OnDisable()
+        {
+            _player = null;
+            _wallet.OnChangedByTypeForUI -= WalletOnOnChangedByTypeForUI;
+            NotifyContextUpdated();
         }
     }
 }
