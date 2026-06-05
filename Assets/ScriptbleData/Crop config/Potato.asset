@@ -19,5 +19,5 @@ MonoBehaviour:
   _weight: 0.5
   _pricePerUnit: 2
   _growTime: 40
-  _model: {fileID: 919132149155446097, guid: 28fcddb110780e947a25c960fbc2db23, type: 3}
   _type: 4
+  _itemSprite: {fileID: 21300000, guid: 5536fb12968fe08499be72493d91d44c, type: 3}

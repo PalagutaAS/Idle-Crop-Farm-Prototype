@@ -18,7 +18,7 @@ namespace Infrastructure.StateMachine
 
         public void Enter(string nameScene)
         {
-            this.Log("Enter State");
+            this.Log("");
             _screenLoading.Show();
             _sceneLoader.Load(nameScene, OnLoad);
         }
@@ -30,7 +30,6 @@ namespace Infrastructure.StateMachine
 
         public void Exit()
         {
-            this.Log("Exit State");
         }
     }
 }

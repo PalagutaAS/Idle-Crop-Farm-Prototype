@@ -27,7 +27,6 @@ namespace AI
         public bool isInit { get; private set; }
         public CustomerState State => _state;
         
-
         private bool _isMoving = false;
         
         public event Action<CustomerController, CustomerState> OnChangedState;
@@ -38,17 +37,10 @@ namespace AI
             isInit = true;
         }
 
-        void Update()
-        {
-            if (_isMoving && isInit)
-            {
-                MoveToTarget();
-            }
-        }
-
         public void SetOffer(Offer newOffer)
         {
             _offer = newOffer;
+            _offer.OnCancel += OnCancelDeal;
         }
 
         public void StartMovementTo(Vector3 targetPosition)
@@ -58,10 +50,24 @@ namespace AI
             _animator.SetBool("IsMove", _isMoving);
         }
 
-        public void StopMovement()
+        public void ChangeState(CustomerState state)
+        {
+            _state = state;
+            OnChangedState?.Invoke(this, _state);
+        }
+
+        private void StopMovement()
         {
             _isMoving = false;
             _animator.SetBool("IsMove", _isMoving);
+        }
+
+        private void Update()
+        {
+            if (_isMoving && isInit)
+            {
+                MoveToTarget();
+            }
         }
 
         private void MoveToTarget()
@@ -82,11 +88,10 @@ namespace AI
             }
         }
 
-        public void ChangeState(CustomerState state)
+        private void OnCancelDeal(IOfferDisplayData offer)
         {
-            _state = state;
-            OnChangedState?.Invoke(this, _state);
+            ChangeState(CustomerState.Leaving);
+            _offer.OnCancel -= OnCancelDeal;
         }
-        
     }
 }

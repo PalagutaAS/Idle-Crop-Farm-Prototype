@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ObjectPull.ScriptableObjects
+namespace ObjectPool.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Pool Config", menuName = "Object Pool/Pool Config")]
     public class PoolConfigSO : ScriptableObject

@@ -13,14 +13,14 @@ namespace Player.Tools
     {
         [SerializeField] private Slot[] _slots;
     
-        private LibraryToolConfigs _libraryToolConfigs;
+        private ILibraryToolConfigs _libraryToolConfigs;
         private IToolFactory _toolFactory;
         private IPlayer _player;
         
         public int CountSlots => _slots.Length;
 
         [Inject]
-        public void Constructor(IPlayer player, IToolFactory toolFactory, LibraryToolConfigs libraryToolConfigs)
+        public void Constructor(IPlayer player, IToolFactory toolFactory, ILibraryToolConfigs libraryToolConfigs)
         {
             _player = player;
             _toolFactory = toolFactory;

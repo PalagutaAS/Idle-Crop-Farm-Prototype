@@ -33,7 +33,7 @@ MonoBehaviour:
     editTimeScale: 1
     editEventSystem: 1
     autoGRA: 0
-    logInEditor: 1
+    logInEditor: 0
     archivingBuild: 1
     autoDefineSymbols: 1
     syncInitSDK: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     durationAdv: 0.5
     loadAdv: 0
     testFailAds: 0
-    pauseOnFocusGame: 1
+    pauseOnFocusGame: 0
   Templates:
     logoImageFormat: 0
     backgroundImgFormat: 0

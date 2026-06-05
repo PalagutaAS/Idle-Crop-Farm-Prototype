@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ObjectPull;
+using ObjectPool;
 using Player.Interface;
 using TargetZone.Interfaces;
 using UI.ButtonService;
@@ -10,11 +10,11 @@ using VContainer;
 
 namespace UI.Panels
 {
-    public class InteractionPanel : MonoBehaviour, IPanel
+    public class InteractionButtonPanel : MonoBehaviour, IButtonPanel
     {
         [SerializeField] private Button _buttonPrefab;
-        [SerializeField] private Transform _buttonsContainer;
         
+        private Transform _buttonsContainer;
         private IPoolManager _poolManager;
         private IPlayer _player;
         private Dictionary<Button, IInteractionCommand> _buttons = new();
@@ -24,6 +24,7 @@ namespace UI.Panels
         [Inject]
         private void Constructor(IPoolManager poolManager, IPlayer player)
         {
+            _buttonsContainer = transform;
             _player = player;
             _poolManager = poolManager;
             _buttonPrepare = new ButtonPrepareService(_buttonsContainer);
@@ -39,15 +40,21 @@ namespace UI.Panels
             gameObject.SetActive(true);
         }
 
+        public void Close()
+        {
+            ClearButtons();
+            gameObject.SetActive(false);
+        }
+
         private void PrepareButton(IInteractionCommand command)
         {
             Button button = _poolManager.GetObject<Button>(_buttonPrefab.gameObject);
 
-            _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () => ActionOnPushButton(command));
+            _buttonPrepare.Prepare(button, command.Title, command.CanExecute(_player), () => ExecuteCommand(command));
             _buttons.Add(button, command);
         }
 
-        private void ActionOnPushButton(IInteractionCommand command)
+        private void ExecuteCommand(IInteractionCommand command)
         {
             foreach (var btnAndCmd in _buttons)
             {
@@ -65,12 +72,6 @@ namespace UI.Panels
                 _poolManager.ReturnObject(btnAndCmd.Key.gameObject);
             }
             _buttons.Clear();
-        }
-        
-        public void Close()
-        {
-            ClearButtons();
-            gameObject.SetActive(false);
         }
     }
 }

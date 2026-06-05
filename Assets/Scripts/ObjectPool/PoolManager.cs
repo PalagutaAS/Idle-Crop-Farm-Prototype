@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using ObjectPull.ScriptableObjects;
+using ObjectPool.ScriptableObjects;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace ObjectPull
+namespace ObjectPool
 {
     public class PoolManager : IInitializable, IPoolManager
     {

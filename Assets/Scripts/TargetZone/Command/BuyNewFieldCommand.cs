@@ -30,6 +30,5 @@ namespace TargetZone.Command
                 player.Wallet.Payment(_config.Price);
             }
         }
-
     }
 }

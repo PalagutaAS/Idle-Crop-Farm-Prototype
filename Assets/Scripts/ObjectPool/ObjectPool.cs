@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ObjectPull.ScriptableObjects;
+using ObjectPool.ScriptableObjects;
 using UnityEngine;
 
-namespace ObjectPull
+namespace ObjectPool
 {
     public class ObjectPool : MonoBehaviour, IObjectPool
     {
@@ -68,7 +68,6 @@ namespace ObjectPull
         
             _activeObjects.Remove(obj); 
             _pool.Enqueue(obj);
-            
         }
     }
 

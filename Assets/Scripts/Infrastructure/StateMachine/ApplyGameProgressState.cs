@@ -3,6 +3,7 @@ using Infrastructure.PersistenceProgress;
 using Inventor;
 using Logging;
 using SavesData;
+using TargetZone;
 using Tools.Interface;
 using YG;
 
@@ -15,14 +16,16 @@ namespace Infrastructure.StateMachine
         private readonly IPersistenceProgressService _progressService;
         private readonly IFieldService _fieldService;
         private readonly IToolManager _toolManager;
+        private readonly FieldTriggerZoneMover _triggerZoneMover;
         private readonly ScreenLoading _screenLoading;
         private readonly IStateSwitcher _stateMachine;
-
-        public ApplyGameProgressState(IStateSwitcher gameStateMachine, ScreenLoading screenLoading, IInventoryChanger inventory, IWallet wallet, IPersistenceProgressService progressService, IFieldService fieldService, IToolManager toolManager)
+        
+        public ApplyGameProgressState(IStateSwitcher gameStateMachine, ScreenLoading screenLoading, IInventoryChanger inventory, IWallet wallet, IPersistenceProgressService progressService, IFieldService fieldService, IToolManager toolManager, FieldTriggerZoneMover triggerZoneMover)
         {
             _progressService = progressService;
             _fieldService = fieldService;
             _toolManager = toolManager;
+            _triggerZoneMover = triggerZoneMover;
             _screenLoading = screenLoading;
             _stateMachine = gameStateMachine;
             _inventory = inventory;
@@ -31,8 +34,10 @@ namespace Infrastructure.StateMachine
 
         public void Enter()
         {
-            this.Log("Enter State");
+            this.Log("");
             ApplyGameProgress();
+            _triggerZoneMover.MoveTriggers();
+
             _stateMachine.Enter<GameLoopState>();
         }
 
@@ -40,15 +45,14 @@ namespace Infrastructure.StateMachine
         {
             _screenLoading.Hide();
             YG2.GameReadyAPI();
-            this.Log("Exit State");
         }
 
         private void ApplyGameProgress()
         {
             ApplyInventoryData(_progressService.Progress.InventoryData);
-            ApplyMoneyData(_progressService.Progress.WalletData);
             ApplyFieldsData(_progressService.Progress.FieldData);
             ApplyToolsData(_progressService.Progress.ToolsData);
+            ApplyMoneyData(_progressService.Progress.WalletData);
         }
 
         private void ApplyMoneyData(WalletData data)

@@ -7,15 +7,17 @@ using Infrastructure.Services;
 using Infrastructure.StateMachine;
 using Inventor;
 using Logging;
-using ObjectPull;
-using ObjectPull.ScriptableObjects;
+using ObjectPool;
+using ObjectPool.ScriptableObjects;
 using Offers;
 using Player;
 using Player.Interface;
 using Player.Tools;
+using TargetZone;
 using Tools;
 using Tools.Interface;
 using Tools.ScriptableObjects;
+using UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -27,7 +29,10 @@ namespace Infrastructure.DI
     {
         [SerializeField] private ThirdPersonController _player;
         [SerializeField] private FieldCollectProvider _fieldCollectProvider;
+        [SerializeField] private FieldTriggerZoneMover _triggerZoneMover;
         [SerializeField] private PlayerTools _toolsManager;
+        [SerializeField] private PrintOfferTimerView  _timerView;
+        [SerializeField] private OfferIconsDisplay _offerIconsDisplay;
         
         [Space,Header("Prefab Register")]
         [SerializeField] private Tool _toolPrefab;
@@ -52,7 +57,9 @@ namespace Infrastructure.DI
             
             _builder.RegisterInstance(_player).As<IPlayer>();
             _builder.RegisterInstance(_fieldCollectProvider).AsImplementedInterfaces();
+            _builder.RegisterInstance(_triggerZoneMover).AsSelf().AsImplementedInterfaces();
             _builder.RegisterInstance(_toolsManager).AsImplementedInterfaces();
+            _builder.RegisterInstance(_timerView).AsImplementedInterfaces();
             
             RegisterStates();
             RegisterPrefabs();
@@ -77,6 +84,7 @@ namespace Infrastructure.DI
 
         private void Register()
         {
+            _builder.Register<OfferTimerPresenter>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<GameRestartService>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<ResetSaveService>(Lifetime.Scoped).AsImplementedInterfaces();
             _builder.Register<FieldService>(Lifetime.Singleton).AsImplementedInterfaces();
@@ -105,10 +113,11 @@ namespace Infrastructure.DI
         private void RegisterScriptableObjects()
         {
             _builder.RegisterInstance(_libraryPoolConfigs).AsImplementedInterfaces();
-            _builder.RegisterInstance(_libraryToolConfig);
+            _builder.RegisterInstance(_libraryToolConfig).AsImplementedInterfaces();
             _builder.RegisterInstance(_queueConfig);
             _builder.RegisterInstance(_libraryFieldConfigs).AsImplementedInterfaces();
-            _builder.RegisterInstance(_libraryCropConfigs);
+            _builder.RegisterInstance(_libraryCropConfigs).AsImplementedInterfaces();
+            _builder.RegisterInstance(_offerIconsDisplay).AsImplementedInterfaces();
         }
 
         private void RegisterPrefabs()

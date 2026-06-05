@@ -10,12 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fa09af3c8cd47f098ec3e34f9cc6393, type: 3}
-  m_Name: Pull Buttons
+  m_Name: Pool Buttons
   m_EditorClassIdentifier: 
   prefab: {fileID: 1485505893581735214, guid: 1dd6bdf86b99a354598731df275c6f27, type: 3}
-  initialSize: 10
-  maxSize: 20
-  canGrow: 1
-  createParent: 0
-  parentName: PoolButton
-  preloadOnAwake: 1
+  initialSize: 6

@@ -1,5 +1,4 @@
 ﻿using System;
-using Logging;
 using UnityEngine;
 using YG;
 
@@ -15,7 +14,6 @@ namespace Infrastructure
 
         private void OnHideWindowGame()
         {
-            this.Log("Stop");
             YG2.GameplayStop();
         }
 
@@ -24,7 +22,6 @@ namespace Infrastructure
             if (Time.timeScale == 0)
                 return;
             
-            this.Log($"Start");
             YG2.GameplayStart();
         }
 
