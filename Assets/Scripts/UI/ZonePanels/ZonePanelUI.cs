@@ -23,7 +23,7 @@ namespace UI
 
         public void Close()
         {
-            gameObject.SetActive(false);
+            gameObject?.SetActive(false);
             _buttonPanel?.Close();
             _offerDisplay?.Close();
         }

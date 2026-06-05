@@ -6994,7 +6994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ce810afd35704da0745dd7a6e9506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnRate: 5
+  _spawnRate: 20
 --- !u!114 &1004096581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7410,7 +7410,6 @@ GameObject:
   - component: {fileID: 1051762587}
   - component: {fileID: 1051762586}
   - component: {fileID: 1051762584}
-  - component: {fileID: 1051762588}
   m_Layer: 5
   m_Name: Buy Fields Panel
   m_TagString: Untagged
@@ -7502,20 +7501,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051762582}
   m_CullTransparentMesh: 1
---- !u!114 &1051762588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051762582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157a2c4d2dcd49ad96f59b4b12905ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonPanel: {fileID: 103624650}
-  _offerDisplay: {fileID: 0}
 --- !u!1001 &1097534855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8539,7 +8524,7 @@ Transform:
   m_GameObject: {fileID: 1228383430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.29, y: 0, z: -10.02}
+  m_LocalPosition: {x: -14.16, y: 0, z: -14.67}
   m_LocalScale: {x: 1.1994, y: 1, z: 0.61311966}
   m_ConstrainProportionsScale: 0
   m_Children:

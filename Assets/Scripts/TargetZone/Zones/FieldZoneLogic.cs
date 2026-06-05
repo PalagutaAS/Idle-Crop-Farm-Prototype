@@ -81,7 +81,6 @@ namespace TargetZone.Zones
         {
             _player = null;
             _wallet.OnChangedByTypeForUI -= WalletOnOnChangedByTypeForUI;
-            NotifyContextUpdated();
         }
     }
 }
