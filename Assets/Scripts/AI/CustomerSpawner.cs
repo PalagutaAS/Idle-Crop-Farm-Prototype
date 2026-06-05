@@ -28,7 +28,8 @@ namespace AI
             Spawn();
         }
 
-        private void Spawn()
+        [ContextMenu("Spawn")]
+        private void ImmediatelySpawn()
         {
             if (_fieldService.GetActiveFieldCountPerCropType().Count != 0)
             {
@@ -36,6 +37,11 @@ namespace AI
                 customer.SetOffer(_offerService.GetRandom());
                 OnCustomerCreated?.Invoke(customer);
             }
+        }
+        
+        private void Spawn()
+        {
+            ImmediatelySpawn();
             
             Invoke(nameof(Spawn), _spawnRate);
         }

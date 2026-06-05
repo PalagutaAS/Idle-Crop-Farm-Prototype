@@ -25,9 +25,9 @@ namespace TargetZone.Command
         {
             if (CanExecute(player))
             {
+                _offer.CancelDeal();
                 player.Wallet.Payout(_offer.Price);
                 _offer.Lines.All(line => player.Inventory.Remove(line.Type, line.Count));
-                _offer.CancelDeal();
             }
         }
     }

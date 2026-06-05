@@ -24,7 +24,6 @@ namespace TargetZone.Zones
         {
             if (!CanActivate) return ZoneContext.EmptyContext();
             var offer = _currentCustomer.Offer;
-            _breakDealCommand = new BreakDealCommand(offer);
             var commands = new List<IInteractionCommand> { new MakeDealCommand(offer), _breakDealCommand };
             return new ZoneContext(commands, offer);
         }
@@ -36,7 +35,9 @@ namespace TargetZone.Zones
             else if (obj.TryGetComponent<CustomerController>(out var c))
             {
                 _currentCustomer = c;
-                _offerTimerPresenter.StartTimer(c.Offer, OnOfferExpired);
+                Offer offer = c.Offer;
+                _breakDealCommand = new BreakDealCommand(offer);
+                _offerTimerPresenter.StartTimer(offer, OnOfferExpired);
             }
             NotifyContextUpdated();
         }
