@@ -13,6 +13,7 @@
 # Ignoring the IDE project files
 *.scproj
 *.sln
+.idea/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
