@@ -11,7 +11,7 @@
 *.sln.docstates
 
 # Ignoring the IDE project files
-*.scproj
+*.csproj
 *.sln
 .idea/
 
